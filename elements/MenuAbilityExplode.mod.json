@@ -472,8 +472,8 @@
       {
         "type": "sprite",
         "data": {
-          "sprite": "abilities_sprite_explode.png",
-          "spritesCount": 2,
+          "sprite": "abilities_sprite.png",
+          "spritesCount": 7,
           "spriteIndex": {
             "fixedValue": 0.0,
             "name": "ReturnSlot1"
@@ -486,8 +486,8 @@
       {
         "type": "sprite",
         "data": {
-          "sprite": "abilities_sprite_explode.png",
-          "spritesCount": 2,
+          "sprite": "abilities_sprite.png",
+          "spritesCount": 7,
           "spriteIndex": {
             "fixedValue": 0.0,
             "name": "ReturnSlot2"
@@ -500,8 +500,8 @@
       {
         "type": "sprite",
         "data": {
-          "sprite": "abilities_sprite_explode.png",
-          "spritesCount": 2,
+          "sprite": "abilities_sprite.png",
+          "spritesCount": 7,
           "spriteIndex": {
             "fixedValue": 0.0,
             "name": "ReturnSlot3"
@@ -514,8 +514,8 @@
       {
         "type": "sprite",
         "data": {
-          "sprite": "abilities_sprite_explode.png",
-          "spritesCount": 2,
+          "sprite": "abilities_sprite.png",
+          "spritesCount": 7,
           "spriteIndex": {
             "fixedValue": 0.0,
             "name": "ReturnSlot4"
@@ -528,8 +528,8 @@
       {
         "type": "sprite",
         "data": {
-          "sprite": "abilities_sprite_explode.png",
-          "spritesCount": 2,
+          "sprite": "abilities_sprite.png",
+          "spritesCount": 7,
           "spriteIndex": {
             "fixedValue": 0.0,
             "name": "ReturnSlot5"
@@ -542,8 +542,8 @@
       {
         "type": "sprite",
         "data": {
-          "sprite": "abilities_sprite_explode.png",
-          "spritesCount": 2,
+          "sprite": "abilities_sprite.png",
+          "spritesCount": 7,
           "spriteIndex": {
             "fixedValue": 0.0,
             "name": "ReturnSlot6"
@@ -556,8 +556,8 @@
       {
         "type": "sprite",
         "data": {
-          "sprite": "abilities_sprite_explode.png",
-          "spritesCount": 2,
+          "sprite": "abilities_sprite.png",
+          "spritesCount": 7,
           "spriteIndex": {
             "fixedValue": 0.0,
             "name": "ReturnSlot7"
@@ -570,8 +570,8 @@
       {
         "type": "sprite",
         "data": {
-          "sprite": "abilities_sprite_explode.png",
-          "spritesCount": 2,
+          "sprite": "abilities_sprite.png",
+          "spritesCount": 7,
           "spriteIndex": {
             "fixedValue": 0.0,
             "name": "ReturnSlot8"
@@ -584,8 +584,8 @@
       {
         "type": "sprite",
         "data": {
-          "sprite": "abilities_sprite_explode.png",
-          "spritesCount": 2,
+          "sprite": "abilities_sprite.png",
+          "spritesCount": 7,
           "spriteIndex": {
             "fixedValue": 0.0,
             "name": "ReturnSlot9"
@@ -598,8 +598,8 @@
       {
         "type": "sprite",
         "data": {
-          "sprite": "abilities_sprite_explode.png",
-          "spritesCount": 2,
+          "sprite": "abilities_sprite.png",
+          "spritesCount": 7,
           "spriteIndex": {
             "fixedValue": 0.0,
             "name": "ReturnSlot10"

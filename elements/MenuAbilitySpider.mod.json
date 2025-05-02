@@ -866,6 +866,9 @@
         }
       }
     ],
+    "onTick": {
+      "name": "MenuAbilitySpiderWhileThisGUIIsOpenTick"
+    },
     "onClosed": {
       "name": "GUISelectedReset"
     },

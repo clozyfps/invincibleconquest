@@ -738,6 +738,9 @@
         }
       }
     ],
+    "onTick": {
+      "name": "MenuAbilityCloningWhileThisGUIIsOpenTick"
+    },
     "onClosed": {
       "name": "GUISelectedReset"
     },

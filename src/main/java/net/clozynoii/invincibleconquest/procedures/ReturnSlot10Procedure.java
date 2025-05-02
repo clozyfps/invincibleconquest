@@ -8,23 +8,23 @@ public class ReturnSlot10Procedure {
 	public static double execute(Entity entity) {
 		if (entity == null)
 			return 0;
-		if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability5b).equals(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move1Name)) {
-			return entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).ReturnMove1;
+		if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability5b).equals("Heavy Attack")) {
+			return 1;
 		}
-		if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability5b).equals(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move2Name)) {
-			return entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).ReturnMove2;
+		if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability5b).equals("Barrage")) {
+			return 2;
 		}
-		if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability5b).equals(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move3Name)) {
-			return entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).ReturnMove3;
+		if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability5b).equals("Slam")) {
+			return 3;
 		}
-		if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability5b).equals(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move4Name)) {
-			return entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).ReturnMove4;
+		if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability5b).equals("Uppercut")) {
+			return 4;
 		}
-		if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability5b).equals(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move5Name)) {
-			return entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).ReturnMove5;
+		if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability5b).equals("Dash")) {
+			return 5;
 		}
-		if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability5b).equals(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move6Name)) {
-			return entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).ReturnMove6;
+		if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability5b).equals("Grab")) {
+			return 6;
 		}
 		return 0;
 	}

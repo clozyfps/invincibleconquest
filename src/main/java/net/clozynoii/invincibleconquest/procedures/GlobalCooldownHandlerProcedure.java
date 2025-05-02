@@ -176,6 +176,70 @@ public class GlobalCooldownHandlerProcedure {
 					_vars.syncPlayerVariables(entityiterator);
 				}
 			}
+			if (InvincibleConquestModVariables.MapVariables.get(world).WageTimer > 0) {
+				InvincibleConquestModVariables.MapVariables.get(world).WageTimer = InvincibleConquestModVariables.MapVariables.get(world).WageTimer - 1;
+				InvincibleConquestModVariables.MapVariables.get(world).syncData(world);
+			} else if (InvincibleConquestModVariables.MapVariables.get(world).WageTimer == 0) {
+				if ((entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFactionRank).equals("Soldier") || (entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFactionRank).equals("Member")) {
+					{
+						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
+						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 100;
+						_vars.syncPlayerVariables(entityiterator);
+					}
+				} else if ((entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFactionRank).equals("General")
+						|| (entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFactionRank).equals("Officer")) {
+					{
+						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
+						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 250;
+						_vars.syncPlayerVariables(entityiterator);
+					}
+				} else if ((entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFactionRank).equals("Director")
+						|| (entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFactionRank).equals("Grand Regent")
+						|| (entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFactionRank).equals("Leader")) {
+					{
+						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
+						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 500;
+						_vars.syncPlayerVariables(entityiterator);
+					}
+				}
+				if ((InvincibleConquestModVariables.MapVariables.get(world).EarthOwner).equals(entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFaction)) {
+					{
+						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
+						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 100;
+						_vars.syncPlayerVariables(entityiterator);
+					}
+				}
+				if ((InvincibleConquestModVariables.MapVariables.get(world).MoonOwner).equals(entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFaction)) {
+					{
+						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
+						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 50;
+						_vars.syncPlayerVariables(entityiterator);
+					}
+				}
+				if ((InvincibleConquestModVariables.MapVariables.get(world).MarsOwner).equals(entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFaction)) {
+					{
+						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
+						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 50;
+						_vars.syncPlayerVariables(entityiterator);
+					}
+				}
+				if ((InvincibleConquestModVariables.MapVariables.get(world).ViltrumOwner).equals(entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFaction)) {
+					{
+						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
+						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 100;
+						_vars.syncPlayerVariables(entityiterator);
+					}
+				}
+				if ((InvincibleConquestModVariables.MapVariables.get(world).TalescriaOwner).equals(entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFaction)) {
+					{
+						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
+						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 100;
+						_vars.syncPlayerVariables(entityiterator);
+					}
+				}
+				InvincibleConquestModVariables.MapVariables.get(world).WageTimer = 24000;
+				InvincibleConquestModVariables.MapVariables.get(world).syncData(world);
+			}
 		}
 	}
 }

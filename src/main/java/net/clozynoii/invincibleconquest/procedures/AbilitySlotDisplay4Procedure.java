@@ -9,12 +9,42 @@ public class AbilitySlotDisplay4Procedure {
 		if (entity == null)
 			return 0;
 		if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AbilityBar == 1) {
-			if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability4a.contains(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbilityTable)) {
+			if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability4a).equals("Heavy Attack")) {
 				return 1;
 			}
+			if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability4a).equals("Barrage")) {
+				return 2;
+			}
+			if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability4a).equals("Uppercut")) {
+				return 3;
+			}
+			if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability4a).equals("Dash")) {
+				return 4;
+			}
+			if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability4a).equals("Slam")) {
+				return 5;
+			}
+			if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability4a).equals("Grab")) {
+				return 6;
+			}
 		} else if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AbilityBar == 2) {
-			if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability4b.contains(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbilityTable)) {
+			if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability4b).equals("Heavy Attack")) {
 				return 1;
+			}
+			if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability4b).equals("Barrage")) {
+				return 2;
+			}
+			if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability4b).equals("Uppercut")) {
+				return 3;
+			}
+			if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability4b).equals("Dash")) {
+				return 4;
+			}
+			if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability4b).equals("Slam")) {
+				return 5;
+			}
+			if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability4b).equals("Grab")) {
+				return 6;
 			}
 		}
 		return 0;

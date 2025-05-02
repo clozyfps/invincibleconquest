@@ -27,7 +27,7 @@ import com.mojang.blaze3d.platform.GlStateManager;
 
 @EventBusSubscriber({Dist.CLIENT})
 public class AbilityCooldownOverlayOverlay {
-	@SubscribeEvent(priority = EventPriority.HIGH)
+	@SubscribeEvent(priority = EventPriority.LOW)
 	public static void eventHandler(RenderGuiEvent.Pre event) {
 		int w = event.getGuiGraphics().guiWidth();
 		int h = event.getGuiGraphics().guiHeight();

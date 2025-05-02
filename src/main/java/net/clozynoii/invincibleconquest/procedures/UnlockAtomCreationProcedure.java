@@ -17,46 +17,52 @@ public class UnlockAtomCreationProcedure {
 			return;
 		boolean gate = false;
 		gate = false;
-		if (!entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills.contains("Atom Creation" + ", ") && gate == false) {
-			if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerSkillPoints >= 1) {
-				if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AwakenedAtomEve) {
-					{
-						InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-						_vars.PlayerSkillPoints = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerSkillPoints - 1;
-						_vars.syncPlayerVariables(entity);
+		if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AwakenedAtomEve == true) {
+			if (!entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills.contains("Atom Creation" + ", ") && gate == false) {
+				if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerSkillPoints >= 1) {
+					if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AwakenedAtomEve) {
+						{
+							InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
+							_vars.PlayerSkillPoints = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerSkillPoints - 1;
+							_vars.syncPlayerVariables(entity);
+						}
+						if (world instanceof ServerLevel _level)
+							_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+									("playsound minecraft:entity.experience_orb.pickup master " + entity.getDisplayName().getString() + " ~ ~ ~ 0.7 1"));
+						{
+							InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
+							_vars.UnlockedSkills = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills + "Atom Creation" + ", ";
+							_vars.syncPlayerVariables(entity);
+						}
+						gate = true;
+					} else {
+						if (world instanceof ServerLevel _level)
+							_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+									("playsound enchant.thorns.hit master " + entity.getDisplayName().getString() + " ~ ~ ~ 0.7 1"));
+						gate = true;
 					}
-					if (world instanceof ServerLevel _level)
-						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
-								("playsound minecraft:entity.experience_orb.pickup master " + entity.getDisplayName().getString() + " ~ ~ ~ 0.7 1"));
-					{
-						InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-						_vars.UnlockedSkills = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills + "Atom Creation" + ", ";
-						_vars.syncPlayerVariables(entity);
-					}
-					gate = true;
 				} else {
 					if (world instanceof ServerLevel _level)
 						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
 								("playsound enchant.thorns.hit master " + entity.getDisplayName().getString() + " ~ ~ ~ 0.7 1"));
 					gate = true;
 				}
-			} else {
+			}
+			if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills.contains("Atom Creation" + ", ") && gate == false) {
+				{
+					InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
+					_vars.GUISelectedEntry = "Atom Creation";
+					_vars.syncPlayerVariables(entity);
+				}
 				if (world instanceof ServerLevel _level)
 					_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
-							("playsound enchant.thorns.hit master " + entity.getDisplayName().getString() + " ~ ~ ~ 0.7 1"));
+							("playsound minecraft:item.book.put master " + entity.getDisplayName().getString() + " ~ ~ ~ 2 1"));
 				gate = true;
 			}
-		}
-		if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills.contains("Atom Creation" + ", ") && gate == false) {
-			{
-				InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-				_vars.GUISelectedEntry = "Atom Creation";
-				_vars.syncPlayerVariables(entity);
-			}
+		} else {
 			if (world instanceof ServerLevel _level)
 				_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
-						("playsound minecraft:item.book.put master " + entity.getDisplayName().getString() + " ~ ~ ~ 2 1"));
-			gate = true;
+						("playsound enchant.thorns.hit master " + entity.getDisplayName().getString() + " ~ ~ ~ 0.7 1"));
 		}
 	}
 }

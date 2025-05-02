@@ -23,12 +23,52 @@ import net.clozynoii.invincibleconquest.procedures.ReturnBarSlot2Procedure;
 import net.clozynoii.invincibleconquest.procedures.ReturnBarSlot1Procedure;
 import net.clozynoii.invincibleconquest.procedures.ReturnAbilityBar2Procedure;
 import net.clozynoii.invincibleconquest.procedures.ReturnAbilityBar1Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotViltrumite5Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotViltrumite4Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotViltrumite3Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotViltrumite2Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotViltrumite1Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotTechJacket5Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotTechJacket4Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotTechJacket3Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotTechJacket2Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotTechJacket1Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotSpider5Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotSpider4Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotSpider3Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotSpider2Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotSpider1Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotSpeedster5Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotSpeedster4Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotSpeedster3Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotSpeedster2Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotSpeedster1Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotPortal5Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotPortal4Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotPortal3Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotPortal2Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotPortal1Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotExplode5Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotExplode4Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotExplode3Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotExplode2Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotExplode1Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotCloning5Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotCloning4Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotCloning3Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotCloning2Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotCloning1Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotBeast5Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotBeast4Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotBeast3Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotBeast2Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotBeast1Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotAtom5Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotAtom4Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotAtom3Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotAtom2Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotAtom1Procedure;
 import net.clozynoii.invincibleconquest.procedures.HideOverlayF1Procedure;
-import net.clozynoii.invincibleconquest.procedures.AbilitySlotDisplay5Procedure;
-import net.clozynoii.invincibleconquest.procedures.AbilitySlotDisplay4Procedure;
-import net.clozynoii.invincibleconquest.procedures.AbilitySlotDisplay3Procedure;
-import net.clozynoii.invincibleconquest.procedures.AbilitySlotDisplay2Procedure;
-import net.clozynoii.invincibleconquest.procedures.AbilitySlotDisplay1Procedure;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.platform.GlStateManager;
@@ -76,63 +116,95 @@ public class AbilityOverlayOverlay {
 
 			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite.png"), 85, h - 29, Mth.clamp((int) ReturnBarSlot5Procedure.execute(entity) * 16, 0, 96), 0, 16, 16, 112, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_viltrumite.png"), 12, h - 30, Mth.clamp((int) AbilitySlotDisplay1Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_viltrumite.png"), 13, h - 29, Mth.clamp((int) OverlaySlotViltrumite1Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_viltrumite.png"), 30, h - 30, Mth.clamp((int) AbilitySlotDisplay2Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_viltrumite.png"), 31, h - 29, Mth.clamp((int) OverlaySlotViltrumite2Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_viltrumite.png"), 48, h - 30, Mth.clamp((int) AbilitySlotDisplay3Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_viltrumite.png"), 49, h - 29, Mth.clamp((int) OverlaySlotViltrumite3Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_viltrumite.png"), 66, h - 30, Mth.clamp((int) AbilitySlotDisplay4Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_viltrumite.png"), 67, h - 29, Mth.clamp((int) OverlaySlotViltrumite4Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_viltrumite.png"), 84, h - 30, Mth.clamp((int) AbilitySlotDisplay5Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_viltrumite.png"), 85, h - 29, Mth.clamp((int) OverlaySlotViltrumite5Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_atom.png"), 12, h - 29, Mth.clamp((int) AbilitySlotDisplay1Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_atom.png"), 13, h - 29, Mth.clamp((int) OverlaySlotAtom1Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_atom.png"), 30, h - 30, Mth.clamp((int) AbilitySlotDisplay2Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_atom.png"), 31, h - 29, Mth.clamp((int) OverlaySlotAtom2Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_atom.png"), 48, h - 30, Mth.clamp((int) AbilitySlotDisplay3Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_atom.png"), 49, h - 29, Mth.clamp((int) OverlaySlotAtom3Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_atom.png"), 66, h - 30, Mth.clamp((int) AbilitySlotDisplay3Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_atom.png"), 67, h - 29, Mth.clamp((int) OverlaySlotAtom4Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_atom.png"), 84, h - 30, Mth.clamp((int) AbilitySlotDisplay5Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_atom.png"), 85, h - 29, Mth.clamp((int) OverlaySlotAtom5Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_portal.png"), 12, h - 30, Mth.clamp((int) AbilitySlotDisplay1Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_beast.png"), 13, h - 29, Mth.clamp((int) OverlaySlotBeast1Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_portal.png"), 30, h - 30, Mth.clamp((int) AbilitySlotDisplay2Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_beast.png"), 31, h - 29, Mth.clamp((int) OverlaySlotBeast2Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_beast.png"), 12, h - 30, Mth.clamp((int) AbilitySlotDisplay1Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_beast.png"), 49, h - 29, Mth.clamp((int) OverlaySlotBeast3Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_beast.png"), 30, h - 30, Mth.clamp((int) AbilitySlotDisplay2Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_beast.png"), 67, h - 29, Mth.clamp((int) OverlaySlotBeast4Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_beast.png"), 48, h - 29, Mth.clamp((int) AbilitySlotDisplay3Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_beast.png"), 85, h - 29, Mth.clamp((int) OverlaySlotBeast5Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_beast.png"), 66, h - 30, Mth.clamp((int) AbilitySlotDisplay4Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_portal.png"), 13, h - 29, Mth.clamp((int) OverlaySlotPortal1Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_explode.png"), 12, h - 30, Mth.clamp((int) AbilitySlotDisplay1Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_portal.png"), 31, h - 29, Mth.clamp((int) OverlaySlotPortal2Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_explode.png"), 30, h - 30, Mth.clamp((int) AbilitySlotDisplay2Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_portal.png"), 49, h - 29, Mth.clamp((int) OverlaySlotPortal3Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_explode.png"), 48, h - 30, Mth.clamp((int) AbilitySlotDisplay3Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_portal.png"), 67, h - 29, Mth.clamp((int) OverlaySlotPortal4Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_explode.png"), 66, h - 30, Mth.clamp((int) AbilitySlotDisplay4Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_portal.png"), 85, h - 29, Mth.clamp((int) OverlaySlotPortal5Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_explode.png"), 84, h - 30, Mth.clamp((int) AbilitySlotDisplay5Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_clone.png"), 13, h - 29, Mth.clamp((int) OverlaySlotCloning1Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_techjacket.png"), 12, h - 30, Mth.clamp((int) AbilitySlotDisplay1Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_clone.png"), 31, h - 29, Mth.clamp((int) OverlaySlotCloning2Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_techjacket.png"), 30, h - 30, Mth.clamp((int) AbilitySlotDisplay2Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_clone.png"), 49, h - 29, Mth.clamp((int) OverlaySlotCloning3Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_techjacket.png"), 48, h - 30, Mth.clamp((int) AbilitySlotDisplay3Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_clone.png"), 67, h - 29, Mth.clamp((int) OverlaySlotCloning4Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_techjacket.png"), 66, h - 30, Mth.clamp((int) AbilitySlotDisplay4Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_clone.png"), 85, h - 29, Mth.clamp((int) OverlaySlotCloning5Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_speedster.png"), 13, h - 30, Mth.clamp((int) AbilitySlotDisplay1Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_explode.png"), 13, h - 29, Mth.clamp((int) OverlaySlotExplode1Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_speedster.png"), 30, h - 30, Mth.clamp((int) AbilitySlotDisplay2Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_explode.png"), 31, h - 29, Mth.clamp((int) OverlaySlotExplode2Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_speedster.png"), 49, h - 30, Mth.clamp((int) AbilitySlotDisplay3Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_explode.png"), 49, h - 29, Mth.clamp((int) OverlaySlotExplode3Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
-			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_speedster.png"), 66, h - 30, Mth.clamp((int) AbilitySlotDisplay4Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_explode.png"), 67, h - 29, Mth.clamp((int) OverlaySlotExplode4Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_explode.png"), 85, h - 29, Mth.clamp((int) OverlaySlotExplode5Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_techjacket.png"), 13, h - 29, Mth.clamp((int) OverlaySlotTechJacket1Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_techjacket.png"), 31, h - 29, Mth.clamp((int) OverlaySlotTechJacket2Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_techjacket.png"), 49, h - 29, Mth.clamp((int) OverlaySlotTechJacket3Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_techjacket.png"), 67, h - 29, Mth.clamp((int) OverlaySlotTechJacket4Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_techjacket.png"), 85, h - 29, Mth.clamp((int) OverlaySlotTechJacket5Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_speedster.png"), 13, h - 29, Mth.clamp((int) OverlaySlotSpeedster1Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_speedster.png"), 31, h - 29, Mth.clamp((int) OverlaySlotSpeedster2Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_speedster.png"), 49, h - 29, Mth.clamp((int) OverlaySlotSpeedster3Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_speedster.png"), 67, h - 29, Mth.clamp((int) OverlaySlotSpeedster4Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_speedster.png"), 85, h - 29, Mth.clamp((int) OverlaySlotSpeedster5Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_spider.png"), 13, h - 29, Mth.clamp((int) OverlaySlotSpider1Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_spider.png"), 31, h - 29, Mth.clamp((int) OverlaySlotSpider2Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_spider.png"), 49, h - 29, Mth.clamp((int) OverlaySlotSpider3Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_spider.png"), 67, h - 29, Mth.clamp((int) OverlaySlotSpider4Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_spider.png"), 85, h - 29, Mth.clamp((int) OverlaySlotSpider5Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
 		}
 		RenderSystem.depthMask(true);

@@ -1,11 +1,9 @@
 
 package net.clozynoii.invincibleconquest.world.inventory;
 
+import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.event.tick.PlayerTickEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
 
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.Level;
@@ -19,15 +17,14 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
-import net.clozynoii.invincibleconquest.procedures.MenuAbilityBeastWhileThisGUIIsOpenTickProcedure;
-import net.clozynoii.invincibleconquest.procedures.GUISelectedResetProcedure;
+import net.clozynoii.invincibleconquest.network.MenuAbilityBeastButtonMessage;
 import net.clozynoii.invincibleconquest.init.InvincibleConquestModMenus;
+import net.clozynoii.invincibleconquest.client.gui.MenuAbilityBeastScreen;
 
 import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
 
-@EventBusSubscriber
 public class MenuAbilityBeastMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
 	public final static HashMap<String, Object> guistate = new HashMap<>();
 	public final Level world;
@@ -77,22 +74,17 @@ public class MenuAbilityBeastMenu extends AbstractContainerMenu implements Suppl
 	@Override
 	public void removed(Player playerIn) {
 		super.removed(playerIn);
-		GUISelectedResetProcedure.execute(entity);
+		removeAction();
+	}
+
+	private void removeAction() {
+		if (this.world != null && this.world.isClientSide()) {
+			PacketDistributor.sendToServer(new MenuAbilityBeastButtonMessage(-2, x, y, z, MenuAbilityBeastScreen.getEditBoxAndCheckBoxValues()));
+			MenuAbilityBeastButtonMessage.handleButtonAction(entity, -2, x, y, z, MenuAbilityBeastScreen.getEditBoxAndCheckBoxValues());
+		}
 	}
 
 	public Map<Integer, Slot> get() {
 		return customSlots;
-	}
-
-	@SubscribeEvent
-	public static void onPlayerTick(PlayerTickEvent.Post event) {
-		Player entity = event.getEntity();
-		if (entity.containerMenu instanceof MenuAbilityBeastMenu) {
-			Level world = entity.level();
-			double x = entity.getX();
-			double y = entity.getY();
-			double z = entity.getZ();
-			MenuAbilityBeastWhileThisGUIIsOpenTickProcedure.execute(entity);
-		}
 	}
 }

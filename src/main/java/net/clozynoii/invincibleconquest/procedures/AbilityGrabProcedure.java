@@ -4,6 +4,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.tags.TagKey;
 import net.minecraft.server.level.ServerLevel;
@@ -32,7 +33,12 @@ public class AbilityGrabProcedure {
 		double magnitude = 0;
 		double reduction = 0;
 		double outputModifier = 0;
+		double stamindaReduction = 0;
+		double staminacost = 0;
 		gate = false;
+		stamindaReduction = 10
+				* ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStamina + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100) * (double) InvincibleConfigConfiguration.STMDRAIN.get()) / 100);
+		staminacost = 10 - stamindaReduction;
 		reduction = 20
 				* ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFocus + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100) * (double) InvincibleConfigConfiguration.FOCCDREDUCE.get()) / 100);
 		outputModifier = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerOutput / 100;
@@ -121,23 +127,33 @@ public class AbilityGrabProcedure {
 			_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
 					("playsound invincible_conquest:whoosh player " + "@a" + " ~ ~ ~ 1 1"));
 		if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).GrabbedEntity).equals("")) {
-			{
-				final Vec3 _center = new Vec3(x, y, z);
-				List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(6 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
-				for (Entity entityiterator : _entfound) {
-					if (!(entityiterator == entity)) {
-						if (!entityiterator.getType().is(TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.parse("invincible_conquest:non_targetable")))) {
-							if (gate == false) {
-								{
-									InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-									_vars.GrabbedEntity = entityiterator.getStringUUID();
-									_vars.syncPlayerVariables(entity);
+			if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerCurrentStamina >= staminacost) {
+				{
+					InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
+					_vars.PlayerCurrentStamina = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerCurrentStamina - staminacost;
+					_vars.syncPlayerVariables(entity);
+				}
+				{
+					final Vec3 _center = new Vec3(x, y, z);
+					List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(6 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
+					for (Entity entityiterator : _entfound) {
+						if (!(entityiterator == entity)) {
+							if (!entityiterator.getType().is(TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.parse("invincible_conquest:non_targetable")))) {
+								if (gate == false) {
+									{
+										InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
+										_vars.GrabbedEntity = entityiterator.getStringUUID();
+										_vars.syncPlayerVariables(entity);
+									}
+									gate = true;
 								}
-								gate = true;
 							}
 						}
 					}
 				}
+			} else {
+				if (entity instanceof Player _player && !_player.level().isClientSide())
+					_player.displayClientMessage(Component.literal("Not enough Stamina!"), false);
 			}
 		} else if (!(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).GrabbedEntity).equals("")) {
 			magnitude = Math.sqrt(entity.getLookAngle().x * entity.getLookAngle().x + entity.getLookAngle().y * entity.getLookAngle().y + entity.getLookAngle().z * entity.getLookAngle().z);

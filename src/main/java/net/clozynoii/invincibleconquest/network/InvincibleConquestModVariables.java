@@ -125,6 +125,7 @@ public class InvincibleConquestModVariables {
 			clone.ReturnMove5 = original.ReturnMove5;
 			clone.ReturnMove6 = original.ReturnMove6;
 			clone.PlayerAbilityTable = original.PlayerAbilityTable;
+			clone.Balance = original.Balance;
 			if (!event.isWasDeath()) {
 				clone.Cooldown1a = original.Cooldown1a;
 				clone.Cooldown2a = original.Cooldown2a;
@@ -235,6 +236,7 @@ public class InvincibleConquestModVariables {
 		public String TalescriaOwner = "Coalition of Planets";
 		public double BreakPoints = 0.0;
 		public double WaveTimer = 0.0;
+		public double WageTimer = 24000.0;
 
 		public static MapVariables load(CompoundTag tag, HolderLookup.Provider lookupProvider) {
 			MapVariables data = new MapVariables();
@@ -262,6 +264,7 @@ public class InvincibleConquestModVariables {
 			TalescriaOwner = nbt.getString("TalescriaOwner");
 			BreakPoints = nbt.getDouble("BreakPoints");
 			WaveTimer = nbt.getDouble("WaveTimer");
+			WageTimer = nbt.getDouble("WageTimer");
 		}
 
 		@Override
@@ -285,6 +288,7 @@ public class InvincibleConquestModVariables {
 			nbt.putString("TalescriaOwner", TalescriaOwner);
 			nbt.putDouble("BreakPoints", BreakPoints);
 			nbt.putDouble("WaveTimer", WaveTimer);
+			nbt.putDouble("WageTimer", WageTimer);
 			return nbt;
 		}
 
@@ -429,6 +433,7 @@ public class InvincibleConquestModVariables {
 		public double ReturnMove5 = 0;
 		public double ReturnMove6 = 0;
 		public String PlayerAbilityTable = "\"\"";
+		public double Balance = 0;
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
@@ -516,6 +521,7 @@ public class InvincibleConquestModVariables {
 			nbt.putDouble("ReturnMove5", ReturnMove5);
 			nbt.putDouble("ReturnMove6", ReturnMove6);
 			nbt.putString("PlayerAbilityTable", PlayerAbilityTable);
+			nbt.putDouble("Balance", Balance);
 			return nbt;
 		}
 
@@ -604,6 +610,7 @@ public class InvincibleConquestModVariables {
 			ReturnMove5 = nbt.getDouble("ReturnMove5");
 			ReturnMove6 = nbt.getDouble("ReturnMove6");
 			PlayerAbilityTable = nbt.getString("PlayerAbilityTable");
+			Balance = nbt.getDouble("Balance");
 		}
 
 		public void syncPlayerVariables(Entity entity) {

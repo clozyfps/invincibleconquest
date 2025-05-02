@@ -125,417 +125,522 @@
           "spritesCount": 2,
           "spriteIndex": {
             "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay1"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 12,
-          "y": 210,
-          "locked": true
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_viltrumite.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay2"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 30,
-          "y": 210,
-          "locked": true
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_viltrumite.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay3"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 48,
-          "y": 210,
-          "locked": true
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_viltrumite.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay4"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 66,
-          "y": 210,
-          "locked": true
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_viltrumite.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay5"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 84,
-          "y": 210,
-          "locked": true
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_atom.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay1"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 12,
-          "y": 211,
-          "locked": true
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_atom.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay2"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 30,
-          "y": 210,
-          "locked": true
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_atom.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay3"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 48,
-          "y": 210,
-          "locked": true
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_atom.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay3"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 66,
-          "y": 210,
-          "locked": true
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_atom.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay5"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 84,
-          "y": 210,
-          "locked": true
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_portal.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay1"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 12,
-          "y": 210,
-          "locked": false
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_portal.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay2"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 30,
-          "y": 210,
-          "locked": false
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_beast.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay1"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 12,
-          "y": 210,
-          "locked": false
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_beast.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay2"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 30,
-          "y": 210,
-          "locked": false
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_beast.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay3"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 48,
-          "y": 211,
-          "locked": false
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_beast.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay4"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 66,
-          "y": 210,
-          "locked": false
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_explode.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay1"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 12,
-          "y": 210,
-          "locked": false
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_explode.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay2"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 30,
-          "y": 210,
-          "locked": false
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_explode.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay3"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 48,
-          "y": 210,
-          "locked": false
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_explode.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay4"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 66,
-          "y": 210,
-          "locked": false
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_explode.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay5"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 84,
-          "y": 210,
-          "locked": false
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_techjacket.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay1"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 12,
-          "y": 210,
-          "locked": false
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_techjacket.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay2"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 30,
-          "y": 210,
-          "locked": false
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_techjacket.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay3"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 48,
-          "y": 210,
-          "locked": false
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_techjacket.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay4"
-          },
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 66,
-          "y": 210,
-          "locked": false
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "abilities_sprite_speedster.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay1"
+            "name": "OverlaySlotViltrumite1"
           },
           "anchorPoint": "BOTTOM_LEFT",
           "x": 13,
-          "y": 210,
-          "locked": false
+          "y": 211,
+          "locked": true
         }
       },
       {
         "type": "sprite",
         "data": {
-          "sprite": "abilities_sprite_speedster.png",
+          "sprite": "abilities_sprite_viltrumite.png",
           "spritesCount": 2,
           "spriteIndex": {
             "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay2"
+            "name": "OverlaySlotViltrumite2"
           },
           "anchorPoint": "BOTTOM_LEFT",
-          "x": 30,
-          "y": 210,
-          "locked": false
+          "x": 31,
+          "y": 211,
+          "locked": true
         }
       },
       {
         "type": "sprite",
         "data": {
-          "sprite": "abilities_sprite_speedster.png",
+          "sprite": "abilities_sprite_viltrumite.png",
           "spritesCount": 2,
           "spriteIndex": {
             "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay3"
+            "name": "OverlaySlotViltrumite3"
           },
           "anchorPoint": "BOTTOM_LEFT",
           "x": 49,
-          "y": 210,
-          "locked": false
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_viltrumite.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotViltrumite4"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 67,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_viltrumite.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotViltrumite5"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 85,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_atom.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotAtom1"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 13,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_atom.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotAtom2"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 31,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_atom.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotAtom3"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 49,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_atom.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotAtom4"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 67,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_atom.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotAtom5"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 85,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_beast.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotBeast1"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 13,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_beast.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotBeast2"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 31,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_beast.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotBeast3"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 49,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_beast.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotBeast4"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 67,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_beast.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotBeast5"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 85,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_portal.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotPortal1"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 13,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_portal.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotPortal2"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 31,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_portal.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotPortal3"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 49,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_portal.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotPortal4"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 67,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_portal.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotPortal5"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 85,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_clone.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotCloning1"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 13,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_clone.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotCloning2"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 31,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_clone.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotCloning3"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 49,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_clone.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotCloning4"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 67,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_clone.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotCloning5"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 85,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_explode.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotExplode1"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 13,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_explode.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotExplode2"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 31,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_explode.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotExplode3"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 49,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_explode.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotExplode4"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 67,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_explode.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotExplode5"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 85,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_techjacket.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotTechJacket1"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 13,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_techjacket.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotTechJacket2"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 31,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_techjacket.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotTechJacket3"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 49,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_techjacket.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotTechJacket4"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 67,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_techjacket.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotTechJacket5"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 85,
+          "y": 211,
+          "locked": true
         }
       },
       {
@@ -545,12 +650,147 @@
           "spritesCount": 2,
           "spriteIndex": {
             "fixedValue": 0.0,
-            "name": "AbilitySlotDisplay4"
+            "name": "OverlaySlotSpeedster1"
           },
           "anchorPoint": "BOTTOM_LEFT",
-          "x": 66,
-          "y": 210,
-          "locked": false
+          "x": 13,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_speedster.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotSpeedster2"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 31,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_speedster.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotSpeedster3"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 49,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_speedster.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotSpeedster4"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 67,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_speedster.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotSpeedster5"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 85,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_spider.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotSpider1"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 13,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_spider.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotSpider2"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 31,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_spider.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotSpider3"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 49,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_spider.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotSpider4"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 67,
+          "y": 211,
+          "locked": true
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "abilities_sprite_spider.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OverlaySlotSpider5"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 85,
+          "y": 211,
+          "locked": true
         }
       }
     ],

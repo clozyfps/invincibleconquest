@@ -19,6 +19,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.core.registries.Registries;
 
 import net.clozynoii.invincibleconquest.network.InvincibleConquestModVariables;
+import net.clozynoii.invincibleconquest.init.InvincibleConquestModMobEffects;
 import net.clozynoii.invincibleconquest.configuration.InvincibleConfigConfiguration;
 
 import javax.annotation.Nullable;
@@ -175,8 +176,14 @@ public class PlayerTickProcedure {
 				_livingEntity34.getAttribute(Attributes.MAX_HEALTH)
 						.setBaseValue((20 + Math.round((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerVitality + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost)
 								/ (100 / (double) InvincibleConfigConfiguration.VITHEALTHBOOST.get()))));
-			if (entity instanceof LivingEntity _livingEntity35 && _livingEntity35.getAttributes().hasAttribute(Attributes.STEP_HEIGHT))
-				_livingEntity35.getAttribute(Attributes.STEP_HEIGHT).setBaseValue(1);
+			{
+				InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
+				_vars.PlayerMaxStamina = 100
+						+ (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStamina + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / (100 / (double) InvincibleConfigConfiguration.STMBONUS.get());
+				_vars.syncPlayerVariables(entity);
+			}
+			if (entity instanceof LivingEntity _livingEntity36 && _livingEntity36.getAttributes().hasAttribute(Attributes.STEP_HEIGHT))
+				_livingEntity36.getAttribute(Attributes.STEP_HEIGHT).setBaseValue(1);
 			if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Viltrumite")) {
 				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 					_entity.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 20, 0, false, false));
@@ -195,14 +202,18 @@ public class PlayerTickProcedure {
 					_entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20, 0, false, false));
 			}
 			if ((entity.level().dimension()) == ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("invincible_conquest:moon_world"))) {
-				if (entity instanceof LivingEntity _livingEntity44 && _livingEntity44.getAttributes().hasAttribute(Attributes.GRAVITY))
-					_livingEntity44.getAttribute(Attributes.GRAVITY).setBaseValue(0.01);
+				if (entity instanceof LivingEntity _livingEntity45 && _livingEntity45.getAttributes().hasAttribute(Attributes.GRAVITY))
+					_livingEntity45.getAttribute(Attributes.GRAVITY).setBaseValue(0.01);
+				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
+					_entity.addEffect(new MobEffectInstance(InvincibleConquestModMobEffects.NO_FALL, 10, 0, false, false));
 			} else if ((entity.level().dimension()) == ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("invincible_conquest:mars_world"))) {
-				if (entity instanceof LivingEntity _livingEntity48 && _livingEntity48.getAttributes().hasAttribute(Attributes.GRAVITY))
-					_livingEntity48.getAttribute(Attributes.GRAVITY).setBaseValue(0.03);
+				if (entity instanceof LivingEntity _livingEntity50 && _livingEntity50.getAttributes().hasAttribute(Attributes.GRAVITY))
+					_livingEntity50.getAttribute(Attributes.GRAVITY).setBaseValue(0.03);
+				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
+					_entity.addEffect(new MobEffectInstance(InvincibleConquestModMobEffects.NO_FALL, 10, 0, false, false));
 			} else {
-				if (entity instanceof LivingEntity _livingEntity49 && _livingEntity49.getAttributes().hasAttribute(Attributes.GRAVITY))
-					_livingEntity49.getAttribute(Attributes.GRAVITY).setBaseValue(0.08);
+				if (entity instanceof LivingEntity _livingEntity52 && _livingEntity52.getAttributes().hasAttribute(Attributes.GRAVITY))
+					_livingEntity52.getAttribute(Attributes.GRAVITY).setBaseValue(0.08);
 			}
 		}
 		if (!(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFaction).equals("None")) {

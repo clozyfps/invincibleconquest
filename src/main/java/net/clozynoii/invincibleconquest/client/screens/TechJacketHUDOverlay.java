@@ -25,7 +25,7 @@ import com.mojang.blaze3d.platform.GlStateManager;
 
 @EventBusSubscriber({Dist.CLIENT})
 public class TechJacketHUDOverlay {
-	@SubscribeEvent(priority = EventPriority.LOW)
+	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public static void eventHandler(RenderGuiEvent.Pre event) {
 		int w = event.getGuiGraphics().guiWidth();
 		int h = event.getGuiGraphics().guiHeight();

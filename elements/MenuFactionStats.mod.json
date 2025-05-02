@@ -291,6 +291,40 @@
           "y": 172,
           "locked": true
         }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_balance1",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnBalance"
+          },
+          "color": {
+            "value": -11252677,
+            "falpha": 0.0
+          },
+          "x": 199,
+          "y": 128,
+          "locked": true
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_balance",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnBalance"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 198,
+          "y": 127,
+          "locked": true
+        }
       }
     ],
     "gridSettings": {
