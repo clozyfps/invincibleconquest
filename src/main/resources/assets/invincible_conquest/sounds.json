@@ -1,0 +1,93 @@
+{
+  "blood_explosion": {
+    "subtitle": "subtitles.blood_explosion",
+    "sounds": [
+      {
+        "name": "invincible_conquest:blood_explosion",
+        "stream": false
+      }
+    ]
+  },
+  "basic_hit": {
+    "subtitle": "subtitles.basic_hit",
+    "sounds": [
+      {
+        "name": "invincible_conquest:basic_hit",
+        "stream": false
+      }
+    ]
+  },
+  "whoosh": {
+    "subtitle": "subtitles.whoosh",
+    "sounds": [
+      {
+        "name": "invincible_conquest:whoosh",
+        "stream": false
+      }
+    ]
+  },
+  "strongwoosh": {
+    "sounds": [
+      {
+        "name": "invincible_conquest:superman-flying-take-off-breaking-the-sound-barrier-sound-effect-2-ezmp3c_ahst5thc",
+        "stream": false
+      }
+    ]
+  },
+  "thehammer": {
+    "sounds": [
+      {
+        "name": "invincible_conquest:thehammer",
+        "stream": false
+      }
+    ]
+  },
+  "heartbeat": {
+    "sounds": [
+      {
+        "name": "invincible_conquest:heartbeatloop",
+        "stream": false
+      }
+    ]
+  },
+  "explode": {
+    "sounds": [
+      {
+        "name": "invincible_conquest:explode",
+        "stream": false
+      }
+    ]
+  },
+  "beam23": {
+    "sounds": [
+      {
+        "name": "invincible_conquest:beam1",
+        "stream": false
+      }
+    ]
+  },
+  "beam2": {
+    "sounds": [
+      {
+        "name": "invincible_conquest:beam2",
+        "stream": false
+      }
+    ]
+  },
+  "machinegun": {
+    "sounds": [
+      {
+        "name": "invincible_conquest:machinegun",
+        "stream": false
+      }
+    ]
+  },
+  "chargeup": {
+    "sounds": [
+      {
+        "name": "invincible_conquest:charged",
+        "stream": false
+      }
+    ]
+  }
+}

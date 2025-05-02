@@ -1,0 +1,29 @@
+{
+  "_fv": 73,
+  "_type": "potioneffect",
+  "definition": {
+    "effectName": "Machine Gun Effects",
+    "icon": "backwards_tumble",
+    "color": {
+      "value": -1,
+      "falpha": 0.0
+    },
+    "isInstant": false,
+    "mobEffectCategory": "NEUTRAL",
+    "renderStatusInInventory": false,
+    "renderStatusInHUD": false,
+    "isCuredByMilk": false,
+    "isProtectedByTotem": false,
+    "isCuredbyHoney": false,
+    "modifiers": [],
+    "onStarted": {
+      "name": "MachineGunEffectsEffectStartedapplied"
+    },
+    "onActiveTick": {
+      "name": "MachineGunEffectsOnEffectActiveTick"
+    },
+    "onExpired": {
+      "name": "MachineGunEffectsEffectExpires"
+    }
+  }
+}

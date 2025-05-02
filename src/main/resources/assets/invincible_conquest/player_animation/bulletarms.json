@@ -1,0 +1,21 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"bulletarms": {
+			"loop": true,
+			"animation_length": 0.0417,
+			"bones": {
+				"left_arm": {
+					"rotation": {
+						"vector": [-90.35124, 0.00766, 10.02454]
+					}
+				},
+				"right_arm": {
+					"rotation": {
+						"vector": [-90, 0, -10]
+					}
+				}
+			}
+		}
+	}
+}
