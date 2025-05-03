@@ -59,15 +59,7 @@ public class PlayerFlyingTickProcedure {
 					if (entity instanceof Player _plr && !(_plr.isFallFlying())) {
 						_plr.startFallFlying();
 					}
-					if (!(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Tech Jacket")) {
-						if (world.isClientSide()) {
-							SetupAnimationsProcedure.setAnimationClientside((Player) entity, "fly_fast", true);
-						}
-						if (!world.isClientSide()) {
-							if (entity instanceof Player)
-								PacketDistributor.sendToPlayersInDimension((ServerLevel) entity.level(), new SetupAnimationsProcedure.InvincibleConquestModAnimationMessage("fly_fast", entity.getId(), true));
-						}
-					} else if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Tech Jacket")) {
+					if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Tech Jacket")) {
 						if (world instanceof ServerLevel _level)
 							_level.sendParticles(ParticleTypes.POOF, x, y, z, 3, 0.1, 0.1, 0.1, 0.2);
 						if (world instanceof ServerLevel _level)
@@ -76,13 +68,34 @@ public class PlayerFlyingTickProcedure {
 							_level.sendParticles(ParticleTypes.CAMPFIRE_COSY_SMOKE, x, y, z, 1, 0.1, 0.1, 0.1, 0.2);
 						if (world instanceof ServerLevel _level)
 							_level.sendParticles((SimpleParticleType) (InvincibleConquestModParticleTypes.ELECTRICITY_SMALL.get()), x, y, z, 1, 0.1, 0.1, 0.1, 0.2);
-					}
-					if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Atom")) {
+						if (world.isClientSide()) {
+							SetupAnimationsProcedure.setAnimationClientside((Player) entity, "fly_fast", true);
+						}
+						if (!world.isClientSide()) {
+							if (entity instanceof Player)
+								PacketDistributor.sendToPlayersInDimension((ServerLevel) entity.level(), new SetupAnimationsProcedure.InvincibleConquestModAnimationMessage("fly_fast", entity.getId(), true));
+						}
+					} else if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Atom")) {
 						if (world instanceof ServerLevel _level)
 							_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
 									"particle dust{color:[0.94,0.58,0.99],scale:2} ~ ~ ~ 0.5 0.5 0.5 0 5");
+						if (world.isClientSide()) {
+							SetupAnimationsProcedure.setAnimationClientside((Player) entity, "fly_fast", true);
+						}
+						if (!world.isClientSide()) {
+							if (entity instanceof Player)
+								PacketDistributor.sendToPlayersInDimension((ServerLevel) entity.level(), new SetupAnimationsProcedure.InvincibleConquestModAnimationMessage("fly_fast", entity.getId(), true));
+						}
+					} else {
+						if (world.isClientSide()) {
+							SetupAnimationsProcedure.setAnimationClientside((Player) entity, "fly_fast", true);
+						}
+						if (!world.isClientSide()) {
+							if (entity instanceof Player)
+								PacketDistributor.sendToPlayersInDimension((ServerLevel) entity.level(), new SetupAnimationsProcedure.InvincibleConquestModAnimationMessage("fly_fast", entity.getId(), true));
+						}
 					}
-					if (entity instanceof LivingEntity _livEnt9 && _livEnt9.hasEffect(InvincibleConquestModMobEffects.DESTRUCTIVE_FLIGHT)) {
+					if (entity instanceof LivingEntity _livEnt11 && _livEnt11.hasEffect(InvincibleConquestModMobEffects.DESTRUCTIVE_FLIGHT)) {
 						flightSpeed = flightSpeed * 2.25;
 					} else {
 						if (entity.onGround()) {
@@ -148,6 +161,14 @@ public class PlayerFlyingTickProcedure {
 						}
 						if (world instanceof ServerLevel _level)
 							_level.sendParticles((SimpleParticleType) (InvincibleConquestModParticleTypes.DIRTY_SMOKE.get()), x, y, z, 1, 0.1, 0.1, 0.1, 0.1);
+					} else {
+						if (world.isClientSide()) {
+							SetupAnimationsProcedure.setAnimationClientside((Player) entity, "fly_down", true);
+						}
+						if (!world.isClientSide()) {
+							if (entity instanceof Player)
+								PacketDistributor.sendToPlayersInDimension((ServerLevel) entity.level(), new SetupAnimationsProcedure.InvincibleConquestModAnimationMessage("fly_down", entity.getId(), true));
+						}
 					}
 				} else {
 					if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Portal")) {
@@ -182,9 +203,17 @@ public class PlayerFlyingTickProcedure {
 						if (world instanceof ServerLevel _level)
 							_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
 									"particle dust{color:[0.94,0.58,0.99],scale:2} ~ ~ ~ 0.5 0.5 0.5 0 5");
+					} else {
+						if (world.isClientSide()) {
+							SetupAnimationsProcedure.setAnimationClientside((Player) entity, "fly_idle", true);
+						}
+						if (!world.isClientSide()) {
+							if (entity instanceof Player)
+								PacketDistributor.sendToPlayersInDimension((ServerLevel) entity.level(), new SetupAnimationsProcedure.InvincibleConquestModAnimationMessage("fly_idle", entity.getId(), true));
+						}
 					}
 				}
-				if (entity instanceof LivingEntity _livEnt29 && _livEnt29.hasEffect(InvincibleConquestModMobEffects.DESTRUCTIVE_FLIGHT)) {
+				if (entity instanceof LivingEntity _livEnt33 && _livEnt33.hasEffect(InvincibleConquestModMobEffects.DESTRUCTIVE_FLIGHT)) {
 					if (entity instanceof LivingEntity _entity)
 						_entity.removeEffect(InvincibleConquestModMobEffects.DESTRUCTIVE_FLIGHT);
 				}

@@ -4,7 +4,7 @@
   "definition": {
     "triggerKey": "SPACE",
     "keyBindingName": "Flight Boost",
-    "keyBindingCategoryKey": "invincible",
+    "keyBindingCategoryKey": "invincible_conquest",
     "onKeyPressed": {
       "name": "KeybindFlightBoost"
     },
