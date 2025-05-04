@@ -58,30 +58,5 @@ public class MenuAbilityViltrumiteWhileThisGUIIsOpenTickProcedure {
 			_vars.Move5Cost = 13;
 			_vars.syncPlayerVariables(entity);
 		}
-		{
-			InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-			_vars.ReturnMove1 = 1;
-			_vars.syncPlayerVariables(entity);
-		}
-		{
-			InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-			_vars.ReturnMove2 = 1;
-			_vars.syncPlayerVariables(entity);
-		}
-		{
-			InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-			_vars.ReturnMove3 = 1;
-			_vars.syncPlayerVariables(entity);
-		}
-		{
-			InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-			_vars.ReturnMove4 = 1;
-			_vars.syncPlayerVariables(entity);
-		}
-		{
-			InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-			_vars.ReturnMove5 = 1;
-			_vars.syncPlayerVariables(entity);
-		}
 	}
 }
