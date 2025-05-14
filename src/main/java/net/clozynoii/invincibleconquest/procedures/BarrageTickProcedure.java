@@ -29,7 +29,7 @@ import net.minecraft.commands.CommandSource;
 
 import net.clozynoii.invincibleconquest.network.InvincibleConquestModVariables;
 import net.clozynoii.invincibleconquest.init.InvincibleConquestModParticleTypes;
-import net.clozynoii.invincibleconquest.configuration.InvincibleConfigConfiguration;
+import net.clozynoii.invincibleconquest.init.InvincibleConquestModGameRules;
 
 import javax.annotation.Nullable;
 
@@ -74,9 +74,8 @@ public class BarrageTickProcedure {
 				_vars.syncPlayerVariables(entity);
 			}
 			outputModifier = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerOutput / 100;
-			stamindaReduction = 5
-					* ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStamina + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100) * (double) InvincibleConfigConfiguration.STMDRAIN.get())
-							/ 100);
+			stamindaReduction = 5 * ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStamina + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100)
+					* (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.STM_STAMINA_DRAIN))) / 100);
 			staminacost = 5 - stamindaReduction;
 			if (entity instanceof Player _plr1)
 				_plr1.resetAttackStrengthTicker();
@@ -139,7 +138,7 @@ public class BarrageTickProcedure {
 									entityiterator.invulnerableTime = 0;
 									entityiterator.hurt(new DamageSource(world.holderOrThrow(DamageTypes.GENERIC), entity),
 											(float) (2 + (((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost)
-													/ (100 / (double) InvincibleConfigConfiguration.STRDAMAGE.get())) * outputModifier) / 2));
+													/ (100 / (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.STRENGTH_ATTACK_DAMAGE)))) * outputModifier) / 2));
 									if (entityiterator.getType().is(TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.parse("invincible_conquest:red_blood"))) || entityiterator instanceof Player) {
 										if (world instanceof ServerLevel _level)
 											_level.sendParticles((SimpleParticleType) (InvincibleConquestModParticleTypes.BLOOD_DRIP.get()), (entityiterator.getX()), (entityiterator.getY() + 1.25), (entityiterator.getZ()), 35, 0.1, 0.1, 0.1, 0.1);

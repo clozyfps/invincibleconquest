@@ -32,8 +32,8 @@
     },
     "inventorySize": 9,
     "inventoryStackSize": 64,
-    "onRightClickedInAir": {
-      "name": "TestItemRightclicked"
+    "onItemInUseTick": {
+      "name": "TestItemItemInHandTick"
     },
     "enableRanged": false,
     "shootConstantly": false,

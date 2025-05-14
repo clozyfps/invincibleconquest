@@ -25,7 +25,7 @@ import net.minecraft.core.BlockPos;
 
 import net.clozynoii.invincibleconquest.network.InvincibleConquestModVariables;
 import net.clozynoii.invincibleconquest.init.InvincibleConquestModParticleTypes;
-import net.clozynoii.invincibleconquest.configuration.InvincibleConfigConfiguration;
+import net.clozynoii.invincibleconquest.init.InvincibleConquestModGameRules;
 
 import java.util.List;
 import java.util.Comparator;
@@ -71,7 +71,7 @@ public class MultiHitProcedure {
 							_level.sendParticles((SimpleParticleType) (InvincibleConquestModParticleTypes.BLOOD_DRIP.get()), (entityiterator.getX()), (entityiterator.getY() + 1), (entityiterator.getZ()), 15, 0.1, 0.1, 0.1, 0);
 						entityiterator.hurt(new DamageSource(world.holderOrThrow(DamageTypes.GENERIC), entity),
 								(float) (8 + ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost)
-										/ (100 / (double) InvincibleConfigConfiguration.STRDAMAGE.get())) * outputModifier));
+										/ (100 / (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.STRENGTH_ATTACK_DAMAGE)))) * outputModifier));
 						entityiterator.getPersistentData().putString("target", (entity.getDisplayName().getString()));
 					}
 				}

@@ -17,7 +17,7 @@ public class UnlockGrabProcedure {
 			return;
 		boolean gate = false;
 		gate = false;
-		if (!entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills.contains(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move6Name + ", ") && gate == false) {
+		if (!entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills.contains("Grab" + ", ") && gate == false) {
 			if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerSkillPoints >= entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move6Cost) {
 				{
 					InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
@@ -29,7 +29,7 @@ public class UnlockGrabProcedure {
 							("playsound minecraft:entity.experience_orb.pickup master " + entity.getDisplayName().getString() + " ~ ~ ~ 0.7 1"));
 				{
 					InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-					_vars.UnlockedSkills = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills + "" + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move6Name + ", ";
+					_vars.UnlockedSkills = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills + "Grab" + ", ";
 					_vars.syncPlayerVariables(entity);
 				}
 				gate = true;
@@ -40,10 +40,10 @@ public class UnlockGrabProcedure {
 				gate = true;
 			}
 		}
-		if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills.contains(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move6Name + ", ") && gate == false) {
+		if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills.contains("Grab" + ", ") && gate == false) {
 			{
 				InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-				_vars.GUISelectedEntry = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move6Name;
+				_vars.GUISelectedEntry = "Grab";
 				_vars.syncPlayerVariables(entity);
 			}
 			if (world instanceof ServerLevel _level)

@@ -13,7 +13,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.chat.Component;
 
 import net.clozynoii.invincibleconquest.network.InvincibleConquestModVariables;
-import net.clozynoii.invincibleconquest.configuration.InvincibleConfigConfiguration;
+import net.clozynoii.invincibleconquest.init.InvincibleConquestModGameRules;
 import net.clozynoii.invincibleconquest.InvincibleConquestMod;
 
 import javax.annotation.Nullable;
@@ -39,10 +39,10 @@ public class PlayerEXPGainProcedure {
 			if ((sourceentity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Viltrumite")) {
 				expTotal = Math.ceil((entity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) + (entity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1)
 						* ((sourceentity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerIntelligence + sourceentity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost)
-								/ (double) InvincibleConfigConfiguration.INTEXPBONUS.get()));
+								/ (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.INTEXP_BONUS))));
 			} else {
-				expTotal = Math.ceil((entity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1)
-						+ (entity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) * (sourceentity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerIntelligence / (double) InvincibleConfigConfiguration.INTEXPBONUS.get()));
+				expTotal = Math.ceil((entity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1) + (entity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1)
+						* (sourceentity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerIntelligence / (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.INTEXP_BONUS))));
 			}
 			{
 				InvincibleConquestModVariables.PlayerVariables _vars = sourceentity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);

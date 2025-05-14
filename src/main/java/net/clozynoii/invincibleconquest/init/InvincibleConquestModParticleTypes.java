@@ -42,4 +42,5 @@ public class InvincibleConquestModParticleTypes {
 	public static final DeferredHolder<ParticleType<?>, SimpleParticleType> ELECTRICITY_SMALL = REGISTRY.register("electricity_small", () -> new SimpleParticleType(true));
 	public static final DeferredHolder<ParticleType<?>, SimpleParticleType> BLUE_BURST = REGISTRY.register("blue_burst", () -> new SimpleParticleType(false));
 	public static final DeferredHolder<ParticleType<?>, SimpleParticleType> SMALL_EXPLOSION = REGISTRY.register("small_explosion", () -> new SimpleParticleType(false));
+	public static final DeferredHolder<ParticleType<?>, SimpleParticleType> MUZZLE_FLASH = REGISTRY.register("muzzle_flash", () -> new SimpleParticleType(true));
 }

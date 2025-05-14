@@ -39,7 +39,6 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.core.registries.BuiltInRegistries;
 
-import net.clozynoii.invincibleconquest.procedures.SpawnSurfaceOnlyProcedure;
 import net.clozynoii.invincibleconquest.init.InvincibleConquestModEntities;
 
 public class MartianEntity extends Monster implements GeoEntity {
@@ -125,12 +124,7 @@ public class MartianEntity extends Monster implements GeoEntity {
 	}
 
 	public static void init(RegisterSpawnPlacementsEvent event) {
-		event.register(InvincibleConquestModEntities.MARTIAN.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (entityType, world, reason, pos, random) -> {
-			int x = pos.getX();
-			int y = pos.getY();
-			int z = pos.getZ();
-			return SpawnSurfaceOnlyProcedure.execute(world, x, y, z);
-		}, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+		event.register(InvincibleConquestModEntities.MARTIAN.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {

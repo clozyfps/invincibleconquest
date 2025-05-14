@@ -1,6 +1,7 @@
 package net.clozynoii.invincibleconquest.procedures;
 
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.item.ItemStack;
@@ -17,12 +18,12 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.client.Minecraft;
 
 import net.clozynoii.invincibleconquest.network.InvincibleConquestModVariables;
+import net.clozynoii.invincibleconquest.init.InvincibleConquestModGameRules;
 import net.clozynoii.invincibleconquest.init.InvincibleConquestModEntities;
 import net.clozynoii.invincibleconquest.entity.ExplosionSmallEntity;
-import net.clozynoii.invincibleconquest.configuration.InvincibleConfigConfiguration;
 
 public class ScatterTossAbilityProcedure {
-	public static void execute(Entity entity) {
+	public static void execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
 		boolean gate = false;
@@ -34,8 +35,8 @@ public class ScatterTossAbilityProcedure {
 		double outputModifier = 0;
 		double stamindaReduction = 0;
 		double staminacost = 0;
-		stamindaReduction = 20
-				* ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStamina + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100) * (double) InvincibleConfigConfiguration.STMDRAIN.get()) / 100);
+		stamindaReduction = 20 * ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStamina + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100)
+				* (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.STM_STAMINA_DRAIN))) / 100);
 		staminacost = 20 - stamindaReduction;
 		if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerCurrentStamina >= staminacost) {
 			if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getCount() >= 5 || new Object() {
@@ -55,9 +56,8 @@ public class ScatterTossAbilityProcedure {
 					_vars.PlayerCurrentStamina = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerCurrentStamina - staminacost;
 					_vars.syncPlayerVariables(entity);
 				}
-				reduction = 60
-						* ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFocus + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100) * (double) InvincibleConfigConfiguration.FOCCDREDUCE.get())
-								/ 100);
+				reduction = 60 * ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFocus + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100)
+						* (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.FOC_COOLDOWN_REDUCTION))) / 100);
 				outputModifier = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerOutput / 100;
 				cooldown = 50 - reduction;
 				targets = 0;

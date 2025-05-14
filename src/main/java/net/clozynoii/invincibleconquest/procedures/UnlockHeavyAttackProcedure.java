@@ -17,7 +17,7 @@ public class UnlockHeavyAttackProcedure {
 			return;
 		boolean gate = false;
 		gate = false;
-		if (!entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills.contains(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move1Name + ", ") && gate == false) {
+		if (!entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills.contains("Heavy Attack" + ", ") && gate == false) {
 			if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerSkillPoints >= entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move1Cost) {
 				{
 					InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
@@ -29,7 +29,7 @@ public class UnlockHeavyAttackProcedure {
 							("playsound minecraft:entity.experience_orb.pickup master " + entity.getDisplayName().getString() + " ~ ~ ~ 0.7 1"));
 				{
 					InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-					_vars.UnlockedSkills = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills + "" + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move1Name + ", ";
+					_vars.UnlockedSkills = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills + "Heavy Attack" + ", ";
 					_vars.syncPlayerVariables(entity);
 				}
 				gate = true;
@@ -40,10 +40,10 @@ public class UnlockHeavyAttackProcedure {
 				gate = true;
 			}
 		}
-		if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills.contains(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move1Name + ", ") && gate == false) {
+		if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills.contains("Heavy Attack" + ", ") && gate == false) {
 			{
 				InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-				_vars.GUISelectedEntry = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move1Name;
+				_vars.GUISelectedEntry = "Heavy Attack";
 				_vars.syncPlayerVariables(entity);
 			}
 			if (world instanceof ServerLevel _level)

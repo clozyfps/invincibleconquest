@@ -17,7 +17,7 @@ public class UnlockUppercutProcedure {
 			return;
 		boolean gate = false;
 		gate = false;
-		if (!entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills.contains(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move4Name + ", ") && gate == false) {
+		if (!entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills.contains("Uppercut" + ", ") && gate == false) {
 			if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerSkillPoints >= entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move4Cost) {
 				{
 					InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
@@ -29,7 +29,7 @@ public class UnlockUppercutProcedure {
 							("playsound minecraft:entity.experience_orb.pickup master " + entity.getDisplayName().getString() + " ~ ~ ~ 0.7 1"));
 				{
 					InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-					_vars.UnlockedSkills = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills + "" + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move4Name + ", ";
+					_vars.UnlockedSkills = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills + "Uppercut" + ", ";
 					_vars.syncPlayerVariables(entity);
 				}
 				gate = true;
@@ -40,10 +40,10 @@ public class UnlockUppercutProcedure {
 				gate = true;
 			}
 		}
-		if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills.contains(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move4Name + ", ") && gate == false) {
+		if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills.contains("Uppercut" + ", ") && gate == false) {
 			{
 				InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-				_vars.GUISelectedEntry = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move4Name;
+				_vars.GUISelectedEntry = "Uppercut";
 				_vars.syncPlayerVariables(entity);
 			}
 			if (world instanceof ServerLevel _level)

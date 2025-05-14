@@ -24,9 +24,9 @@ import net.minecraft.core.BlockPos;
 
 import net.clozynoii.invincibleconquest.network.InvincibleConquestModVariables;
 import net.clozynoii.invincibleconquest.init.InvincibleConquestModParticleTypes;
+import net.clozynoii.invincibleconquest.init.InvincibleConquestModGameRules;
 import net.clozynoii.invincibleconquest.init.InvincibleConquestModEntities;
 import net.clozynoii.invincibleconquest.entity.CannonProjectileEntity;
-import net.clozynoii.invincibleconquest.configuration.InvincibleConfigConfiguration;
 
 public class CannonAbilityProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
@@ -44,8 +44,8 @@ public class CannonAbilityProcedure {
 		double vecX = 0;
 		double stamindaReduction = 0;
 		double staminacost = 0;
-		stamindaReduction = 25
-				* ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStamina + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100) * (double) InvincibleConfigConfiguration.STMDRAIN.get()) / 100);
+		stamindaReduction = 25 * ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStamina + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100)
+				* (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.STM_STAMINA_DRAIN))) / 100);
 		staminacost = 25 - stamindaReduction;
 		if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerCurrentStamina >= staminacost) {
 			{
@@ -54,9 +54,8 @@ public class CannonAbilityProcedure {
 				_vars.syncPlayerVariables(entity);
 			}
 			gate = false;
-			reduction = 100
-					* ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFocus + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100) * (double) InvincibleConfigConfiguration.FOCCDREDUCE.get())
-							/ 100);
+			reduction = 100 * ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFocus + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100)
+					* (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.FOC_COOLDOWN_REDUCTION))) / 100);
 			outputModifier = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerOutput / 100;
 			cooldown = 100 - reduction;
 			targets = 0;

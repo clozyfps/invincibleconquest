@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:bone"
+    },
+    "title": {
+      "translate": "advancements.battle_beast_achievement.title"
+    },
+    "description": {
+      "translate": "advancements.battle_beast_achievement.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "battle_beast_achievement_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "invincible_conquest:invincible_conquest"
+}

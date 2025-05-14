@@ -17,10 +17,10 @@ public class TechJacketMoves1aProcedure {
 					EnergyProjectionAbilityProcedure.execute(world, x, y, z, entity);
 				}
 				if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability1a).equals("Tech Blade")) {
-					BladeAbilityProcedure.execute(entity);
+					BladeAbilityProcedure.execute(world, entity);
 				}
 				if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability1a).equals("Machine Gun")) {
-					MachineGunAbilityProcedure.execute(entity);
+					MachineGunAbilityProcedure.execute(world, entity);
 				}
 				if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability1a).equals("Tech Cannon")) {
 					CannonAbilityProcedure.execute(world, x, y, z, entity);

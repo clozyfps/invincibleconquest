@@ -120,6 +120,20 @@
           "y": 139,
           "locked": true
         }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_savage_planet_x300_z600",
+          "text": {
+            "fixedValue": "Savage Planet : x300, z600"
+          },
+          "width": 9,
+          "height": 10,
+          "x": 208,
+          "y": 109,
+          "locked": true
+        }
       }
     ],
     "gridSettings": {

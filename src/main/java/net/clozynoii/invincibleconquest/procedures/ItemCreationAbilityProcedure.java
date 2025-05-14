@@ -13,7 +13,7 @@ import net.minecraft.core.BlockPos;
 
 import net.clozynoii.invincibleconquest.world.inventory.AtomEveCreationMenu;
 import net.clozynoii.invincibleconquest.network.InvincibleConquestModVariables;
-import net.clozynoii.invincibleconquest.configuration.InvincibleConfigConfiguration;
+import net.clozynoii.invincibleconquest.init.InvincibleConquestModGameRules;
 
 import io.netty.buffer.Unpooled;
 
@@ -30,8 +30,8 @@ public class ItemCreationAbilityProcedure {
 		double outputModifier = 0;
 		double stamindaReduction = 0;
 		double staminacost = 0;
-		stamindaReduction = 30
-				* ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStamina + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100) * (double) InvincibleConfigConfiguration.STMDRAIN.get()) / 100);
+		stamindaReduction = 30 * ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStamina + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100)
+				* (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.STM_STAMINA_DRAIN))) / 100);
 		staminacost = 30 - stamindaReduction;
 		if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerCurrentStamina >= staminacost) {
 			{
@@ -40,9 +40,8 @@ public class ItemCreationAbilityProcedure {
 				_vars.syncPlayerVariables(entity);
 			}
 			gate = false;
-			reduction = 60
-					* ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFocus + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100) * (double) InvincibleConfigConfiguration.FOCCDREDUCE.get())
-							/ 100);
+			reduction = 60 * ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFocus + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100)
+					* (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.FOC_COOLDOWN_REDUCTION))) / 100);
 			outputModifier = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerOutput / 100;
 			cooldown = 200 - reduction;
 			targets = 0;

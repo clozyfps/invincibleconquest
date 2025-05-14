@@ -16,8 +16,11 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.core.registries.Registries;
 
 import net.clozynoii.invincibleconquest.procedures.TitanLeapEffectEffectExpiresProcedure;
+import net.clozynoii.invincibleconquest.procedures.TimeStopEffectEffectExpiresProcedure;
+import net.clozynoii.invincibleconquest.procedures.TamedSpaceEffectgOnEffectActiveTickProcedure;
 import net.clozynoii.invincibleconquest.procedures.MachineGunEffectsEffectExpiresProcedure;
 import net.clozynoii.invincibleconquest.procedures.LaserDestructionEffectExpiresProcedure;
+import net.clozynoii.invincibleconquest.procedures.FlashTimeEffectExpiresProcedure;
 import net.clozynoii.invincibleconquest.procedures.CloudCircleEffectExpiresProcedure;
 import net.clozynoii.invincibleconquest.procedures.BarrierEffectEffectExpiresProcedure;
 import net.clozynoii.invincibleconquest.procedures.AtomControlEffectEffectExpiresProcedure;
@@ -25,24 +28,32 @@ import net.clozynoii.invincibleconquest.procedures.AtomAwakeningEffectEffectExpi
 import net.clozynoii.invincibleconquest.procedures.ActiveBeamAtomEffectExpiresProcedure;
 import net.clozynoii.invincibleconquest.potion.WebActiveMobEffect;
 import net.clozynoii.invincibleconquest.potion.TitanLeapEffectMobEffect;
+import net.clozynoii.invincibleconquest.potion.TimeStopEffectMobEffect;
 import net.clozynoii.invincibleconquest.potion.TechJacketFollowUpEffectMobEffect;
 import net.clozynoii.invincibleconquest.potion.TechJacketBladeEffectMobEffect;
+import net.clozynoii.invincibleconquest.potion.TamedSpaceEffectgMobEffect;
 import net.clozynoii.invincibleconquest.potion.StunMobEffect;
 import net.clozynoii.invincibleconquest.potion.StrongFlyingStunnedMobEffect;
+import net.clozynoii.invincibleconquest.potion.StoppedTimeMobEffect;
 import net.clozynoii.invincibleconquest.potion.SmokingMobEffect;
 import net.clozynoii.invincibleconquest.potion.SmokeCircleMobEffect;
 import net.clozynoii.invincibleconquest.potion.SlicingCircleMobEffect;
 import net.clozynoii.invincibleconquest.potion.RobotBallControlMobEffect;
 import net.clozynoii.invincibleconquest.potion.PostAtomControlMobEffect;
 import net.clozynoii.invincibleconquest.potion.PauseDialogueMobEffect;
+import net.clozynoii.invincibleconquest.potion.PatrolMobEffect;
 import net.clozynoii.invincibleconquest.potion.NoFallMobEffect;
 import net.clozynoii.invincibleconquest.potion.MachineGunEffectsMobEffect;
 import net.clozynoii.invincibleconquest.potion.LaserKnockbackMobEffect;
 import net.clozynoii.invincibleconquest.potion.LaserDestructionMobEffect;
 import net.clozynoii.invincibleconquest.potion.InstantCratorMobEffect;
 import net.clozynoii.invincibleconquest.potion.ImpactFrameEffectMobEffect;
+import net.clozynoii.invincibleconquest.potion.HoldMobEffect;
 import net.clozynoii.invincibleconquest.potion.GlassBreakMobEffect;
+import net.clozynoii.invincibleconquest.potion.FollowMobEffect;
+import net.clozynoii.invincibleconquest.potion.FlashTimeMobEffect;
 import net.clozynoii.invincibleconquest.potion.FallingBlocksMobEffect;
+import net.clozynoii.invincibleconquest.potion.ExplosionLevelMobEffect;
 import net.clozynoii.invincibleconquest.potion.DragMobEffect;
 import net.clozynoii.invincibleconquest.potion.DestructiveFlightMobEffect;
 import net.clozynoii.invincibleconquest.potion.DamageDestructionMobEffect;
@@ -106,6 +117,14 @@ public class InvincibleConquestModMobEffects {
 	public static final DeferredHolder<MobEffect, MobEffect> TECH_JACKET_BLADE_EFFECT = REGISTRY.register("tech_jacket_blade_effect", () -> new TechJacketBladeEffectMobEffect());
 	public static final DeferredHolder<MobEffect, MobEffect> TECH_JACKET_FOLLOW_UP_EFFECT = REGISTRY.register("tech_jacket_follow_up_effect", () -> new TechJacketFollowUpEffectMobEffect());
 	public static final DeferredHolder<MobEffect, MobEffect> STRONG_FLYING_STUNNED = REGISTRY.register("strong_flying_stunned", () -> new StrongFlyingStunnedMobEffect());
+	public static final DeferredHolder<MobEffect, MobEffect> TAMED_SPACE_EFFECTG = REGISTRY.register("tamed_space_effectg", () -> new TamedSpaceEffectgMobEffect());
+	public static final DeferredHolder<MobEffect, MobEffect> EXPLOSION_LEVEL = REGISTRY.register("explosion_level", () -> new ExplosionLevelMobEffect());
+	public static final DeferredHolder<MobEffect, MobEffect> HOLD = REGISTRY.register("hold", () -> new HoldMobEffect());
+	public static final DeferredHolder<MobEffect, MobEffect> FOLLOW = REGISTRY.register("follow", () -> new FollowMobEffect());
+	public static final DeferredHolder<MobEffect, MobEffect> PATROL = REGISTRY.register("patrol", () -> new PatrolMobEffect());
+	public static final DeferredHolder<MobEffect, MobEffect> TIME_STOP_EFFECT = REGISTRY.register("time_stop_effect", () -> new TimeStopEffectMobEffect());
+	public static final DeferredHolder<MobEffect, MobEffect> STOPPED_TIME = REGISTRY.register("stopped_time", () -> new StoppedTimeMobEffect());
+	public static final DeferredHolder<MobEffect, MobEffect> FLASH_TIME = REGISTRY.register("flash_time", () -> new FlashTimeMobEffect());
 
 	@SubscribeEvent
 	public static void onEffectRemoved(MobEffectEvent.Remove event) {
@@ -142,6 +161,12 @@ public class InvincibleConquestModMobEffects {
 			AtomAwakeningEffectEffectExpiresProcedure.execute(entity);
 		} else if (effectInstance.getEffect().is(MACHINE_GUN_EFFECTS)) {
 			MachineGunEffectsEffectExpiresProcedure.execute(entity.level(), entity);
+		} else if (effectInstance.getEffect().is(TAMED_SPACE_EFFECTG)) {
+			TamedSpaceEffectgOnEffectActiveTickProcedure.execute(entity.level(), entity.getX(), entity.getY(), entity.getZ(), entity);
+		} else if (effectInstance.getEffect().is(TIME_STOP_EFFECT)) {
+			TimeStopEffectEffectExpiresProcedure.execute(entity.level(), entity.getX(), entity.getY(), entity.getZ(), entity);
+		} else if (effectInstance.getEffect().is(FLASH_TIME)) {
+			FlashTimeEffectExpiresProcedure.execute(entity);
 		}
 	}
 }

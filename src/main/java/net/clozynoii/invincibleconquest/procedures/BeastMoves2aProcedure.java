@@ -20,10 +20,10 @@ public class BeastMoves2aProcedure {
 					AbilityClawProcedure.execute(world, x, y, z, entity);
 				}
 				if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability2a).equals("Constant Claws")) {
-					AbilityConstantClawsProcedure.execute(entity);
+					AbilityConstantClawsProcedure.execute(world, entity);
 				}
 				if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability2a).equals("Drag")) {
-					AbilityDragProcedure.execute(entity);
+					AbilityDragProcedure.execute(world, entity);
 				}
 			}
 		} else {

@@ -25,7 +25,7 @@ import net.minecraft.commands.CommandSource;
 
 import net.clozynoii.invincibleconquest.network.InvincibleConquestModVariables;
 import net.clozynoii.invincibleconquest.init.InvincibleConquestModParticleTypes;
-import net.clozynoii.invincibleconquest.configuration.InvincibleConfigConfiguration;
+import net.clozynoii.invincibleconquest.init.InvincibleConquestModGameRules;
 
 import java.util.Optional;
 import java.util.List;
@@ -47,8 +47,8 @@ public class AbilityHeavyAttackProcedure {
 		double reduction = 0;
 		double stamindaReduction = 0;
 		double staminacost = 0;
-		stamindaReduction = 15
-				* ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStamina + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100) * (double) InvincibleConfigConfiguration.STMDRAIN.get()) / 100);
+		stamindaReduction = 15 * ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStamina + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100)
+				* (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.STM_STAMINA_DRAIN))) / 100);
 		staminacost = 15 - stamindaReduction;
 		if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerCurrentStamina >= staminacost) {
 			gate = false;
@@ -58,9 +58,8 @@ public class AbilityHeavyAttackProcedure {
 				_vars.syncPlayerVariables(entity);
 			}
 			targets = 0;
-			reduction = 60
-					* ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFocus + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100) * (double) InvincibleConfigConfiguration.FOCCDREDUCE.get())
-							/ 100);
+			reduction = 60 * ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFocus + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100)
+					* (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.FOC_COOLDOWN_REDUCTION))) / 100);
 			cooldown = 60 - reduction;
 			magnitude = 0;
 			ability = "Heavy Attack";
@@ -171,12 +170,10 @@ public class AbilityHeavyAttackProcedure {
 			magnitude = Math.sqrt(entity.getLookAngle().x * entity.getLookAngle().x + entity.getLookAngle().y * entity.getLookAngle().y + entity.getLookAngle().z * entity.getLookAngle().z);
 			vecX = entity.getLookAngle().x / magnitude;
 			vecZ = entity.getLookAngle().z / magnitude;
-			vecX = vecX * (1
-					+ ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / (50 / (double) InvincibleConfigConfiguration.STRKNOCKBACK.get()))
-							* outputModifier);
-			vecZ = vecZ * (1
-					+ ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / (50 / (double) InvincibleConfigConfiguration.STRKNOCKBACK.get()))
-							* outputModifier);
+			vecX = vecX * (1 + ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost)
+					/ (50 / (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.STRENGTH_KNOCKBACK)))) * outputModifier);
+			vecZ = vecZ * (1 + ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost)
+					/ (50 / (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.STRENGTH_KNOCKBACK)))) * outputModifier);
 			{
 				final Vec3 _center = new Vec3(
 						(entity.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(2)), ClipContext.Block.COLLIDER, ClipContext.Fluid.ANY, entity)).getBlockPos().getX()),
@@ -195,7 +192,7 @@ public class AbilityHeavyAttackProcedure {
 							entityiterator.invulnerableTime = 0;
 							entityiterator.hurt(new DamageSource(world.holderOrThrow(DamageTypes.GENERIC), entity),
 									(float) (5 + ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost)
-											/ (100 / (double) InvincibleConfigConfiguration.STRDAMAGE.get())) * outputModifier));
+											/ (100 / (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.STRENGTH_ATTACK_DAMAGE)))) * outputModifier));
 							entityiterator.invulnerableTime = 0;
 							if (entityiterator.getType().is(TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.parse("invincible_conquest:red_blood"))) || entityiterator instanceof Player) {
 								if (world instanceof ServerLevel _level)

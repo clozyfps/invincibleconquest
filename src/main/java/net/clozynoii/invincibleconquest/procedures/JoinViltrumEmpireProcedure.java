@@ -14,6 +14,8 @@ import net.minecraft.network.protocol.game.ClientboundLevelEventPacket;
 import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.core.BlockPos;
+import net.minecraft.advancements.AdvancementProgress;
+import net.minecraft.advancements.AdvancementHolder;
 
 import net.clozynoii.invincibleconquest.network.InvincibleConquestModVariables;
 
@@ -32,6 +34,16 @@ public class JoinViltrumEmpireProcedure {
 			InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
 			_vars.PlayerFactionRank = "Soldier";
 			_vars.syncPlayerVariables(entity);
+		}
+		if (entity instanceof ServerPlayer _player) {
+			AdvancementHolder _adv = _player.server.getAdvancements().get(ResourceLocation.parse("invincible_conquest:viltrumite_achievement"));
+			if (_adv != null) {
+				AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
+				if (!_ap.isDone()) {
+					for (String criteria : _ap.getRemainingCriteria())
+						_player.getAdvancements().award(_adv, criteria);
+				}
+			}
 		}
 		if (entity instanceof ServerPlayer _player && !_player.level().isClientSide()) {
 			ResourceKey<Level> destinationType = ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("invincible_conquest:viltrum_world"));

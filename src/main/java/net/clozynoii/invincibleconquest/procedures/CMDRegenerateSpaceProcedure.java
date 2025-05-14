@@ -17,6 +17,7 @@ import net.clozynoii.invincibleconquest.entity.WhiteSunEntity;
 import net.clozynoii.invincibleconquest.entity.ViltrumEntity;
 import net.clozynoii.invincibleconquest.entity.TalescriaEntity;
 import net.clozynoii.invincibleconquest.entity.SunEntity;
+import net.clozynoii.invincibleconquest.entity.SavagePlanetEntity;
 import net.clozynoii.invincibleconquest.entity.RedSunEntity;
 import net.clozynoii.invincibleconquest.entity.OrangeSunEntity;
 import net.clozynoii.invincibleconquest.entity.MoonEntity;
@@ -71,6 +72,10 @@ public class CMDRegenerateSpaceProcedure {
 						if (!entityiterator.level().isClientSide())
 							entityiterator.discard();
 					}
+					if (entityiterator instanceof SavagePlanetEntity) {
+						if (!entityiterator.level().isClientSide())
+							entityiterator.discard();
+					}
 				}
 			}
 			InvincibleConquestModVariables.MapVariables.get(world).SpaceGenerated = true;
@@ -112,6 +117,11 @@ public class CMDRegenerateSpaceProcedure {
 			}
 			if (world instanceof ServerLevel _level) {
 				Entity entityToSpawn = InvincibleConquestModEntities.TALESCRIA.get().spawn(_level, new BlockPos(700, 75, 900), MobSpawnType.MOB_SUMMONED);
+				if (entityToSpawn != null) {
+				}
+			}
+			if (world instanceof ServerLevel _level) {
+				Entity entityToSpawn = InvincibleConquestModEntities.SAVAGE_PLANET.get().spawn(_level, new BlockPos(300, 75, 600), MobSpawnType.MOB_SUMMONED);
 				if (entityToSpawn != null) {
 				}
 			}

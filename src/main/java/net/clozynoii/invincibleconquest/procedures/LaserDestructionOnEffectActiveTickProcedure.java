@@ -2,6 +2,7 @@ package net.clozynoii.invincibleconquest.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.server.level.ServerLevel;
@@ -12,6 +13,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.BlockPos;
 
 import net.clozynoii.invincibleconquest.init.InvincibleConquestModParticleTypes;
+import net.clozynoii.invincibleconquest.init.InvincibleConquestModMobEffects;
 
 public class LaserDestructionOnEffectActiveTickProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
@@ -66,14 +68,20 @@ public class LaserDestructionOnEffectActiveTickProcedure {
 			if (world instanceof ServerLevel _level)
 				_level.sendParticles((SimpleParticleType) (InvincibleConquestModParticleTypes.LARGE_SMOKE.get()), x_pos, y_pos, z_pos, 2, 0.1, 0.1, 0.1, 0.1);
 			if (world instanceof ServerLevel _level)
+				_level.sendParticles((SimpleParticleType) (InvincibleConquestModParticleTypes.STEAM_SMOKE.get()), x_pos, y_pos, z_pos, 1, 0.1, 0.1, 0.1, 0.1);
+			if (world instanceof ServerLevel _level)
 				_level.sendParticles((SimpleParticleType) (InvincibleConquestModParticleTypes.ELECTRICITY.get()), x_pos, y_pos, z_pos, 1, 0.1, 0.1, 0.1, 0.1);
 			if (world instanceof ServerLevel _level)
 				_level.sendParticles((SimpleParticleType) (InvincibleConquestModParticleTypes.EXPLOSION.get()), x_pos, y_pos, z_pos, 15, 0.1, 0.1, 0.1, 0);
 			degree = degree + Math.toRadians(5);
 		}
-		entity.getPersistentData().putDouble("xincrease", (entity.getPersistentData().getDouble("xincrease") + 3));
-		entity.getPersistentData().putDouble("zincrease", (entity.getPersistentData().getDouble("zincrease") + 3));
-		entity.getPersistentData().putDouble("zdecrease", (entity.getPersistentData().getDouble("zdecrease") - 3));
-		entity.getPersistentData().putDouble("xdecrease", (entity.getPersistentData().getDouble("xdecrease") - 3));
+		entity.getPersistentData().putDouble("xincrease", (entity.getPersistentData().getDouble("xincrease") + 3
+				+ (entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(InvincibleConquestModMobEffects.EXPLOSION_LEVEL) ? _livEnt.getEffect(InvincibleConquestModMobEffects.EXPLOSION_LEVEL).getAmplifier() : 0)));
+		entity.getPersistentData().putDouble("zincrease", (entity.getPersistentData().getDouble("zincrease") + 3
+				+ (entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(InvincibleConquestModMobEffects.EXPLOSION_LEVEL) ? _livEnt.getEffect(InvincibleConquestModMobEffects.EXPLOSION_LEVEL).getAmplifier() : 0)));
+		entity.getPersistentData().putDouble("zdecrease", (entity.getPersistentData().getDouble("zdecrease")
+				- (3 + (entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(InvincibleConquestModMobEffects.EXPLOSION_LEVEL) ? _livEnt.getEffect(InvincibleConquestModMobEffects.EXPLOSION_LEVEL).getAmplifier() : 0))));
+		entity.getPersistentData().putDouble("xdecrease", (entity.getPersistentData().getDouble("xdecrease")
+				- (3 + (entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(InvincibleConquestModMobEffects.EXPLOSION_LEVEL) ? _livEnt.getEffect(InvincibleConquestModMobEffects.EXPLOSION_LEVEL).getAmplifier() : 0))));
 	}
 }

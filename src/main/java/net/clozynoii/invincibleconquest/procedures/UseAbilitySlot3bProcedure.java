@@ -47,6 +47,12 @@ public class UseAbilitySlot3bProcedure {
 			if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Atom")) {
 				AtomicMoves3bProcedure.execute(world, x, y, z, entity);
 			}
+			if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Tech Jacket")) {
+				AtomicMoves3bProcedure.execute(world, x, y, z, entity);
+			}
+			if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Human")) {
+				GDASlot3bProcedure.execute(world, x, y, z, entity);
+			}
 		} else {
 			if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).KeyHeld == true) {
 				if (entity instanceof Player _player && !_player.level().isClientSide())

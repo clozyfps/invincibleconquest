@@ -654,7 +654,7 @@
         "data": {
           "name": "tooltip_energy_projection",
           "text": {
-            "fixedValue": "Energy Projection"
+            "fixedValue": "Energy Projection - 1 SP"
           },
           "width": 22,
           "height": 22,
@@ -668,7 +668,7 @@
         "data": {
           "name": "tooltip_tech_jab",
           "text": {
-            "fixedValue": "Tech Blade"
+            "fixedValue": "Tech Blade - 4 SP"
           },
           "width": 22,
           "height": 22,
@@ -682,7 +682,7 @@
         "data": {
           "name": "tooltip_nano_slam",
           "text": {
-            "fixedValue": "Machine Gun"
+            "fixedValue": "Machine Gun - 7 SP"
           },
           "width": 22,
           "height": 22,
@@ -696,7 +696,7 @@
         "data": {
           "name": "tooltip_tech_uppercut",
           "text": {
-            "fixedValue": "Tech Cannon"
+            "fixedValue": "Tech Cannon - 15 SP"
           },
           "width": 22,
           "height": 22,

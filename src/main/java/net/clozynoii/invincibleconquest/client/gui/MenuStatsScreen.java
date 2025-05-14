@@ -125,7 +125,7 @@ public class MenuStatsScreen extends AbstractContainerScreen<MenuStatsMenu> {
 		}
 
 		if (mouseX > leftPos + -82 && mouseX < leftPos + -23 && mouseY > topPos + 33 && mouseY < topPos + 46) {
-    		String[] lines = ReturnDescriptionStrengthProcedure.execute(entity).split("/n");
+    		String[] lines = ReturnDescriptionStrengthProcedure.execute(world, entity).split("/n");
     		List<Component> tooltipLines = new ArrayList<>();
     		for (String line : lines) {
         		tooltipLines.add(Component.literal(line));
@@ -134,7 +134,7 @@ public class MenuStatsScreen extends AbstractContainerScreen<MenuStatsMenu> {
 		}
 			
 		if (mouseX > leftPos + -82 && mouseX < leftPos + -23 && mouseY > topPos + 48 && mouseY < topPos + 61) {
-    		String[] lines = ReturnDescriptionDurabilityProcedure.execute(entity).split("/n");
+    		String[] lines = ReturnDescriptionDurabilityProcedure.execute(world, entity).split("/n");
     		List<Component> tooltipLines = new ArrayList<>();
     		for (String line : lines) {
         		tooltipLines.add(Component.literal(line));
@@ -143,7 +143,7 @@ public class MenuStatsScreen extends AbstractContainerScreen<MenuStatsMenu> {
 		}
 			
 		if (mouseX > leftPos + -82 && mouseX < leftPos + -23 && mouseY > topPos + 63 && mouseY < topPos + 76) {
-    		String[] lines = ReturnDescriptionAgilityProcedure.execute(entity).split("/n");
+    		String[] lines = ReturnDescriptionAgilityProcedure.execute(world, entity).split("/n");
     		List<Component> tooltipLines = new ArrayList<>();
     		for (String line : lines) {
         		tooltipLines.add(Component.literal(line));
@@ -152,7 +152,7 @@ public class MenuStatsScreen extends AbstractContainerScreen<MenuStatsMenu> {
 		}
 			
 		if (mouseX > leftPos + -21 && mouseX < leftPos + 38 && mouseY > topPos + 18 && mouseY < topPos + 31) {
-    		String[] lines = ReturnDescriptionStaminaProcedure.execute(entity).split("/n");
+    		String[] lines = ReturnDescriptionStaminaProcedure.execute(world, entity).split("/n");
     		List<Component> tooltipLines = new ArrayList<>();
     		for (String line : lines) {
         		tooltipLines.add(Component.literal(line));
@@ -161,7 +161,7 @@ public class MenuStatsScreen extends AbstractContainerScreen<MenuStatsMenu> {
 		}
 			
 		if (mouseX > leftPos + -21 && mouseX < leftPos + 38 && mouseY > topPos + 33 && mouseY < topPos + 46) {
-    		String[] lines = ReturnDescriptionVitalityProcedure.execute(entity).split("/n");
+    		String[] lines = ReturnDescriptionVitalityProcedure.execute(world, entity).split("/n");
     		List<Component> tooltipLines = new ArrayList<>();
     		for (String line : lines) {
         		tooltipLines.add(Component.literal(line));
@@ -170,7 +170,7 @@ public class MenuStatsScreen extends AbstractContainerScreen<MenuStatsMenu> {
 		}
 			
 		if (mouseX > leftPos + -21 && mouseX < leftPos + 38 && mouseY > topPos + 48 && mouseY < topPos + 61) {
-    		String[] lines = ReturnDescriptionFocusProcedure.execute(entity).split("/n");
+    		String[] lines = ReturnDescriptionFocusProcedure.execute(world, entity).split("/n");
     		List<Component> tooltipLines = new ArrayList<>();
     		for (String line : lines) {
         		tooltipLines.add(Component.literal(line));
@@ -179,7 +179,7 @@ public class MenuStatsScreen extends AbstractContainerScreen<MenuStatsMenu> {
 		}
 			
 		if (mouseX > leftPos + -21 && mouseX < leftPos + 38 && mouseY > topPos + 63 && mouseY < topPos + 76) {
-    		String[] lines = ReturnDescriptionIntelligenceProcedure.execute(entity).split("/n");
+    		String[] lines = ReturnDescriptionIntelligenceProcedure.execute(world, entity).split("/n");
     		List<Component> tooltipLines = new ArrayList<>();
     		for (String line : lines) {
         		tooltipLines.add(Component.literal(line));

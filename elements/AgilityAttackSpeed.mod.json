@@ -1,0 +1,12 @@
+{
+  "_fv": 73,
+  "_type": "gamerule",
+  "definition": {
+    "type": "Number",
+    "displayName": "Agility Attack Speed",
+    "description": "The amount of bonus attack speed that max Agility provides",
+    "category": "PLAYER",
+    "defaultValueLogic": false,
+    "defaultValueNumber": 2
+  }
+}

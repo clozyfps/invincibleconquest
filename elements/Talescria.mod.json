@@ -102,7 +102,7 @@
     "raidCelebrationSound": {
       "value": ""
     },
-    "onPlayerCollidesWith": {
+    "onMobTickUpdate": {
       "name": "EnterTalescria"
     },
     "hasAI": true,

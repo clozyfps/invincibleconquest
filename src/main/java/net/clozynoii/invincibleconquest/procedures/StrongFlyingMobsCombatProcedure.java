@@ -118,11 +118,7 @@ public class StrongFlyingMobsCombatProcedure {
 					_entity.addEffect(new MobEffectInstance(InvincibleConquestModMobEffects.DAMAGE_DESTRUCTION, 50, 0));
 				if ((damagesource.getEntity()) == entity) {
 					if (sourceentity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-						_entity.addEffect(new MobEffectInstance(InvincibleConquestModMobEffects.STRONG_FLYING_STUNNED,
-								(int) (30 + (sourceentity instanceof LivingEntity _livEnt && _livEnt.hasEffect(InvincibleConquestModMobEffects.STRONG_FLYING_STUNNED)
-										? _livEnt.getEffect(InvincibleConquestModMobEffects.STRONG_FLYING_STUNNED).getDuration()
-										: 0)),
-								0));
+						_entity.addEffect(new MobEffectInstance(InvincibleConquestModMobEffects.STRONG_FLYING_STUNNED, 10, 0));
 				}
 				entity.getPersistentData().putString("target", (sourceentity.getDisplayName().getString()));
 				entity.hurt(new DamageSource(world.holderOrThrow(DamageTypes.GENERIC)), 19);

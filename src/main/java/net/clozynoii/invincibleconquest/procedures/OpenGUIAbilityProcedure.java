@@ -17,6 +17,7 @@ import net.clozynoii.invincibleconquest.world.inventory.MenuAbilitySpiderMenu;
 import net.clozynoii.invincibleconquest.world.inventory.MenuAbilitySpeedsterMenu;
 import net.clozynoii.invincibleconquest.world.inventory.MenuAbilityRobotMenu;
 import net.clozynoii.invincibleconquest.world.inventory.MenuAbilityPortalMenu;
+import net.clozynoii.invincibleconquest.world.inventory.MenuAbilityGDAMenu;
 import net.clozynoii.invincibleconquest.world.inventory.MenuAbilityExplodeMenu;
 import net.clozynoii.invincibleconquest.world.inventory.MenuAbilityCloningMenu;
 import net.clozynoii.invincibleconquest.world.inventory.MenuAbilityBeastMenu;
@@ -237,6 +238,29 @@ public class OpenGUIAbilityProcedure {
 						return new MenuAbilityTechJacketMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
 					}
 				}, _bpos);
+			}
+		}
+		if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Human")) {
+			if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFactionRank).equals("Deputy Director") || (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFactionRank).equals("Director")) {
+				if (entity instanceof ServerPlayer _ent) {
+					BlockPos _bpos = BlockPos.containing(x, y, z);
+					_ent.openMenu(new MenuProvider() {
+						@Override
+						public Component getDisplayName() {
+							return Component.literal("MenuAbilityGDA");
+						}
+
+						@Override
+						public boolean shouldTriggerClientSideContainerClosingOnOpen() {
+							return false;
+						}
+
+						@Override
+						public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
+							return new MenuAbilityGDAMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+						}
+					}, _bpos);
+				}
 			}
 		}
 	}

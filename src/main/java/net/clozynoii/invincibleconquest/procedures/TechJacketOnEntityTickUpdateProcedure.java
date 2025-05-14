@@ -111,6 +111,10 @@ public class TechJacketOnEntityTickUpdateProcedure {
 							if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 								_entity.addEffect(new MobEffectInstance(InvincibleConquestModMobEffects.DRAG, 30, 0, false, false));
 						}
+						if (Math.random() < 0.005) {
+							if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
+								_entity.addEffect(new MobEffectInstance(InvincibleConquestModMobEffects.STRONG_FLYING_STUNNED, 40, 0, false, false));
+						}
 					}
 				}
 			}

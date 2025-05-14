@@ -113,6 +113,11 @@ public class InvincibleConquestModTabs {
 				tabData.accept(InvincibleConquestModItems.CECIL_SPAWN_EGG.get());
 				tabData.accept(InvincibleConquestModItems.ANISSA_SPAWN_EGG.get());
 				tabData.accept(InvincibleConquestModItems.TECH_JACKET_SPAWN_EGG.get());
+				tabData.accept(InvincibleConquestModItems.GDA_SOLDIER_SPAWN_EGG.get());
+				tabData.accept(InvincibleConquestModItems.ROGNARR_SPAWN_EGG.get());
+				tabData.accept(InvincibleConquestModItems.REANIMEN_SPAWN_EGG.get());
+				tabData.accept(InvincibleConquestModItems.STEALTH_GDA_SOLDIER_SPAWN_EGG.get());
+				tabData.accept(InvincibleConquestModItems.HERO_SPAWN_EGG.get());
 			}).withTabsBefore(INVINCIBLE_ARMOR.getId()).build());
 	public static final DeferredHolder<CreativeModeTab, CreativeModeTab> INVINCIBLE_ITEMS = REGISTRY.register("invincible_items",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.invincible_conquest.invincible_items")).icon(() -> new ItemStack(InvincibleConquestModItems.FLAXAN_GUN.get())).displayItems((parameters, tabData) -> {
@@ -120,6 +125,10 @@ public class InvincibleConquestModTabs {
 				tabData.accept(InvincibleConquestModItems.FLAXAN_GUN.get());
 				tabData.accept(InvincibleConquestModItems.GALACTIC_MAP.get());
 				tabData.accept(InvincibleConquestModItems.SPACE_HELMET_HELMET.get());
+				tabData.accept(InvincibleConquestModItems.GDA_RIFLE.get());
+				tabData.accept(InvincibleConquestModItems.FLESH.get());
+				tabData.accept(InvincibleConquestModItems.REANIMEN_CHIP.get());
+				tabData.accept(InvincibleConquestModItems.RECRUITMENT_FORM.get());
 			}).withTabsBefore(INVINCIBLE_MOBS.getId()).build());
 
 	@SubscribeEvent

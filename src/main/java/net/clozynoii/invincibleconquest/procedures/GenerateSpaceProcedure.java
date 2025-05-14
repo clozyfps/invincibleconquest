@@ -55,6 +55,11 @@ public class GenerateSpaceProcedure {
 				if (entityToSpawn != null) {
 				}
 			}
+			if (world instanceof ServerLevel _level) {
+				Entity entityToSpawn = InvincibleConquestModEntities.SAVAGE_PLANET.get().spawn(_level, new BlockPos(300, 75, 600), MobSpawnType.MOB_SUMMONED);
+				if (entityToSpawn != null) {
+				}
+			}
 			InvincibleConquestMod.LOGGER.info("Space Generated!");
 		}
 	}

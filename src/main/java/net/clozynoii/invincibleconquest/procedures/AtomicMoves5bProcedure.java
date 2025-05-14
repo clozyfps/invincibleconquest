@@ -23,7 +23,7 @@ public class AtomicMoves5bProcedure {
 					BarrierAbilityProcedure.execute(world, x, y, z, entity);
 				}
 				if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability5b).equals("Air Density")) {
-					AirDensityAbilityProcedure.execute(entity);
+					AirDensityAbilityProcedure.execute(world, entity);
 				}
 				if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability5b).equals("Atom Creation")) {
 					ItemCreationAbilityProcedure.execute(world, x, y, z, entity);

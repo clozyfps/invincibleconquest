@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " a ",
+    "aba",
+    " a "
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:gold_ingot"
+    },
+    "b": {
+      "item": "invincible_conquest:reanimen_chip"
+    }
+  },
+  "result": {
+    "id": "invincible_conquest:reanimen_spawn_egg",
+    "count": 1
+  }
+}

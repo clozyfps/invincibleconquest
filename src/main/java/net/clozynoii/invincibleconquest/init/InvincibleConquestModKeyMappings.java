@@ -199,7 +199,7 @@ public class InvincibleConquestModKeyMappings {
 			isDownOld = isDown;
 		}
 	};
-	public static final KeyMapping FLIGHT_BOOST = new KeyMapping("key.invincible_conquest.flight_boost", GLFW.GLFW_KEY_SPACE, "key.categories.invincible") {
+	public static final KeyMapping FLIGHT_BOOST = new KeyMapping("key.invincible_conquest.flight_boost", GLFW.GLFW_KEY_SPACE, "key.categories.invincible_conquest") {
 		private boolean isDownOld = false;
 
 		@Override

@@ -48,6 +48,11 @@ import net.clozynoii.invincibleconquest.procedures.OverlaySlotPortal4Procedure;
 import net.clozynoii.invincibleconquest.procedures.OverlaySlotPortal3Procedure;
 import net.clozynoii.invincibleconquest.procedures.OverlaySlotPortal2Procedure;
 import net.clozynoii.invincibleconquest.procedures.OverlaySlotPortal1Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotGDA5Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotGDA4Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotGDA3Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotGDA2Procedure;
+import net.clozynoii.invincibleconquest.procedures.OverlaySlotGDA1Procedure;
 import net.clozynoii.invincibleconquest.procedures.OverlaySlotExplode5Procedure;
 import net.clozynoii.invincibleconquest.procedures.OverlaySlotExplode4Procedure;
 import net.clozynoii.invincibleconquest.procedures.OverlaySlotExplode3Procedure;
@@ -205,6 +210,16 @@ public class AbilityOverlayOverlay {
 			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_spider.png"), 67, h - 29, Mth.clamp((int) OverlaySlotSpider4Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
 
 			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_spider.png"), 85, h - 29, Mth.clamp((int) OverlaySlotSpider5Procedure.execute(entity) * 16, 0, 16), 0, 16, 16, 32, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_gda.png"), 13, h - 29, Mth.clamp((int) OverlaySlotGDA1Procedure.execute(entity) * 16, 0, 96), 0, 16, 16, 112, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_gda.png"), 31, h - 29, Mth.clamp((int) OverlaySlotGDA2Procedure.execute(entity) * 16, 0, 96), 0, 16, 16, 112, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_gda.png"), 49, h - 29, Mth.clamp((int) OverlaySlotGDA3Procedure.execute(entity) * 16, 0, 96), 0, 16, 16, 112, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_gda.png"), 67, h - 29, Mth.clamp((int) OverlaySlotGDA4Procedure.execute(entity) * 16, 0, 96), 0, 16, 16, 112, 16);
+
+			event.getGuiGraphics().blit(ResourceLocation.parse("invincible_conquest:textures/screens/abilities_sprite_gda.png"), 85, h - 29, Mth.clamp((int) OverlaySlotGDA5Procedure.execute(entity) * 16, 0, 96), 0, 16, 16, 112, 16);
 
 		}
 		RenderSystem.depthMask(true);

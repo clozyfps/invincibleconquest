@@ -1,0 +1,93 @@
+{
+  "_fv": 73,
+  "_type": "overlay",
+  "definition": {
+    "priority": "HIGHEST",
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_race_text",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnRaceText"
+          },
+          "color": {
+            "value": -10045719,
+            "falpha": 0.0
+          },
+          "anchorPoint": "CENTER_LEFT",
+          "x": 3,
+          "y": 98,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_age_text",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnAgeText"
+          },
+          "color": {
+            "value": -10045719,
+            "falpha": 0.0
+          },
+          "anchorPoint": "CENTER_LEFT",
+          "x": 3,
+          "y": 112,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_name_text",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnNameText"
+          },
+          "color": {
+            "value": -10045719,
+            "falpha": 0.0
+          },
+          "anchorPoint": "CENTER_LEFT",
+          "x": 3,
+          "y": 126,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_return_hearts",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnHearts"
+          },
+          "color": {
+            "value": -10045719,
+            "falpha": 0.0
+          },
+          "anchorPoint": "CENTER_LEFT",
+          "x": 3,
+          "y": 140,
+          "locked": false
+        }
+      }
+    ],
+    "baseTexture": "techjacketdisplay2.png",
+    "overlayTarget": "Ingame",
+    "displayCondition": {
+      "name": "TechJacketHUDDisplayOverlayIngame"
+    },
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

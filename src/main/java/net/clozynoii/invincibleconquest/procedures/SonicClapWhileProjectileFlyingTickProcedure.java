@@ -88,9 +88,9 @@ public class SonicClapWhileProjectileFlyingTickProcedure {
 								vecX = entity.getLookAngle().x / magnitude;
 								vecY = entity.getLookAngle().y / magnitude;
 								vecZ = entity.getLookAngle().z / magnitude;
-								vecX = vecX * (2 + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength / 1.3);
-								vecY = vecY * (2 + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength / 1.3);
-								vecZ = vecZ * (2 + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength / 1.3);
+								vecX = vecX * 2;
+								vecY = vecY * 2;
+								vecZ = vecZ * 2;
 								entityiterator.push(vecX, vecY, vecZ);
 								if (entityiterator instanceof LivingEntity _entity && !_entity.level().isClientSide())
 									_entity.addEffect(new MobEffectInstance(InvincibleConquestModMobEffects.DAMAGE_DESTRUCTION, 30, 0, false, false));
@@ -147,9 +147,9 @@ public class SonicClapWhileProjectileFlyingTickProcedure {
 								vecX = entity.getLookAngle().x / magnitude;
 								vecY = entity.getLookAngle().y / magnitude;
 								vecZ = entity.getLookAngle().z / magnitude;
-								vecX = vecX * (2 + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength / 1.3);
-								vecY = vecY * (2 + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength / 1.3);
-								vecZ = vecZ * (2 + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength / 1.3);
+								vecX = vecX * 2;
+								vecY = vecY * 2;
+								vecZ = vecZ * 2;
 								entityiterator.push(vecX, vecY, vecZ);
 							}
 						}

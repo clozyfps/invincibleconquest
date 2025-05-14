@@ -102,7 +102,7 @@
     "raidCelebrationSound": {
       "value": ""
     },
-    "onPlayerCollidesWith": {
+    "onMobTickUpdate": {
       "name": "EnterMars"
     },
     "hasAI": true,

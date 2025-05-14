@@ -126,6 +126,15 @@ public class InvincibleConquestModVariables {
 			clone.ReturnMove6 = original.ReturnMove6;
 			clone.PlayerAbilityTable = original.PlayerAbilityTable;
 			clone.Balance = original.Balance;
+			clone.Reputation = original.Reputation;
+			clone.SoldierType = original.SoldierType;
+			clone.XJet = original.XJet;
+			clone.ZJet = original.ZJet;
+			clone.HeroSlot1 = original.HeroSlot1;
+			clone.HeroSlot2 = original.HeroSlot2;
+			clone.HeroSlot3 = original.HeroSlot3;
+			clone.HeroSlot4 = original.HeroSlot4;
+			clone.HeroSlot5 = original.HeroSlot5;
 			if (!event.isWasDeath()) {
 				clone.Cooldown1a = original.Cooldown1a;
 				clone.Cooldown2a = original.Cooldown2a;
@@ -152,6 +161,7 @@ public class InvincibleConquestModVariables {
 				clone.VerticalMovement = original.VerticalMovement;
 				clone.CounterAttack = original.CounterAttack;
 				clone.EntityUUID = original.EntityUUID;
+				clone.Cost = original.Cost;
 			}
 			event.getEntity().setData(PLAYER_VARIABLES, clone);
 		}
@@ -237,6 +247,14 @@ public class InvincibleConquestModVariables {
 		public double BreakPoints = 0.0;
 		public double WaveTimer = 0.0;
 		public double WageTimer = 24000.0;
+		public String SavageOwner = "";
+		public String SavagePlanetOwner = "Rognarrs";
+		public boolean DaylightChanged = false;
+		public double eventtimer = 0;
+		public double GlobalX = 0;
+		public double GlobalY = 0;
+		public double GlobalZ = 0;
+		public String Event = "\"\"";
 
 		public static MapVariables load(CompoundTag tag, HolderLookup.Provider lookupProvider) {
 			MapVariables data = new MapVariables();
@@ -265,6 +283,14 @@ public class InvincibleConquestModVariables {
 			BreakPoints = nbt.getDouble("BreakPoints");
 			WaveTimer = nbt.getDouble("WaveTimer");
 			WageTimer = nbt.getDouble("WageTimer");
+			SavageOwner = nbt.getString("SavageOwner");
+			SavagePlanetOwner = nbt.getString("SavagePlanetOwner");
+			DaylightChanged = nbt.getBoolean("DaylightChanged");
+			eventtimer = nbt.getDouble("eventtimer");
+			GlobalX = nbt.getDouble("GlobalX");
+			GlobalY = nbt.getDouble("GlobalY");
+			GlobalZ = nbt.getDouble("GlobalZ");
+			Event = nbt.getString("Event");
 		}
 
 		@Override
@@ -289,6 +315,14 @@ public class InvincibleConquestModVariables {
 			nbt.putDouble("BreakPoints", BreakPoints);
 			nbt.putDouble("WaveTimer", WaveTimer);
 			nbt.putDouble("WageTimer", WageTimer);
+			nbt.putString("SavageOwner", SavageOwner);
+			nbt.putString("SavagePlanetOwner", SavagePlanetOwner);
+			nbt.putBoolean("DaylightChanged", DaylightChanged);
+			nbt.putDouble("eventtimer", eventtimer);
+			nbt.putDouble("GlobalX", GlobalX);
+			nbt.putDouble("GlobalY", GlobalY);
+			nbt.putDouble("GlobalZ", GlobalZ);
+			nbt.putString("Event", Event);
 			return nbt;
 		}
 
@@ -391,7 +425,7 @@ public class InvincibleConquestModVariables {
 		public boolean KeyHeld = false;
 		public double InputDelay = 0.0;
 		public boolean JoinedWorld = false;
-		public String SelectedMove = "";
+		public String SelectedMove = "\"\"";
 		public double AgeBoost = 0.0;
 		public double RegenTimer = 0.0;
 		public double PlayerCurrentStamina = 100.0;
@@ -403,13 +437,13 @@ public class InvincibleConquestModVariables {
 		public String FlightDirection = "";
 		public boolean NoCooldowns = false;
 		public boolean Barraging = false;
-		public String UnlockedSkills = "";
+		public String UnlockedSkills = "\"\"";
 		public String PlayerFaction = "None";
 		public String PlayerFactionRank = "None";
 		public double PlayerReputation = 0.0;
 		public String FactionInvites = ", ";
 		public String GrabbedEntity = "";
-		public String DimensionList = "\"\"";
+		public String DimensionList = "";
 		public double VerticalMovement = 0;
 		public double CounterAttack = 0;
 		public boolean AwakenedAtomEve = false;
@@ -432,8 +466,18 @@ public class InvincibleConquestModVariables {
 		public double ReturnMove4 = 0;
 		public double ReturnMove5 = 0;
 		public double ReturnMove6 = 0;
-		public String PlayerAbilityTable = "\"\"";
+		public String PlayerAbilityTable = "";
 		public double Balance = 0;
+		public double Reputation = 0;
+		public double Cost = 0;
+		public String SoldierType = "";
+		public double XJet = 0;
+		public double ZJet = 0;
+		public String HeroSlot1 = "";
+		public String HeroSlot2 = "";
+		public String HeroSlot3 = "";
+		public String HeroSlot4 = "";
+		public String HeroSlot5 = "";
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
@@ -522,6 +566,16 @@ public class InvincibleConquestModVariables {
 			nbt.putDouble("ReturnMove6", ReturnMove6);
 			nbt.putString("PlayerAbilityTable", PlayerAbilityTable);
 			nbt.putDouble("Balance", Balance);
+			nbt.putDouble("Reputation", Reputation);
+			nbt.putDouble("Cost", Cost);
+			nbt.putString("SoldierType", SoldierType);
+			nbt.putDouble("XJet", XJet);
+			nbt.putDouble("ZJet", ZJet);
+			nbt.putString("HeroSlot1", HeroSlot1);
+			nbt.putString("HeroSlot2", HeroSlot2);
+			nbt.putString("HeroSlot3", HeroSlot3);
+			nbt.putString("HeroSlot4", HeroSlot4);
+			nbt.putString("HeroSlot5", HeroSlot5);
 			return nbt;
 		}
 
@@ -611,6 +665,16 @@ public class InvincibleConquestModVariables {
 			ReturnMove6 = nbt.getDouble("ReturnMove6");
 			PlayerAbilityTable = nbt.getString("PlayerAbilityTable");
 			Balance = nbt.getDouble("Balance");
+			Reputation = nbt.getDouble("Reputation");
+			Cost = nbt.getDouble("Cost");
+			SoldierType = nbt.getString("SoldierType");
+			XJet = nbt.getDouble("XJet");
+			ZJet = nbt.getDouble("ZJet");
+			HeroSlot1 = nbt.getString("HeroSlot1");
+			HeroSlot2 = nbt.getString("HeroSlot2");
+			HeroSlot3 = nbt.getString("HeroSlot3");
+			HeroSlot4 = nbt.getString("HeroSlot4");
+			HeroSlot5 = nbt.getString("HeroSlot5");
 		}
 
 		public void syncPlayerVariables(Entity entity) {

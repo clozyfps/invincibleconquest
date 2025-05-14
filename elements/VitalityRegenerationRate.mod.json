@@ -1,0 +1,12 @@
+{
+  "_fv": 73,
+  "_type": "gamerule",
+  "definition": {
+    "type": "Number",
+    "displayName": "Vitality Regeneration Rate",
+    "description": "The amount of health healed per second that max Vitality provides",
+    "category": "PLAYER",
+    "defaultValueLogic": false,
+    "defaultValueNumber": 4
+  }
+}

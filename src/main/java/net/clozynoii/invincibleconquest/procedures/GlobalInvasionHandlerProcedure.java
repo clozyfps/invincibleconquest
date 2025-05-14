@@ -10,6 +10,8 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
@@ -23,10 +25,12 @@ import net.minecraft.core.BlockPos;
 import net.clozynoii.invincibleconquest.network.InvincibleConquestModVariables;
 import net.clozynoii.invincibleconquest.init.InvincibleConquestModEntities;
 import net.clozynoii.invincibleconquest.entity.ConquestEntity;
+import net.clozynoii.invincibleconquest.entity.AttackJetEntity;
 import net.clozynoii.invincibleconquest.entity.AnissaEntity;
 
 import javax.annotation.Nullable;
 
+import java.util.Comparator;
 import java.util.ArrayList;
 
 @EventBusSubscriber
@@ -58,8 +62,24 @@ public class GlobalInvasionHandlerProcedure {
 											}
 										}
 									}
+									if (world instanceof ServerLevel _level) {
+										Entity entityToSpawn = InvincibleConquestModEntities.ATTACK_JET.get().spawn(_level,
+												BlockPos.containing(entityiterator.getX() + Mth.nextInt(RandomSource.create(), -5, 5), entityiterator.getY(), entityiterator.getZ() + Mth.nextInt(RandomSource.create(), -55, 5)),
+												MobSpawnType.MOB_SUMMONED);
+										if (entityToSpawn != null) {
+										}
+									}
+									if (!world.getEntitiesOfClass(AttackJetEntity.class, AABB.ofSize(new Vec3((entityiterator.getX()), (entityiterator.getY()), (entityiterator.getZ())), 100, 100, 100), e -> true).isEmpty()) {
+										if (((Entity) world.getEntitiesOfClass(AttackJetEntity.class, AABB.ofSize(new Vec3((entityiterator.getX()), (entityiterator.getY()), (entityiterator.getZ())), 100, 100, 100), e -> true).stream()
+												.sorted(new Object() {
+													Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+														return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
+													}
+												}.compareDistOf((entityiterator.getX()), (entityiterator.getY()), (entityiterator.getZ()))).findFirst().orElse(null)) instanceof Mob _entity && entityiterator instanceof LivingEntity _ent)
+											_entity.setTarget(_ent);
+									}
 								}
-								InvincibleConquestModVariables.MapVariables.get(world).WaveTimer = 6000;
+								InvincibleConquestModVariables.MapVariables.get(world).WaveTimer = 10000;
 								InvincibleConquestModVariables.MapVariables.get(world).syncData(world);
 							}
 						}
@@ -93,7 +113,7 @@ public class GlobalInvasionHandlerProcedure {
 										}
 									}
 								}
-								InvincibleConquestModVariables.MapVariables.get(world).WaveTimer = 6000;
+								InvincibleConquestModVariables.MapVariables.get(world).WaveTimer = 10000;
 								InvincibleConquestModVariables.MapVariables.get(world).syncData(world);
 							}
 						}
@@ -143,7 +163,7 @@ public class GlobalInvasionHandlerProcedure {
 										}
 									}
 								}
-								InvincibleConquestModVariables.MapVariables.get(world).WaveTimer = 6000;
+								InvincibleConquestModVariables.MapVariables.get(world).WaveTimer = 10000;
 								InvincibleConquestModVariables.MapVariables.get(world).syncData(world);
 							}
 						}
@@ -152,6 +172,27 @@ public class GlobalInvasionHandlerProcedure {
 						if ((entityiterator.level().dimension()) == ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("invincible_conquest:talescria_world"))) {
 							InvincibleConquestModVariables.MapVariables.get(world).PlanetOccupied = true;
 							InvincibleConquestModVariables.MapVariables.get(world).syncData(world);
+						}
+					}
+					if ((InvincibleConquestModVariables.MapVariables.get(world).PlanetTakeover).equals("Savage Planet")) {
+						if ((entityiterator.level().dimension()) == ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("invincible_conquest:savage_world"))) {
+							InvincibleConquestModVariables.MapVariables.get(world).PlanetOccupied = true;
+							InvincibleConquestModVariables.MapVariables.get(world).syncData(world);
+							if (InvincibleConquestModVariables.MapVariables.get(world).WaveTimer == 0) {
+								if ((InvincibleConquestModVariables.MapVariables.get(world).HomeFaction).equals("Rognarrs")) {
+									for (int index2 = 0; index2 < 5; index2++) {
+										if (world instanceof ServerLevel _level) {
+											Entity entityToSpawn = InvincibleConquestModEntities.ROGNARR.get().spawn(_level,
+													BlockPos.containing(entityiterator.getX() + Mth.nextInt(RandomSource.create(), -20, 20), entityiterator.getY() + 5, entityiterator.getZ() + Mth.nextInt(RandomSource.create(), -20, 20)),
+													MobSpawnType.MOB_SUMMONED);
+											if (entityToSpawn != null) {
+											}
+										}
+									}
+								}
+								InvincibleConquestModVariables.MapVariables.get(world).WaveTimer = 800;
+								InvincibleConquestModVariables.MapVariables.get(world).syncData(world);
+							}
 						}
 					}
 				}
@@ -233,6 +274,9 @@ public class GlobalInvasionHandlerProcedure {
 				} else if ((InvincibleConquestModVariables.MapVariables.get(world).PlanetTakeover).equals("Talescria")) {
 					InvincibleConquestModVariables.MapVariables.get(world).TalescriaOwner = InvincibleConquestModVariables.MapVariables.get(world).InvadingFaction;
 					InvincibleConquestModVariables.MapVariables.get(world).syncData(world);
+				} else if ((InvincibleConquestModVariables.MapVariables.get(world).PlanetTakeover).equals("Savage Planet")) {
+					InvincibleConquestModVariables.MapVariables.get(world).SavagePlanetOwner = InvincibleConquestModVariables.MapVariables.get(world).InvadingFaction;
+					InvincibleConquestModVariables.MapVariables.get(world).syncData(world);
 				}
 				for (Entity entityiterator : new ArrayList<>(world.players())) {
 					if ((InvincibleConquestModVariables.MapVariables.get(world).PlanetTakeover).equals("Earth")) {
@@ -277,6 +321,16 @@ public class GlobalInvasionHandlerProcedure {
 					}
 					if ((InvincibleConquestModVariables.MapVariables.get(world).PlanetTakeover).equals("Talescria")) {
 						if ((entityiterator.level().dimension()) == ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("invincible_conquest:talescria_world"))
+								&& (entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFaction).equals(InvincibleConquestModVariables.MapVariables.get(world).InvadingFaction)) {
+							{
+								InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
+								_vars.PlayerReputation = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerReputation + 100;
+								_vars.syncPlayerVariables(entityiterator);
+							}
+						}
+					}
+					if ((InvincibleConquestModVariables.MapVariables.get(world).PlanetTakeover).equals("Savage Planet")) {
+						if ((entityiterator.level().dimension()) == ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("invincible_conquest:savage_world"))
 								&& (entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFaction).equals(InvincibleConquestModVariables.MapVariables.get(world).InvadingFaction)) {
 							{
 								InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
@@ -355,6 +409,16 @@ public class GlobalInvasionHandlerProcedure {
 					}
 					if ((InvincibleConquestModVariables.MapVariables.get(world).PlanetTakeover).equals("Talescria")) {
 						if ((entityiterator.level().dimension()) == ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("invincible_conquest:talescria_world"))
+								&& (entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFaction).equals(InvincibleConquestModVariables.MapVariables.get(world).HomeFaction)) {
+							{
+								InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
+								_vars.PlayerReputation = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerReputation + 100;
+								_vars.syncPlayerVariables(entityiterator);
+							}
+						}
+					}
+					if ((InvincibleConquestModVariables.MapVariables.get(world).PlanetTakeover).equals("Savage Planet")) {
+						if ((entityiterator.level().dimension()) == ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("invincible_conquest:savage_world"))
 								&& (entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFaction).equals(InvincibleConquestModVariables.MapVariables.get(world).HomeFaction)) {
 							{
 								InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);

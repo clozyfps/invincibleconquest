@@ -8,7 +8,7 @@ public class ReturnHasAbilityProcedure {
 	public static boolean execute(Entity entity) {
 		if (entity == null)
 			return false;
-		if (!(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("None") && !(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Human")) {
+		if (!(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("None")) {
 			return true;
 		}
 		return false;

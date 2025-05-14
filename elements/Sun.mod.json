@@ -7,7 +7,7 @@
     "mobModelTexture": "sun.png",
     "mobModelGlowTexture": "",
     "visualScale": {
-      "fixedValue": 10.0
+      "fixedValue": 15.0
     },
     "boundingBoxScale": {
       "fixedValue": 5.0

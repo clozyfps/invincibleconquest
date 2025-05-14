@@ -17,7 +17,7 @@ public class UnlockSlamProcedure {
 			return;
 		boolean gate = false;
 		gate = false;
-		if (!entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills.contains(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move3Name + ", ") && gate == false) {
+		if (!entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills.contains("Slam" + ", ") && gate == false) {
 			if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerSkillPoints >= entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move3Cost) {
 				{
 					InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
@@ -29,7 +29,7 @@ public class UnlockSlamProcedure {
 							("playsound minecraft:entity.experience_orb.pickup master " + entity.getDisplayName().getString() + " ~ ~ ~ 0.7 1"));
 				{
 					InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-					_vars.UnlockedSkills = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills + "" + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move3Name + ", ";
+					_vars.UnlockedSkills = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills + "Slam" + ", ";
 					_vars.syncPlayerVariables(entity);
 				}
 				gate = true;
@@ -40,10 +40,10 @@ public class UnlockSlamProcedure {
 				gate = true;
 			}
 		}
-		if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills.contains(entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move3Name + ", ") && gate == false) {
+		if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).UnlockedSkills.contains("Slam" + ", ") && gate == false) {
 			{
 				InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-				_vars.GUISelectedEntry = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Move3Name;
+				_vars.GUISelectedEntry = "Slam";
 				_vars.syncPlayerVariables(entity);
 			}
 			if (world instanceof ServerLevel _level)

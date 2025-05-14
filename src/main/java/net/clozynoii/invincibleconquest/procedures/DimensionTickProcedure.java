@@ -27,7 +27,9 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.core.BlockPos;
 
 import net.clozynoii.invincibleconquest.network.InvincibleConquestModVariables;
+import net.clozynoii.invincibleconquest.init.InvincibleConquestModMobEffects;
 import net.clozynoii.invincibleconquest.init.InvincibleConquestModItems;
+import net.clozynoii.invincibleconquest.entity.SpaceshipEntity;
 
 import javax.annotation.Nullable;
 
@@ -84,29 +86,60 @@ public class DimensionTickProcedure {
 								if (_ent instanceof ServerPlayer _serverPlayer)
 									_serverPlayer.connection.teleport(700, 125, 900, _ent.getYRot(), _ent.getXRot());
 							}
+						} else if ((entityiterator.level().dimension()) == ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("invincible_conquest:savage_world"))) {
+							{
+								Entity _ent = entityiterator;
+								_ent.teleportTo(300, 125, 600);
+								if (_ent instanceof ServerPlayer _serverPlayer)
+									_serverPlayer.connection.teleport(300, 125, 600, _ent.getYRot(), _ent.getXRot());
+							}
 						}
-						if (entityiterator instanceof ServerPlayer _player && !_player.level().isClientSide()) {
-							ResourceKey<Level> destinationType = ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("invincible_conquest:space"));
-							if (_player.level().dimension() == destinationType)
-								return;
-							ServerLevel nextLevel = _player.server.getLevel(destinationType);
-							if (nextLevel != null) {
-								_player.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.WIN_GAME, 0));
-								_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), _player.getYRot(), _player.getXRot());
-								_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
-								for (MobEffectInstance _effectinstance : _player.getActiveEffects())
-									_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance, false));
-								_player.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
+						if (entityiterator.isPassenger()) {
+							if ((entityiterator.getVehicle()) instanceof SpaceshipEntity) {
+								entityiterator.getPersistentData().putDouble("oldfuel", ((entityiterator.getVehicle()) instanceof SpaceshipEntity _datEntI ? _datEntI.getEntityData().get(SpaceshipEntity.DATA_Fuel) : 0));
+								entityiterator.getPersistentData().putDouble("oldhealth", ((entityiterator.getVehicle()) instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1));
+								if (entityiterator instanceof LivingEntity _entity && !_entity.level().isClientSide())
+									_entity.addEffect(new MobEffectInstance(InvincibleConquestModMobEffects.TAMED_SPACE_EFFECTG, 15, 1, false, false));
+								if (entityiterator instanceof ServerPlayer _player && !_player.level().isClientSide()) {
+									ResourceKey<Level> destinationType = ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("invincible_conquest:space"));
+									if (_player.level().dimension() == destinationType)
+										return;
+									ServerLevel nextLevel = _player.server.getLevel(destinationType);
+									if (nextLevel != null) {
+										_player.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.WIN_GAME, 0));
+										_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), _player.getYRot(), _player.getXRot());
+										_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
+										for (MobEffectInstance _effectinstance : _player.getActiveEffects())
+											_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance, false));
+										_player.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
+									}
+								}
+							}
+						} else {
+							if (entityiterator instanceof ServerPlayer _player && !_player.level().isClientSide()) {
+								ResourceKey<Level> destinationType = ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("invincible_conquest:space"));
+								if (_player.level().dimension() == destinationType)
+									return;
+								ServerLevel nextLevel = _player.server.getLevel(destinationType);
+								if (nextLevel != null) {
+									_player.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.WIN_GAME, 0));
+									_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), _player.getYRot(), _player.getXRot());
+									_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
+									for (MobEffectInstance _effectinstance : _player.getActiveEffects())
+										_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance, false));
+									_player.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
+								}
 							}
 						}
 					}
 				} else if ((entityiterator.level().dimension()) == ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("invincible_conquest:space"))
 						|| (entityiterator.level().dimension()) == ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("invincible_conquest:moon_world"))
-						|| (entityiterator.level().dimension()) == ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("invincible_conquest:mars_world"))) {
+						|| (entityiterator.level().dimension()) == ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("invincible_conquest:mars_world"))
+						|| (entityiterator.level().dimension()) == ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("invincible_conquest:savage_world"))) {
 					if (!(entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Viltrumite") && !(entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Beast")
 							&& !(entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Atom") && !(entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Robot")) {
 						if (!((entityiterator instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.HEAD) : ItemStack.EMPTY).getItem() == InvincibleConquestModItems.SPACE_HELMET_HELMET.get())) {
-							entityiterator.hurt(new DamageSource(world.holderOrThrow(DamageTypes.DROWN)), 5);
+							entityiterator.hurt(new DamageSource(world.holderOrThrow(DamageTypes.DROWN)), 3);
 						}
 					}
 				}

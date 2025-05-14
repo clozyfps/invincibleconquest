@@ -1,0 +1,7 @@
+{
+  "parent": "invincible_conquest:custom/gda_rifle",
+  "textures": {
+    "0": "invincible_conquest:block/gda_rifle",
+    "particle": "invincible_conquest:item/gunpixel"
+  }
+}

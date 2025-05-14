@@ -10,7 +10,7 @@ public class GUISelectedResetProcedure {
 			return;
 		{
 			InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-			_vars.GUISelectedEntry = "";
+			_vars.GUISelectedEntry = "\"\"";
 			_vars.syncPlayerVariables(entity);
 		}
 	}

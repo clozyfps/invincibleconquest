@@ -209,7 +209,7 @@
         "data": {
           "name": "tooltip_speedster",
           "text": {
-            "fixedValue": "Speedster"
+            "fixedValue": "Speedster (HEAVILY UNDER CONSTRUCTION)"
           },
           "width": 22,
           "height": 22,
@@ -237,7 +237,7 @@
         "data": {
           "name": "tooltip_cloning",
           "text": {
-            "fixedValue": "Cloning"
+            "fixedValue": "Cloning (Disabled For Now)"
           },
           "width": 22,
           "height": 22,
@@ -293,7 +293,7 @@
         "data": {
           "name": "tooltip_atom",
           "text": {
-            "fixedValue": "Atom"
+            "fixedValue": "Atom (WIP)"
           },
           "width": 22,
           "height": 22,
@@ -307,7 +307,7 @@
         "data": {
           "name": "tooltip_robot",
           "text": {
-            "fixedValue": "Robot"
+            "fixedValue": "Robot (WIP)"
           },
           "width": 22,
           "height": 22,

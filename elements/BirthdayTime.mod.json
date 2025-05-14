@@ -1,0 +1,12 @@
+{
+  "_fv": 73,
+  "_type": "gamerule",
+  "definition": {
+    "type": "Number",
+    "displayName": "Birthday Time",
+    "description": "The time in ticks it takes for a player to age up (24000 = 1 Day)",
+    "category": "PLAYER",
+    "defaultValueLogic": false,
+    "defaultValueNumber": 24000
+  }
+}

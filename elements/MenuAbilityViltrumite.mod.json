@@ -664,7 +664,7 @@
         "data": {
           "name": "tooltip_sonic_clap",
           "text": {
-            "fixedValue": "Sonic Clap"
+            "fixedValue": "Sonic Clap - 1 SP"
           },
           "width": 22,
           "height": 22,
@@ -678,7 +678,7 @@
         "data": {
           "name": "tooltip_strong_punch",
           "text": {
-            "fixedValue": "Strong Punch"
+            "fixedValue": "Strong Punch - 4 SP"
           },
           "width": 22,
           "height": 22,
@@ -692,7 +692,7 @@
         "data": {
           "name": "tooltip_drag",
           "text": {
-            "fixedValue": "Drag"
+            "fixedValue": "Drag - 7 SP"
           },
           "width": 22,
           "height": 22,
@@ -706,7 +706,7 @@
         "data": {
           "name": "tooltip_chop",
           "text": {
-            "fixedValue": "Chop"
+            "fixedValue": "Chop - 10 SP"
           },
           "width": 22,
           "height": 22,
@@ -720,7 +720,7 @@
         "data": {
           "name": "tooltip_bullet_slam",
           "text": {
-            "fixedValue": "Bullet Slam"
+            "fixedValue": "Bullet Slam - 13 SP"
           },
           "width": 22,
           "height": 22,

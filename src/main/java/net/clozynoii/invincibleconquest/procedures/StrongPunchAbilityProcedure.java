@@ -29,7 +29,7 @@ import net.minecraft.core.BlockPos;
 import net.clozynoii.invincibleconquest.network.InvincibleConquestModVariables;
 import net.clozynoii.invincibleconquest.init.InvincibleConquestModParticleTypes;
 import net.clozynoii.invincibleconquest.init.InvincibleConquestModMobEffects;
-import net.clozynoii.invincibleconquest.configuration.InvincibleConfigConfiguration;
+import net.clozynoii.invincibleconquest.init.InvincibleConquestModGameRules;
 
 import java.util.List;
 import java.util.Comparator;
@@ -50,8 +50,8 @@ public class StrongPunchAbilityProcedure {
 		double targets = 0;
 		double stamindaReduction = 0;
 		double staminacost = 0;
-		stamindaReduction = 30
-				* ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStamina + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100) * (double) InvincibleConfigConfiguration.STMDRAIN.get()) / 100);
+		stamindaReduction = 30 * ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStamina + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100)
+				* (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.STM_STAMINA_DRAIN))) / 100);
 		staminacost = 30 - stamindaReduction;
 		if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerCurrentStamina >= staminacost) {
 			gate = false;
@@ -60,9 +60,8 @@ public class StrongPunchAbilityProcedure {
 				_vars.PlayerCurrentStamina = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerCurrentStamina - staminacost;
 				_vars.syncPlayerVariables(entity);
 			}
-			reduction = 60
-					* ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFocus + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100) * (double) InvincibleConfigConfiguration.FOCCDREDUCE.get())
-							/ 100);
+			reduction = 60 * ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFocus + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100)
+					* (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.FOC_COOLDOWN_REDUCTION))) / 100);
 			outputModifier = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerOutput / 100;
 			cooldown = 60 - reduction;
 			targets = 1;
@@ -209,7 +208,7 @@ public class StrongPunchAbilityProcedure {
 								_level.sendParticles((SimpleParticleType) (InvincibleConquestModParticleTypes.BLOOD_DRIP.get()), (entityiterator.getX()), (entityiterator.getY() + 0.5), (entityiterator.getZ()), 40, 1, 1, 1, 0);
 							entityiterator.hurt(new DamageSource(world.holderOrThrow(DamageTypes.GENERIC), entity),
 									(float) (10 + ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost)
-											/ (100 / (double) InvincibleConfigConfiguration.STRDAMAGE.get())) * outputModifier));
+											/ (100 / (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.STRENGTH_ATTACK_DAMAGE)))) * outputModifier));
 							if (entityiterator instanceof LivingEntity _entity && !_entity.level().isClientSide())
 								_entity.addEffect(new MobEffectInstance(InvincibleConquestModMobEffects.BACKWARDS_TUMBLE, (int) (10 + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength), 0, false, false));
 							if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())

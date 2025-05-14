@@ -17,10 +17,10 @@ public class SpeedsterMoves1aProcedure {
 					MultiHitAbilityProcedure.execute(world, x, y, z, entity);
 				}
 				if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability1a).equals("Time Stop")) {
-					AbilityUppercutProcedure.execute(world, x, y, z, entity);
+					TimeStopAbilityProcedure.execute(world, x, y, z, entity);
 				}
 				if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability1a).equals("Flash Time")) {
-					AbilitySlamProcedure.execute(world, x, y, z, entity);
+					FlashTimeAbilityProcedure.execute(entity);
 				}
 			}
 		} else {

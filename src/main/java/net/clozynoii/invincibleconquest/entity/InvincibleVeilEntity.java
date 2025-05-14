@@ -17,12 +17,10 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.Explosion;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
@@ -141,8 +139,6 @@ public class InvincibleVeilEntity extends TamableAnimal implements GeoEntity {
 	public boolean hurt(DamageSource source, float amount) {
 		if (source.is(DamageTypes.IN_FIRE))
 			return false;
-		if (source.getDirectEntity() instanceof AbstractArrow)
-			return false;
 		if (source.is(DamageTypes.FALL))
 			return false;
 		if (source.is(DamageTypes.CACTUS))
@@ -151,8 +147,6 @@ public class InvincibleVeilEntity extends TamableAnimal implements GeoEntity {
 			return false;
 		if (source.is(DamageTypes.LIGHTNING_BOLT))
 			return false;
-		if (source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.PLAYER_EXPLOSION))
-			return false;
 		if (source.is(DamageTypes.TRIDENT))
 			return false;
 		if (source.is(DamageTypes.FALLING_ANVIL))
@@ -160,11 +154,6 @@ public class InvincibleVeilEntity extends TamableAnimal implements GeoEntity {
 		if (source.is(DamageTypes.DRAGON_BREATH))
 			return false;
 		return super.hurt(source, amount);
-	}
-
-	@Override
-	public boolean ignoreExplosion(Explosion explosion) {
-		return true;
 	}
 
 	@Override
@@ -281,7 +270,7 @@ public class InvincibleVeilEntity extends TamableAnimal implements GeoEntity {
 		builder = builder.add(Attributes.MAX_HEALTH, 200);
 		builder = builder.add(Attributes.ARMOR, 20);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 15);
-		builder = builder.add(Attributes.FOLLOW_RANGE, 16);
+		builder = builder.add(Attributes.FOLLOW_RANGE, 100);
 		builder = builder.add(Attributes.STEP_HEIGHT, 0.6);
 		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 0.3);
 		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 0.3);

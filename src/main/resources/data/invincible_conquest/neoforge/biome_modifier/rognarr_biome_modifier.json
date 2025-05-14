@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "invincible_conquest:flaxan_plains",
+  "spawners": {
+    "type": "invincible_conquest:rognarr",
+    "weight": 3,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

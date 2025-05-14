@@ -9,11 +9,9 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.api.distmarker.Dist;
 
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.gui.components.EditBox;
-import net.minecraft.client.Minecraft;
-
-import net.clozynoii.invincibleconquest.init.InvincibleConquestModMenus.GuiSyncMessage;
+import net.clozynoii.invincibleconquest.client.gui.TheHammerGUIScreen;
+import net.clozynoii.invincibleconquest.client.gui.TeleportGUIScreen;
+import net.clozynoii.invincibleconquest.client.gui.SpaceshipSlotScreen;
 import net.clozynoii.invincibleconquest.client.gui.MenuStatsScreen;
 import net.clozynoii.invincibleconquest.client.gui.MenuPlanetTakeoverScreen;
 import net.clozynoii.invincibleconquest.client.gui.MenuFactionStatsScreen;
@@ -24,20 +22,23 @@ import net.clozynoii.invincibleconquest.client.gui.MenuAbilitySpeedsterScreen;
 import net.clozynoii.invincibleconquest.client.gui.MenuAbilitySelectionScreen;
 import net.clozynoii.invincibleconquest.client.gui.MenuAbilityRobotScreen;
 import net.clozynoii.invincibleconquest.client.gui.MenuAbilityPortalScreen;
+import net.clozynoii.invincibleconquest.client.gui.MenuAbilityGDAScreen;
 import net.clozynoii.invincibleconquest.client.gui.MenuAbilityExplodeScreen;
 import net.clozynoii.invincibleconquest.client.gui.MenuAbilityCloningScreen;
 import net.clozynoii.invincibleconquest.client.gui.MenuAbilityBeastScreen;
 import net.clozynoii.invincibleconquest.client.gui.MenuAbilityBasicScreen;
 import net.clozynoii.invincibleconquest.client.gui.MenuAbilityAtomScreen;
 import net.clozynoii.invincibleconquest.client.gui.MENUABILITYBLANKScreen;
+import net.clozynoii.invincibleconquest.client.gui.HeroSelectorScreen;
 import net.clozynoii.invincibleconquest.client.gui.GalacticMapGUIScreen;
+import net.clozynoii.invincibleconquest.client.gui.GDASoldierGUIScreen;
+import net.clozynoii.invincibleconquest.client.gui.GDASlotButtonsScreen;
+import net.clozynoii.invincibleconquest.client.gui.FigherJetGUIScreen;
 import net.clozynoii.invincibleconquest.client.gui.FactionJoinViltrumScreen;
 import net.clozynoii.invincibleconquest.client.gui.FactionJoinGDAScreen;
 import net.clozynoii.invincibleconquest.client.gui.FactionJoinCOPScreen;
 import net.clozynoii.invincibleconquest.client.gui.DimensionSelectorScreen;
 import net.clozynoii.invincibleconquest.client.gui.AtomEveCreationScreen;
-
-import java.util.HashMap;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class InvincibleConquestModScreens {
@@ -65,22 +66,13 @@ public class InvincibleConquestModScreens {
 		event.register(InvincibleConquestModMenus.MENUABILITYBLANK.get(), MENUABILITYBLANKScreen::new);
 		event.register(InvincibleConquestModMenus.DIMENSION_SELECTOR.get(), DimensionSelectorScreen::new);
 		event.register(InvincibleConquestModMenus.ATOM_EVE_CREATION.get(), AtomEveCreationScreen::new);
-	}
-
-	static void handleTextBoxMessage(GuiSyncMessage message) {
-		String editbox = message.editbox();
-		String value = message.value();
-		Screen currentScreen = Minecraft.getInstance().screen;
-		if (currentScreen instanceof WidgetScreen sc) {
-			HashMap<String, Object> widgets = sc.getWidgets();
-			Object obj = widgets.get("text:" + editbox);
-			if (obj instanceof EditBox box) {
-				box.setValue(value);
-			}
-		}
-	}
-
-	public interface WidgetScreen {
-		HashMap<String, Object> getWidgets();
+		event.register(InvincibleConquestModMenus.MENU_ABILITY_GDA.get(), MenuAbilityGDAScreen::new);
+		event.register(InvincibleConquestModMenus.GDA_SOLDIER_GUI.get(), GDASoldierGUIScreen::new);
+		event.register(InvincibleConquestModMenus.FIGHER_JET_GUI.get(), FigherJetGUIScreen::new);
+		event.register(InvincibleConquestModMenus.GDA_SLOT_BUTTONS.get(), GDASlotButtonsScreen::new);
+		event.register(InvincibleConquestModMenus.HERO_SELECTOR.get(), HeroSelectorScreen::new);
+		event.register(InvincibleConquestModMenus.SPACESHIP_SLOT.get(), SpaceshipSlotScreen::new);
+		event.register(InvincibleConquestModMenus.THE_HAMMER_GUI.get(), TheHammerGUIScreen::new);
+		event.register(InvincibleConquestModMenus.TELEPORT_GUI.get(), TeleportGUIScreen::new);
 	}
 }

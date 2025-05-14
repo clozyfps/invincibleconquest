@@ -11,6 +11,9 @@ public class MenuAbilityBasicWhileThisGUIIsOpenTickProcedure {
 		if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Viltrumite")) {
 			MenuAbilityViltrumiteWhileThisGUIIsOpenTickProcedure.execute(entity);
 		}
+		if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Human")) {
+			MenuAbilityViltrumiteWhileThisGUIIsOpenTickProcedure.execute(entity);
+		}
 		if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Speedster")) {
 			MenuAbilitySpeedsterWhileThisGUIIsOpenTickProcedure.execute(entity);
 		}
@@ -36,6 +39,9 @@ public class MenuAbilityBasicWhileThisGUIIsOpenTickProcedure {
 		}
 		if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Tech Jacket")) {
 			MenuAbilityTechJacketWhileThisGUIIsOpenTickProcedure.execute(entity);
+		}
+		if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Human")) {
+			MenuAbilityGDAWhileThisGUIIsOpenTickProcedure.execute(entity);
 		}
 	}
 }

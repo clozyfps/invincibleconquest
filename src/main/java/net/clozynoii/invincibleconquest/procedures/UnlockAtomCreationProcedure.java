@@ -23,7 +23,7 @@ public class UnlockAtomCreationProcedure {
 					if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AwakenedAtomEve) {
 						{
 							InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-							_vars.PlayerSkillPoints = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerSkillPoints - 1;
+							_vars.PlayerSkillPoints = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerSkillPoints - 20;
 							_vars.syncPlayerVariables(entity);
 						}
 						if (world instanceof ServerLevel _level)

@@ -60,6 +60,12 @@ public class InitiateHostileTakeoverProcedure {
 				InvincibleConquestModVariables.MapVariables.get(world).HomeFaction = InvincibleConquestModVariables.MapVariables.get(world).TalescriaOwner;
 				InvincibleConquestModVariables.MapVariables.get(world).syncData(world);
 			}
+			if ((entity.level().dimension()) == ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("invincible_conquest:savage_world"))) {
+				InvincibleConquestModVariables.MapVariables.get(world).PlanetTakeover = "Savage Planet";
+				InvincibleConquestModVariables.MapVariables.get(world).syncData(world);
+				InvincibleConquestModVariables.MapVariables.get(world).HomeFaction = InvincibleConquestModVariables.MapVariables.get(world).SavageOwner;
+				InvincibleConquestModVariables.MapVariables.get(world).syncData(world);
+			}
 			if (!world.isClientSide() && world.getServer() != null)
 				world.getServer().getPlayerList().broadcastSystemMessage(
 						Component.literal(("<> " + InvincibleConquestModVariables.MapVariables.get(world).PlanetTakeover + " is being invaded by " + InvincibleConquestModVariables.MapVariables.get(world).InvadingFaction)), false);

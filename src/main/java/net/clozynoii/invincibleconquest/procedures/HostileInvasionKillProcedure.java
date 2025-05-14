@@ -110,6 +110,21 @@ public class HostileInvasionKillProcedure {
 							InvincibleConquestModVariables.MapVariables.get(world).syncData(world);
 						}
 					}
+				} else if ((InvincibleConquestModVariables.MapVariables.get(world).PlanetTakeover).equals("Savage Planet")) {
+					if ((InvincibleConquestModVariables.MapVariables.get(world).PlanetTakeover).equals("Savage Planet")) {
+						if ((sourceentity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFaction).equals(InvincibleConquestModVariables.MapVariables.get(world).InvadingFaction) && entity instanceof Player) {
+							InvincibleConquestModVariables.MapVariables.get(world).TakeoverScore = InvincibleConquestModVariables.MapVariables.get(world).TakeoverScore + 5;
+							InvincibleConquestModVariables.MapVariables.get(world).syncData(world);
+						} else if ((sourceentity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFaction).equals(InvincibleConquestModVariables.MapVariables.get(world).HomeFaction) && entity instanceof Player) {
+							InvincibleConquestModVariables.MapVariables.get(world).TakeoverScore = InvincibleConquestModVariables.MapVariables.get(world).TakeoverScore - 10;
+							InvincibleConquestModVariables.MapVariables.get(world).syncData(world);
+							InvincibleConquestModVariables.MapVariables.get(world).PlanetOccupied = false;
+							InvincibleConquestModVariables.MapVariables.get(world).syncData(world);
+						} else if ((sourceentity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFaction).equals(InvincibleConquestModVariables.MapVariables.get(world).InvadingFaction)) {
+							InvincibleConquestModVariables.MapVariables.get(world).HOSTILELivesTaken = InvincibleConquestModVariables.MapVariables.get(world).HOSTILELivesTaken + 1;
+							InvincibleConquestModVariables.MapVariables.get(world).syncData(world);
+						}
+					}
 				}
 			}
 		}

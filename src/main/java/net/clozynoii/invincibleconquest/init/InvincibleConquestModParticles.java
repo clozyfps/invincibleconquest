@@ -19,6 +19,7 @@ import net.clozynoii.invincibleconquest.client.particle.PressureParticleParticle
 import net.clozynoii.invincibleconquest.client.particle.PinkSmokeParticle;
 import net.clozynoii.invincibleconquest.client.particle.PinkElectricityParticle;
 import net.clozynoii.invincibleconquest.client.particle.PinkBurstCircleParticle;
+import net.clozynoii.invincibleconquest.client.particle.MuzzleFlashParticle;
 import net.clozynoii.invincibleconquest.client.particle.LargeSmokeParticle;
 import net.clozynoii.invincibleconquest.client.particle.LargeExplosionParticle;
 import net.clozynoii.invincibleconquest.client.particle.GreenBloodLandParticle;
@@ -68,5 +69,6 @@ public class InvincibleConquestModParticles {
 		event.registerSpriteSet(InvincibleConquestModParticleTypes.ELECTRICITY_SMALL.get(), ElectricitySmallParticle::provider);
 		event.registerSpriteSet(InvincibleConquestModParticleTypes.BLUE_BURST.get(), BlueBurstParticle::provider);
 		event.registerSpriteSet(InvincibleConquestModParticleTypes.SMALL_EXPLOSION.get(), SmallExplosionParticle::provider);
+		event.registerSpriteSet(InvincibleConquestModParticleTypes.MUZZLE_FLASH.get(), MuzzleFlashParticle::provider);
 	}
 }

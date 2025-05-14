@@ -678,7 +678,7 @@
         "data": {
           "name": "tooltip_scatter_toss",
           "text": {
-            "fixedValue": "Scatter Toss - 1 SP"
+            "fixedValue": "Scatter Toss - 5 SP"
           },
           "width": 22,
           "height": 22,
@@ -692,7 +692,7 @@
         "data": {
           "name": "tooltip_firework",
           "text": {
-            "fixedValue": "Firework - 1 SP"
+            "fixedValue": "Firework - 10 SP"
           },
           "width": 22,
           "height": 22,
@@ -706,7 +706,7 @@
         "data": {
           "name": "tooltip_ignite",
           "text": {
-            "fixedValue": "Ignite - 1 SP"
+            "fixedValue": "Ignite - 12 SP"
           },
           "width": 22,
           "height": 22,
@@ -720,7 +720,7 @@
         "data": {
           "name": "tooltip_detonate",
           "text": {
-            "fixedValue": "Detonate - 1 SP"
+            "fixedValue": "Detonate - 16 SP"
           },
           "width": 22,
           "height": 22,

@@ -14,10 +14,10 @@ public class ExplodeMoves2bProcedure {
 		if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Cooldown2b == 0) {
 			if (entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).KeyHeld == false && entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).InputDelay == 0) {
 				if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability2b).equals("Charged Toss")) {
-					ChargedTossAbilityProcedure.execute(entity);
+					ChargedTossAbilityProcedure.execute(world, entity);
 				}
 				if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability2b).equals("Scatter Toss")) {
-					ScatterTossAbilityProcedure.execute(entity);
+					ScatterTossAbilityProcedure.execute(world, entity);
 				}
 				if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability2b).equals("Firework")) {
 					FireworkAbilityProcedure.execute(world, x, y, z, entity);

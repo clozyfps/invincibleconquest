@@ -1,0 +1,12 @@
+{
+  "_fv": 73,
+  "_type": "gamerule",
+  "definition": {
+    "type": "Number",
+    "displayName": "STM Stamina Bonus",
+    "description": "The amount of extra stamina that max Stamina provides",
+    "category": "PLAYER",
+    "defaultValueLogic": false,
+    "defaultValueNumber": 400
+  }
+}

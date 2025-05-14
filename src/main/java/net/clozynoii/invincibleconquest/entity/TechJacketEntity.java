@@ -83,7 +83,6 @@ public class TechJacketEntity extends TamableAnimal implements GeoEntity {
 		super(type, world);
 		xpReward = 0;
 		setNoAi(false);
-		this.setItemSlot(EquipmentSlot.HEAD, new ItemStack(InvincibleConquestModItems.TECH_JACKET_ARMOR_HELMET.get()));
 		this.setItemSlot(EquipmentSlot.CHEST, new ItemStack(InvincibleConquestModItems.TECH_JACKET_ARMOR_CHESTPLATE.get()));
 		this.setItemSlot(EquipmentSlot.LEGS, new ItemStack(InvincibleConquestModItems.TECH_JACKET_ARMOR_LEGGINGS.get()));
 		this.setItemSlot(EquipmentSlot.FEET, new ItemStack(InvincibleConquestModItems.TECH_JACKET_ARMOR_BOOTS.get()));

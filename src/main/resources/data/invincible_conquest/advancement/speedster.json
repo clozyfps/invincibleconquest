@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:honeycomb"
+    },
+    "title": {
+      "translate": "advancements.speedster.title"
+    },
+    "description": {
+      "translate": "advancements.speedster.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "speedster_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "invincible_conquest:invincible_conquest"
+}

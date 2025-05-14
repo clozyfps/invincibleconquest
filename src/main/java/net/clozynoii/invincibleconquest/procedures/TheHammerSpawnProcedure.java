@@ -16,6 +16,7 @@ import net.minecraft.core.BlockPos;
 
 import net.clozynoii.invincibleconquest.init.InvincibleConquestModMobEffects;
 import net.clozynoii.invincibleconquest.entity.TheHammerEntity;
+import net.clozynoii.invincibleconquest.InvincibleConquestMod;
 
 import java.util.List;
 import java.util.Comparator;
@@ -24,6 +25,10 @@ public class TheHammerSpawnProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
+		if (!world.getEntitiesOfClass(TheHammerEntity.class, AABB.ofSize(new Vec3(x, y, z), 25, 25, 25), e -> true).isEmpty()) {
+			if (!entity.level().isClientSide())
+				entity.discard();
+		}
 		if (entity instanceof TheHammerEntity) {
 			((TheHammerEntity) entity).setAnimation("beam");
 		}
@@ -46,5 +51,9 @@ public class TheHammerSpawnProcedure {
 				}
 			}
 		}
+		InvincibleConquestMod.queueServerWork(200, () -> {
+			if (!entity.level().isClientSide())
+				entity.discard();
+		});
 	}
 }

@@ -1,0 +1,389 @@
+{
+  "_fv": 73,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 0,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "menu_empty.png",
+          "use1Xscale": false,
+          "x": 1,
+          "y": 0,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "blank_slot.png",
+          "use1Xscale": false,
+          "x": 137,
+          "y": 74,
+          "locked": true
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_dimension_seleciton",
+          "text": {
+            "fixedValue": "Hero Selection"
+          },
+          "color": {
+            "value": -11252677,
+            "falpha": 0.0
+          },
+          "x": 139,
+          "y": 52,
+          "locked": true
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_dimension_selection",
+          "text": {
+            "fixedValue": "Hero Selection"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 138,
+          "y": 51,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "blank_slot.png",
+          "use1Xscale": false,
+          "x": 163,
+          "y": 74,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "blank_slot.png",
+          "use1Xscale": false,
+          "x": 189,
+          "y": 74,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "blank_slot.png",
+          "use1Xscale": false,
+          "x": 215,
+          "y": 74,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "blank_slot.png",
+          "use1Xscale": false,
+          "x": 241,
+          "y": 74,
+          "locked": true
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_blank16x",
+          "image": "blank22x.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "HeroSlot1Use"
+          },
+          "x": 137,
+          "y": 74,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "icon_question.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnLockedHero2"
+          },
+          "x": 166,
+          "y": 77,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "icon_question.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnLockedHero1"
+          },
+          "x": 140,
+          "y": 77,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "icon_question.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnLockedHero3"
+          },
+          "x": 192,
+          "y": 77,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "icon_question.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnUnlockedHero4"
+          },
+          "x": 218,
+          "y": 77,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "icon_question.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnLockedHero5"
+          },
+          "x": 244,
+          "y": 77,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "ability_gda_hero.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnUnlockedHero2"
+          },
+          "x": 166,
+          "y": 77,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "ability_gda_hero.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnUnlockedHero3"
+          },
+          "x": 192,
+          "y": 77,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "ability_gda_hero.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnUnlockedHero4"
+          },
+          "x": 218,
+          "y": 77,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "ability_gda_hero.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnUnlockedHero5"
+          },
+          "x": 244,
+          "y": 77,
+          "locked": true
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_blank22x",
+          "image": "blank22x.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "HeroSlot2Use"
+          },
+          "x": 163,
+          "y": 73,
+          "locked": true
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_blank22x1",
+          "image": "blank22x.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "HeroSlot3Use"
+          },
+          "x": 189,
+          "y": 74,
+          "locked": true
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_blank22x2",
+          "image": "blank22x.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "HeroSlot4Use"
+          },
+          "x": 215,
+          "y": 74,
+          "locked": true
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_blank22x3",
+          "image": "blank22x.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "HeroSlot5Use"
+          },
+          "x": 241,
+          "y": 73,
+          "locked": true
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_proc_return_name_nether",
+          "text": {
+            "fixedValue": "",
+            "name": "HeroSlot3NameReturn"
+          },
+          "width": 24,
+          "height": 24,
+          "x": 188,
+          "y": 72,
+          "locked": false
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_proc_return_name_end",
+          "text": {
+            "fixedValue": "",
+            "name": "HeroSlot4NameReturn"
+          },
+          "width": 24,
+          "height": 24,
+          "x": 214,
+          "y": 72,
+          "locked": false
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_proc_return_name_apocalyptic",
+          "text": {
+            "fixedValue": "",
+            "name": "HeroSlot5NameReturn"
+          },
+          "width": 24,
+          "height": 24,
+          "x": 240,
+          "y": 72,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "ability_gda_hero.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ReturnUnlockedHero1"
+          },
+          "x": 140,
+          "y": 77,
+          "locked": false
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_proc_hero_slot_1_name_return",
+          "text": {
+            "fixedValue": "",
+            "name": "HeroSlot1NameReturn"
+          },
+          "width": 24,
+          "height": 24,
+          "x": 136,
+          "y": 72,
+          "locked": false
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_proc_hero_slot_2_name_return",
+          "text": {
+            "fixedValue": "",
+            "name": "HeroSlot2NameReturn"
+          },
+          "width": 24,
+          "height": 24,
+          "x": 162,
+          "y": 72,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

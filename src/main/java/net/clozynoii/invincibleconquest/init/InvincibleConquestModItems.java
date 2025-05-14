@@ -19,6 +19,8 @@ import net.clozynoii.invincibleconquest.item.TechJacketArmorItem;
 import net.clozynoii.invincibleconquest.item.SpaceHelmetItem;
 import net.clozynoii.invincibleconquest.item.SelectionBookItem;
 import net.clozynoii.invincibleconquest.item.RexSplodeSuitItem;
+import net.clozynoii.invincibleconquest.item.RecruitmentFormItem;
+import net.clozynoii.invincibleconquest.item.ReanimenChipItem;
 import net.clozynoii.invincibleconquest.item.OmnivincibleSuitItem;
 import net.clozynoii.invincibleconquest.item.OmniManSuitItem;
 import net.clozynoii.invincibleconquest.item.MultiPaulSuitItem;
@@ -30,6 +32,8 @@ import net.clozynoii.invincibleconquest.item.InvincibleSuitItem;
 import net.clozynoii.invincibleconquest.item.InvincibleSuitDarkItem;
 import net.clozynoii.invincibleconquest.item.InvincibleSuitBlueItem;
 import net.clozynoii.invincibleconquest.item.GalacticMapItem;
+import net.clozynoii.invincibleconquest.item.GDARifleItem;
+import net.clozynoii.invincibleconquest.item.FleshItem;
 import net.clozynoii.invincibleconquest.item.FlaxanGunItem;
 import net.clozynoii.invincibleconquest.item.FlaxanArmorItem;
 import net.clozynoii.invincibleconquest.item.DupliKateSuitItem;
@@ -135,6 +139,16 @@ public class InvincibleConquestModItems {
 	public static final DeferredItem<Item> TECH_JACKET_ARMOR_LEGGINGS = REGISTRY.register("tech_jacket_armor_leggings", TechJacketArmorItem.Leggings::new);
 	public static final DeferredItem<Item> TECH_JACKET_ARMOR_BOOTS = REGISTRY.register("tech_jacket_armor_boots", TechJacketArmorItem.Boots::new);
 	public static final DeferredItem<Item> PLAYER_CLONE_SPAWN_EGG = REGISTRY.register("player_clone_spawn_egg", () -> new DeferredSpawnEggItem(InvincibleConquestModEntities.PLAYER_CLONE, -1, -1, new Item.Properties()));
+	public static final DeferredItem<Item> GDA_SOLDIER_SPAWN_EGG = REGISTRY.register("gda_soldier_spawn_egg", () -> new DeferredSpawnEggItem(InvincibleConquestModEntities.GDA_SOLDIER, -14869219, -9640908, new Item.Properties()));
+	public static final DeferredItem<Item> GDA_RIFLE = REGISTRY.register("gda_rifle", GDARifleItem::new);
+	public static final DeferredItem<Item> ROGNARR_SPAWN_EGG = REGISTRY.register("rognarr_spawn_egg", () -> new DeferredSpawnEggItem(InvincibleConquestModEntities.ROGNARR, -5686233, -6146503, new Item.Properties()));
+	public static final DeferredItem<Item> REANIMEN_SPAWN_EGG = REGISTRY.register("reanimen_spawn_egg", () -> new DeferredSpawnEggItem(InvincibleConquestModEntities.REANIMEN, -4807049, -10657974, new Item.Properties()));
+	public static final DeferredItem<Item> FLESH = REGISTRY.register("flesh", FleshItem::new);
+	public static final DeferredItem<Item> REANIMEN_CHIP = REGISTRY.register("reanimen_chip", ReanimenChipItem::new);
+	public static final DeferredItem<Item> STEALTH_GDA_SOLDIER_SPAWN_EGG = REGISTRY.register("stealth_gda_soldier_spawn_egg",
+			() -> new DeferredSpawnEggItem(InvincibleConquestModEntities.STEALTH_GDA_SOLDIER, -14869219, -9640908, new Item.Properties()));
+	public static final DeferredItem<Item> HERO_SPAWN_EGG = REGISTRY.register("hero_spawn_egg", () -> new DeferredSpawnEggItem(InvincibleConquestModEntities.HERO, -16750900, -3407770, new Item.Properties()));
+	public static final DeferredItem<Item> RECRUITMENT_FORM = REGISTRY.register("recruitment_form", RecruitmentFormItem::new);
 
 	// Start of user code block custom items
 	// End of user code block custom items

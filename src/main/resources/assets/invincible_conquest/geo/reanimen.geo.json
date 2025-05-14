@@ -1,0 +1,79 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.reanimen",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 4.5,
+				"visible_bounds_offset": [0, 1.75, 0]
+			},
+			"bones": [
+				{
+					"name": "body",
+					"pivot": [0, 43, -1]
+				},
+				{
+					"name": "head",
+					"parent": "body",
+					"pivot": [0, 42, -1],
+					"cubes": [
+						{"origin": [-4, 42, -5], "size": [8, 9, 8], "uv": [78, 57]},
+						{"origin": [-4, 42, -5], "size": [8, 9, 8], "inflate": 0.25, "uv": [78, 74]},
+						{"origin": [-4, 42, -5], "size": [8, 9, 8], "inflate": 0.5, "uv": [84, 29]}
+					]
+				},
+				{
+					"name": "torso",
+					"parent": "body",
+					"pivot": [0, 40, -1],
+					"cubes": [
+						{"origin": [-8.5, 28, -4], "size": [17, 14, 8], "uv": [0, 0]},
+						{"origin": [-8.5, 28, -4], "size": [17, 14, 8], "inflate": 0.25, "uv": [0, 22]},
+						{"origin": [-7, 22, -3.5], "size": [14, 6, 7], "uv": [0, 44]},
+						{"origin": [-7, 21.5, -3.5], "size": [14, 6, 7], "inflate": 0.25, "uv": [42, 44]}
+					]
+				},
+				{
+					"name": "right_arm",
+					"parent": "body",
+					"pivot": [-10.5, 37.75, -1],
+					"cubes": [
+						{"origin": [-14.5, 19.75, -3.5], "size": [6, 22, 7], "uv": [50, 0]},
+						{"origin": [-14.5, 19.75, -3.5], "size": [6, 22, 7], "inflate": 0.25, "uv": [0, 57]}
+					]
+				},
+				{
+					"name": "left_arm",
+					"parent": "body",
+					"pivot": [10.5, 37.75, -1],
+					"cubes": [
+						{"origin": [8.5, 19.75, -3.5], "size": [6, 22, 7], "uv": [50, 0], "mirror": true},
+						{"origin": [10, 35.75, -4], "size": [5, 7, 8], "uv": [0, 96], "mirror": true},
+						{"origin": [8.5, 19.75, -3.5], "size": [6, 22, 7], "inflate": 0.25, "uv": [0, 57], "mirror": true}
+					]
+				},
+				{
+					"name": "right_leg",
+					"parent": "body",
+					"pivot": [-3.5, 21, 0],
+					"cubes": [
+						{"origin": [-6.5, 0, -3.5], "size": [6, 22, 7], "uv": [52, 57]},
+						{"origin": [-6.5, 0, -3.5], "size": [6, 22, 7], "inflate": 0.25, "uv": [76, 0]}
+					]
+				},
+				{
+					"name": "left_leg",
+					"parent": "body",
+					"pivot": [3.5, 21, 0],
+					"cubes": [
+						{"origin": [0.5, 0, -3.5], "size": [6, 22, 7], "uv": [52, 57], "mirror": true},
+						{"origin": [0.5, 0, -3.5], "size": [6, 22, 7], "inflate": 0.25, "uv": [76, 0], "mirror": true}
+					]
+				}
+			]
+		}
+	]
+}

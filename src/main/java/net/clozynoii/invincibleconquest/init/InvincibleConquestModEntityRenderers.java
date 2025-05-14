@@ -20,9 +20,14 @@ import net.clozynoii.invincibleconquest.client.renderer.TheHammerRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.TechJacketRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.TalescriaRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.SunRenderer;
+import net.clozynoii.invincibleconquest.client.renderer.StealthGDASoldierRenderer;
+import net.clozynoii.invincibleconquest.client.renderer.SpaceshipRenderer;
+import net.clozynoii.invincibleconquest.client.renderer.SavagePlanetRenderer;
+import net.clozynoii.invincibleconquest.client.renderer.RognarrRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.RoboBallRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.RexSplodeRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.RedSunRenderer;
+import net.clozynoii.invincibleconquest.client.renderer.ReanimenRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.PlayerCloneRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.OrangeSunRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.OmnivincibleRenderer;
@@ -40,11 +45,16 @@ import net.clozynoii.invincibleconquest.client.renderer.InvincibleMohawkRenderer
 import net.clozynoii.invincibleconquest.client.renderer.InvincibleMasklessRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.InvincibleDarkRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.InvincibleBlueRenderer;
+import net.clozynoii.invincibleconquest.client.renderer.HeroRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.HammerSpawnerRenderer;
+import net.clozynoii.invincibleconquest.client.renderer.HammerSpawner3Renderer;
+import net.clozynoii.invincibleconquest.client.renderer.HammerSpawner2Renderer;
+import net.clozynoii.invincibleconquest.client.renderer.GDASoldierRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.FlaxanRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.FlaxanPortalRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.FlaxanGunmanRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.FireworkMobRenderer;
+import net.clozynoii.invincibleconquest.client.renderer.FighterJetRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.EnergyProjectionRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.EarthRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.DupliKateRenderer;
@@ -52,13 +62,16 @@ import net.clozynoii.invincibleconquest.client.renderer.DinosaurRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.DimensionalPortalRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.ConquestRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.CecilRenderer;
+import net.clozynoii.invincibleconquest.client.renderer.BombRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.BlueSunRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.BattleBeastRenderer;
+import net.clozynoii.invincibleconquest.client.renderer.AttackJetRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.AtomShieldRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.AtomEveRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.AtomBeamRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.AnissaRenderer;
 import net.clozynoii.invincibleconquest.client.renderer.AngstromRenderer;
+import net.clozynoii.invincibleconquest.client.renderer.AfterImageRenderer;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class InvincibleConquestModEntityRenderers {
@@ -119,5 +132,18 @@ public class InvincibleConquestModEntityRenderers {
 		event.registerEntityRenderer(InvincibleConquestModEntities.MACHINE_GUN_PROJECTILE.get(), ThrownItemRenderer::new);
 		event.registerEntityRenderer(InvincibleConquestModEntities.CANNON_PROJECTILE.get(), ThrownItemRenderer::new);
 		event.registerEntityRenderer(InvincibleConquestModEntities.PLAYER_CLONE.get(), PlayerCloneRenderer::new);
+		event.registerEntityRenderer(InvincibleConquestModEntities.GDA_SOLDIER.get(), GDASoldierRenderer::new);
+		event.registerEntityRenderer(InvincibleConquestModEntities.SAVAGE_PLANET.get(), SavagePlanetRenderer::new);
+		event.registerEntityRenderer(InvincibleConquestModEntities.ROGNARR.get(), RognarrRenderer::new);
+		event.registerEntityRenderer(InvincibleConquestModEntities.REANIMEN.get(), ReanimenRenderer::new);
+		event.registerEntityRenderer(InvincibleConquestModEntities.STEALTH_GDA_SOLDIER.get(), StealthGDASoldierRenderer::new);
+		event.registerEntityRenderer(InvincibleConquestModEntities.FIGHTER_JET.get(), FighterJetRenderer::new);
+		event.registerEntityRenderer(InvincibleConquestModEntities.BOMB.get(), BombRenderer::new);
+		event.registerEntityRenderer(InvincibleConquestModEntities.HERO.get(), HeroRenderer::new);
+		event.registerEntityRenderer(InvincibleConquestModEntities.SPACESHIP.get(), SpaceshipRenderer::new);
+		event.registerEntityRenderer(InvincibleConquestModEntities.HAMMER_SPAWNER_2.get(), HammerSpawner2Renderer::new);
+		event.registerEntityRenderer(InvincibleConquestModEntities.HAMMER_SPAWNER_3.get(), HammerSpawner3Renderer::new);
+		event.registerEntityRenderer(InvincibleConquestModEntities.ATTACK_JET.get(), AttackJetRenderer::new);
+		event.registerEntityRenderer(InvincibleConquestModEntities.AFTER_IMAGE.get(), AfterImageRenderer::new);
 	}
 }

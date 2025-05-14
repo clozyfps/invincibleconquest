@@ -25,7 +25,6 @@ import net.minecraft.core.BlockPos;
 import net.clozynoii.invincibleconquest.network.InvincibleConquestModVariables;
 import net.clozynoii.invincibleconquest.init.InvincibleConquestModMobEffects;
 import net.clozynoii.invincibleconquest.init.InvincibleConquestModGameRules;
-import net.clozynoii.invincibleconquest.configuration.InvincibleConfigConfiguration;
 
 import java.util.List;
 import java.util.Comparator;
@@ -123,7 +122,7 @@ public class CraterCreateProcedure {
 					if (!entityiterator.getType().is(TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.parse("invincible_conquest:non_targetable")))) {
 						entityiterator.hurt(new DamageSource(world.holderOrThrow(DamageTypes.GENERIC), entity),
 								(float) (10 + ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost)
-										/ (100 / (double) InvincibleConfigConfiguration.STRDAMAGE.get())) * outputModifier));
+										/ (100 / (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.STRENGTH_ATTACK_DAMAGE)))) * outputModifier));
 					}
 				}
 			}

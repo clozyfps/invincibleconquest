@@ -678,7 +678,7 @@
         "data": {
           "name": "tooltip_telekinesis",
           "text": {
-            "fixedValue": "Telekinesis - 1 SP"
+            "fixedValue": "Telekinesis - 4 SP"
           },
           "width": 22,
           "height": 22,
@@ -692,7 +692,7 @@
         "data": {
           "name": "tooltip_atomic_sword",
           "text": {
-            "fixedValue": "Atom Barrier - 1 SP"
+            "fixedValue": "Atom Barrier - 7 SP"
           },
           "width": 22,
           "height": 22,
@@ -706,7 +706,7 @@
         "data": {
           "name": "tooltip_air_density",
           "text": {
-            "fixedValue": "Air Density - 1 SP"
+            "fixedValue": "Air Density - 10 SP"
           },
           "width": 22,
           "height": 22,

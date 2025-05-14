@@ -20,13 +20,13 @@ public class VIltrumiteAbilities4aProcedure {
 					ChopAbilityProcedure.execute(world, x, y, z, entity);
 				}
 				if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability4a).equals("Drag")) {
-					AbilityDragProcedure.execute(entity);
+					AbilityDragProcedure.execute(world, entity);
 				}
 				if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability4a).equals("Strong Punch")) {
 					StrongPunchAbilityProcedure.execute(world, x, y, z, entity);
 				}
 				if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Ability4a).equals("Bullet Slam")) {
-					BulletSlamAbilityProcedure.execute(entity);
+					BulletSlamAbilityProcedure.execute(world, entity);
 				}
 			}
 		} else {

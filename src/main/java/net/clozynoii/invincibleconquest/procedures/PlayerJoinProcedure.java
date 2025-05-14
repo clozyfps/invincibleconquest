@@ -18,7 +18,7 @@ import net.minecraft.core.BlockPos;
 
 import net.clozynoii.invincibleconquest.world.inventory.MenuAbilitySelectionMenu;
 import net.clozynoii.invincibleconquest.network.InvincibleConquestModVariables;
-import net.clozynoii.invincibleconquest.configuration.InvincibleConfigConfiguration;
+import net.clozynoii.invincibleconquest.init.InvincibleConquestModGameRules;
 
 import javax.annotation.Nullable;
 
@@ -46,9 +46,17 @@ public class PlayerJoinProcedure {
 			}
 			{
 				InvincibleConquestModVariables.PlayerVariables _vars = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-				_vars.AgeTimer = (double) InvincibleConfigConfiguration.BIRTHDAYTIME.get();
+				_vars.AgeTimer = (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.BIRTHDAY_TIME));
 				_vars.syncPlayerVariables(entity);
 			}
+			if (entity instanceof Player _player && !_player.level().isClientSide())
+				_player.displayClientMessage(Component.literal("Reminders:"), false);
+			if (entity instanceof Player _player && !_player.level().isClientSide())
+				_player.displayClientMessage(Component.literal("\u00A7l1. \u00A7rIn the most recent version (Version 5) Multiplayer servers SOMETIMES can cause gamebreaking bugs and crashes [BEWARE]"), false);
+			if (entity instanceof Player _player && !_player.level().isClientSide())
+				_player.displayClientMessage(Component.literal("\u00A7l2. \u00A7rUpgrading your focus stat can result in your cooldowns being bugged, not recomended until I fix it!"), false);
+			if (entity instanceof Player _player && !_player.level().isClientSide())
+				_player.displayClientMessage(Component.literal("\u00A7l3. \u00A7rThis update will follow up with 5.1, a bugfix for both of these issues, enjoy!"), false);
 		}
 		if ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("None")) {
 			if (entity instanceof ServerPlayer _ent) {

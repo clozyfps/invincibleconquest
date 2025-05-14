@@ -1,0 +1,134 @@
+{
+  "_fv": 73,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 0,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "gda-export.png",
+          "use1Xscale": false,
+          "x": 0,
+          "y": 0,
+          "locked": true
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_select_which_slot_to_equip",
+          "text": {
+            "fixedValue": "Select Which Slot To Equip"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 144,
+          "y": 100,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_empty",
+          "text": {
+            "fixedValue": "Select Which Slot To Equip"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 144,
+          "y": 99,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_blank_slot",
+          "image": "blank_slot.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "SelectHeroSlot1"
+          },
+          "x": 137,
+          "y": 121,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_blank_slot1",
+          "image": "blank_slot.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "SelectHeroSlot2"
+          },
+          "x": 169,
+          "y": 121,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_blank_slot2",
+          "image": "blank_slot.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "SelectHeroSlot3"
+          },
+          "x": 201,
+          "y": 121,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_blank_slot3",
+          "image": "blank_slot.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "SelectHeroSlot4"
+          },
+          "x": 234,
+          "y": 121,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_blank_slot4",
+          "image": "blank_slot.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "SelectHeroSlot5"
+          },
+          "x": 267,
+          "y": 121,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

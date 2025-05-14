@@ -25,10 +25,15 @@ import net.clozynoii.invincibleconquest.entity.TheHammerEntity;
 import net.clozynoii.invincibleconquest.entity.TechJacketEntity;
 import net.clozynoii.invincibleconquest.entity.TalescriaEntity;
 import net.clozynoii.invincibleconquest.entity.SunEntity;
+import net.clozynoii.invincibleconquest.entity.StealthGDASoldierEntity;
+import net.clozynoii.invincibleconquest.entity.SpaceshipEntity;
 import net.clozynoii.invincibleconquest.entity.SonicClapEntity;
+import net.clozynoii.invincibleconquest.entity.SavagePlanetEntity;
+import net.clozynoii.invincibleconquest.entity.RognarrEntity;
 import net.clozynoii.invincibleconquest.entity.RoboBallEntity;
 import net.clozynoii.invincibleconquest.entity.RexSplodeEntity;
 import net.clozynoii.invincibleconquest.entity.RedSunEntity;
+import net.clozynoii.invincibleconquest.entity.ReanimenEntity;
 import net.clozynoii.invincibleconquest.entity.PlayerCloneEntity;
 import net.clozynoii.invincibleconquest.entity.OrangeSunEntity;
 import net.clozynoii.invincibleconquest.entity.OmnivincibleEntity;
@@ -47,12 +52,17 @@ import net.clozynoii.invincibleconquest.entity.InvincibleMasklessEntity;
 import net.clozynoii.invincibleconquest.entity.InvincibleEntity;
 import net.clozynoii.invincibleconquest.entity.InvincibleDarkEntity;
 import net.clozynoii.invincibleconquest.entity.InvincibleBlueEntity;
+import net.clozynoii.invincibleconquest.entity.HeroEntity;
 import net.clozynoii.invincibleconquest.entity.HammerSpawnerEntity;
+import net.clozynoii.invincibleconquest.entity.HammerSpawner3Entity;
+import net.clozynoii.invincibleconquest.entity.HammerSpawner2Entity;
+import net.clozynoii.invincibleconquest.entity.GDASoldierEntity;
 import net.clozynoii.invincibleconquest.entity.FlaxanPortalEntity;
 import net.clozynoii.invincibleconquest.entity.FlaxanGunmanEntity;
 import net.clozynoii.invincibleconquest.entity.FlaxanEntity;
 import net.clozynoii.invincibleconquest.entity.FlaxanBulletEntity;
 import net.clozynoii.invincibleconquest.entity.FireworkMobEntity;
+import net.clozynoii.invincibleconquest.entity.FighterJetEntity;
 import net.clozynoii.invincibleconquest.entity.ExplosionSmallEntity;
 import net.clozynoii.invincibleconquest.entity.ExplosionLargeEntity;
 import net.clozynoii.invincibleconquest.entity.EnergyProjectionEntity;
@@ -63,14 +73,17 @@ import net.clozynoii.invincibleconquest.entity.DimensionalPortalEntity;
 import net.clozynoii.invincibleconquest.entity.ConquestEntity;
 import net.clozynoii.invincibleconquest.entity.CecilEntity;
 import net.clozynoii.invincibleconquest.entity.CannonProjectileEntity;
+import net.clozynoii.invincibleconquest.entity.BombEntity;
 import net.clozynoii.invincibleconquest.entity.BlueSunEntity;
 import net.clozynoii.invincibleconquest.entity.BlastAtomEntity;
 import net.clozynoii.invincibleconquest.entity.BattleBeastEntity;
+import net.clozynoii.invincibleconquest.entity.AttackJetEntity;
 import net.clozynoii.invincibleconquest.entity.AtomShieldEntity;
 import net.clozynoii.invincibleconquest.entity.AtomEveEntity;
 import net.clozynoii.invincibleconquest.entity.AtomBeamEntity;
 import net.clozynoii.invincibleconquest.entity.AnissaEntity;
 import net.clozynoii.invincibleconquest.entity.AngstromEntity;
+import net.clozynoii.invincibleconquest.entity.AfterImageEntity;
 import net.clozynoii.invincibleconquest.InvincibleConquestMod;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
@@ -99,11 +112,11 @@ public class InvincibleConquestModEntities {
 
 					.sized(3.5f, 5f));
 	public static final DeferredHolder<EntityType<?>, EntityType<MartianEntity>> MARTIAN = register("martian",
-			EntityType.Builder.<MartianEntity>of(MartianEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+			EntityType.Builder.<MartianEntity>of(MartianEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
 
 					.sized(0.6f, 1.8f));
 	public static final DeferredHolder<EntityType<?>, EntityType<MartianSpearmanEntity>> MARTIAN_SPEARMAN = register("martian_spearman",
-			EntityType.Builder.<MartianSpearmanEntity>of(MartianSpearmanEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+			EntityType.Builder.<MartianSpearmanEntity>of(MartianSpearmanEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
 
 					.sized(0.6f, 1.8f));
 	public static final DeferredHolder<EntityType<?>, EntityType<FlaxanEntity>> FLAXAN = register("flaxan",
@@ -161,7 +174,7 @@ public class InvincibleConquestModEntities {
 	public static final DeferredHolder<EntityType<?>, EntityType<TalescriaEntity>> TALESCRIA = register("talescria",
 			EntityType.Builder.<TalescriaEntity>of(TalescriaEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune().sized(5f, 5f));
 	public static final DeferredHolder<EntityType<?>, EntityType<ConquestEntity>> CONQUEST = register("conquest",
-			EntityType.Builder.<ConquestEntity>of(ConquestEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune().sized(0.6f, 3f));
+			EntityType.Builder.<ConquestEntity>of(ConquestEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune().sized(0.6f, 3f));
 	public static final DeferredHolder<EntityType<?>, EntityType<WhiteSunEntity>> WHITE_SUN = register("white_sun",
 			EntityType.Builder.<WhiteSunEntity>of(WhiteSunEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune().sized(6f, 6f));
 	public static final DeferredHolder<EntityType<?>, EntityType<TheHammerEntity>> THE_HAMMER = register("the_hammer",
@@ -216,6 +229,50 @@ public class InvincibleConquestModEntities {
 			EntityType.Builder.<CannonProjectileEntity>of(CannonProjectileEntity::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
 	public static final DeferredHolder<EntityType<?>, EntityType<PlayerCloneEntity>> PLAYER_CLONE = register("player_clone",
 			EntityType.Builder.<PlayerCloneEntity>of(PlayerCloneEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+
+					.sized(0.6f, 1.8f));
+	public static final DeferredHolder<EntityType<?>, EntityType<GDASoldierEntity>> GDA_SOLDIER = register("gda_soldier",
+			EntityType.Builder.<GDASoldierEntity>of(GDASoldierEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+
+					.sized(0.6f, 1.8f));
+	public static final DeferredHolder<EntityType<?>, EntityType<SavagePlanetEntity>> SAVAGE_PLANET = register("savage_planet",
+			EntityType.Builder.<SavagePlanetEntity>of(SavagePlanetEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune().sized(5f, 5f));
+	public static final DeferredHolder<EntityType<?>, EntityType<RognarrEntity>> ROGNARR = register("rognarr",
+			EntityType.Builder.<RognarrEntity>of(RognarrEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+
+					.sized(0.6f, 2f));
+	public static final DeferredHolder<EntityType<?>, EntityType<ReanimenEntity>> REANIMEN = register("reanimen",
+			EntityType.Builder.<ReanimenEntity>of(ReanimenEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+
+					.sized(1f, 2f));
+	public static final DeferredHolder<EntityType<?>, EntityType<StealthGDASoldierEntity>> STEALTH_GDA_SOLDIER = register("stealth_gda_soldier",
+			EntityType.Builder.<StealthGDASoldierEntity>of(StealthGDASoldierEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+
+					.sized(0.6f, 1.8f));
+	public static final DeferredHolder<EntityType<?>, EntityType<FighterJetEntity>> FIGHTER_JET = register("fighter_jet",
+			EntityType.Builder.<FighterJetEntity>of(FighterJetEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+
+					.sized(0.6f, 1.8f));
+	public static final DeferredHolder<EntityType<?>, EntityType<BombEntity>> BOMB = register("bomb",
+			EntityType.Builder.<BombEntity>of(BombEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune().sized(0.6f, 1.8f));
+	public static final DeferredHolder<EntityType<?>, EntityType<HeroEntity>> HERO = register("hero",
+			EntityType.Builder.<HeroEntity>of(HeroEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+
+					.sized(0.6f, 1.8f));
+	public static final DeferredHolder<EntityType<?>, EntityType<SpaceshipEntity>> SPACESHIP = register("spaceship",
+			EntityType.Builder.<SpaceshipEntity>of(SpaceshipEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+
+					.sized(3f, 1.4f));
+	public static final DeferredHolder<EntityType<?>, EntityType<HammerSpawner2Entity>> HAMMER_SPAWNER_2 = register("hammer_spawner_2",
+			EntityType.Builder.<HammerSpawner2Entity>of(HammerSpawner2Entity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune().sized(0.6f, 1.8f));
+	public static final DeferredHolder<EntityType<?>, EntityType<HammerSpawner3Entity>> HAMMER_SPAWNER_3 = register("hammer_spawner_3",
+			EntityType.Builder.<HammerSpawner3Entity>of(HammerSpawner3Entity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune().sized(0.6f, 1.8f));
+	public static final DeferredHolder<EntityType<?>, EntityType<AttackJetEntity>> ATTACK_JET = register("attack_jet",
+			EntityType.Builder.<AttackJetEntity>of(AttackJetEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+
+					.sized(0.6f, 1.8f));
+	public static final DeferredHolder<EntityType<?>, EntityType<AfterImageEntity>> AFTER_IMAGE = register("after_image",
+			EntityType.Builder.<AfterImageEntity>of(AfterImageEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
 
 					.sized(0.6f, 1.8f));
 
@@ -274,6 +331,19 @@ public class InvincibleConquestModEntities {
 		AtomBeamEntity.init(event);
 		AtomShieldEntity.init(event);
 		PlayerCloneEntity.init(event);
+		GDASoldierEntity.init(event);
+		SavagePlanetEntity.init(event);
+		RognarrEntity.init(event);
+		ReanimenEntity.init(event);
+		StealthGDASoldierEntity.init(event);
+		FighterJetEntity.init(event);
+		BombEntity.init(event);
+		HeroEntity.init(event);
+		SpaceshipEntity.init(event);
+		HammerSpawner2Entity.init(event);
+		HammerSpawner3Entity.init(event);
+		AttackJetEntity.init(event);
+		AfterImageEntity.init(event);
 	}
 
 	@SubscribeEvent
@@ -325,5 +395,18 @@ public class InvincibleConquestModEntities {
 		event.put(ATOM_BEAM.get(), AtomBeamEntity.createAttributes().build());
 		event.put(ATOM_SHIELD.get(), AtomShieldEntity.createAttributes().build());
 		event.put(PLAYER_CLONE.get(), PlayerCloneEntity.createAttributes().build());
+		event.put(GDA_SOLDIER.get(), GDASoldierEntity.createAttributes().build());
+		event.put(SAVAGE_PLANET.get(), SavagePlanetEntity.createAttributes().build());
+		event.put(ROGNARR.get(), RognarrEntity.createAttributes().build());
+		event.put(REANIMEN.get(), ReanimenEntity.createAttributes().build());
+		event.put(STEALTH_GDA_SOLDIER.get(), StealthGDASoldierEntity.createAttributes().build());
+		event.put(FIGHTER_JET.get(), FighterJetEntity.createAttributes().build());
+		event.put(BOMB.get(), BombEntity.createAttributes().build());
+		event.put(HERO.get(), HeroEntity.createAttributes().build());
+		event.put(SPACESHIP.get(), SpaceshipEntity.createAttributes().build());
+		event.put(HAMMER_SPAWNER_2.get(), HammerSpawner2Entity.createAttributes().build());
+		event.put(HAMMER_SPAWNER_3.get(), HammerSpawner3Entity.createAttributes().build());
+		event.put(ATTACK_JET.get(), AttackJetEntity.createAttributes().build());
+		event.put(AFTER_IMAGE.get(), AfterImageEntity.createAttributes().build());
 	}
 }

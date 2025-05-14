@@ -30,7 +30,7 @@ import net.clozynoii.invincibleconquest.procedures.CMDAcceptInviteProcedure;
 public class InvincibleCommonCMDCommand {
 	@SubscribeEvent
 	public static void registerCommand(RegisterCommandsEvent event) {
-		event.getDispatcher().register(Commands.literal("invincible_conquest")
+		event.getDispatcher().register(Commands.literal("InvinciblePlayer")
 
 				.then(Commands.literal("faction").then(Commands.literal("create").then(Commands.argument("name", MessageArgument.message()).executes(arguments -> {
 					Level world = arguments.getSource().getUnsidedLevel();

@@ -644,7 +644,7 @@
         "data": {
           "name": "tooltip_multi_hit",
           "text": {
-            "fixedValue": "Multi Hit - 1 SP"
+            "fixedValue": "Multi Hit - 4 SP"
           },
           "width": 22,
           "height": 22,
@@ -658,7 +658,7 @@
         "data": {
           "name": "tooltip_flash_time",
           "text": {
-            "fixedValue": "Flash Time - 1 SP"
+            "fixedValue": "Flash Time - 10 SP"
           },
           "width": 22,
           "height": 22,
@@ -672,7 +672,7 @@
         "data": {
           "name": "tooltip_time_stop",
           "text": {
-            "fixedValue": "Time Stop - 1 SP"
+            "fixedValue": "Time Stop - 20 SP"
           },
           "width": 22,
           "height": 22,

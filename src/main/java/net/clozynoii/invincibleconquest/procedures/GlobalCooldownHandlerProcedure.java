@@ -1,6 +1,6 @@
 package net.clozynoii.invincibleconquest.procedures;
 
-import net.neoforged.neoforge.event.tick.LevelTickEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.Event;
@@ -12,7 +12,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
 
 import net.clozynoii.invincibleconquest.network.InvincibleConquestModVariables;
-import net.clozynoii.invincibleconquest.configuration.InvincibleConfigConfiguration;
+import net.clozynoii.invincibleconquest.init.InvincibleConquestModGameRules;
 
 import javax.annotation.Nullable;
 
@@ -21,8 +21,8 @@ import java.util.ArrayList;
 @EventBusSubscriber
 public class GlobalCooldownHandlerProcedure {
 	@SubscribeEvent
-	public static void onWorldTick(LevelTickEvent.Post event) {
-		execute(event, event.getLevel());
+	public static void onPlayerTick(PlayerTickEvent.Post event) {
+		execute(event, event.getEntity().level());
 	}
 
 	public static void execute(LevelAccessor world) {
@@ -48,7 +48,7 @@ public class GlobalCooldownHandlerProcedure {
 				}
 				{
 					InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-					_vars.AgeTimer = (double) InvincibleConfigConfiguration.BIRTHDAYTIME.get();
+					_vars.AgeTimer = (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.BIRTHDAY_TIME));
 					_vars.syncPlayerVariables(entityiterator);
 				}
 			}
@@ -64,11 +64,11 @@ public class GlobalCooldownHandlerProcedure {
 						if (entityiterator instanceof LivingEntity _entity)
 							_entity.setHealth((float) ((entityiterator instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1)
 									+ Math.round((entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerVitality + entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost)
-											/ (100 / (double) InvincibleConfigConfiguration.VITREGENRATE.get()))));
+											/ (100 / (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.VITALITY_REGENERATION_RATE))))));
 					} else {
 						if (entityiterator instanceof LivingEntity _entity)
-							_entity.setHealth((float) ((entityiterator instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1)
-									+ Math.round(entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerVitality / (100 / (double) InvincibleConfigConfiguration.VITREGENRATE.get()))));
+							_entity.setHealth((float) ((entityiterator instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) + Math
+									.round(entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerVitality / (100 / (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.VITALITY_REGENERATION_RATE))))));
 					}
 				}
 				{
@@ -87,16 +87,16 @@ public class GlobalCooldownHandlerProcedure {
 				if ((entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerAbility).equals("Viltrumite")) {
 					{
 						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-						_vars.PlayerCurrentStamina = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerCurrentStamina + 1
+						_vars.PlayerCurrentStamina = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerCurrentStamina + 10
 								+ Math.round((entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStamina + entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost)
-										/ (100 / (double) InvincibleConfigConfiguration.STMDRAIN.get()));
+										/ (100 / (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.STM_STAMINA_DRAIN))));
 						_vars.syncPlayerVariables(entityiterator);
 					}
 				} else {
 					{
 						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-						_vars.PlayerCurrentStamina = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerCurrentStamina + 1
-								+ Math.round(entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStamina / (100 / (double) InvincibleConfigConfiguration.STMDRAIN.get()));
+						_vars.PlayerCurrentStamina = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerCurrentStamina + 5
+								+ Math.round(entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStamina / (100 / (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.STM_STAMINA_DRAIN))));
 						_vars.syncPlayerVariables(entityiterator);
 					}
 				}
@@ -180,60 +180,82 @@ public class GlobalCooldownHandlerProcedure {
 				InvincibleConquestModVariables.MapVariables.get(world).WageTimer = InvincibleConquestModVariables.MapVariables.get(world).WageTimer - 1;
 				InvincibleConquestModVariables.MapVariables.get(world).syncData(world);
 			} else if (InvincibleConquestModVariables.MapVariables.get(world).WageTimer == 0) {
-				if ((entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFactionRank).equals("Soldier") || (entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFactionRank).equals("Member")) {
+				if (entityiterator instanceof Player _player && !_player.level().isClientSide())
+					_player.displayClientMessage(Component.literal("\u00A7aYou've Been Paid!"), false);
+				if (entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerReputation < 50) {
 					{
 						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
 						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 100;
 						_vars.syncPlayerVariables(entityiterator);
 					}
-				} else if ((entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFactionRank).equals("General")
-						|| (entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFactionRank).equals("Officer")) {
+				}
+				if (entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerReputation >= 50 && entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerReputation < 100) {
 					{
 						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
 						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 250;
 						_vars.syncPlayerVariables(entityiterator);
 					}
-				} else if ((entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFactionRank).equals("Director")
-						|| (entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFactionRank).equals("Grand Regent")
-						|| (entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFactionRank).equals("Leader")) {
+				}
+				if (entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerReputation >= 100 && entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerReputation < 250) {
 					{
 						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 500;
+						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 300;
+						_vars.syncPlayerVariables(entityiterator);
+					}
+				}
+				if (entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerReputation >= 250 && entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerReputation < 400) {
+					{
+						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
+						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 350;
+						_vars.syncPlayerVariables(entityiterator);
+					}
+				}
+				if (entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerReputation >= 400 && entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerReputation < 500) {
+					{
+						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
+						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 400;
+						_vars.syncPlayerVariables(entityiterator);
+					}
+				}
+				if (entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerReputation >= 500) {
+					{
+						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
+						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 550;
 						_vars.syncPlayerVariables(entityiterator);
 					}
 				}
 				if ((InvincibleConquestModVariables.MapVariables.get(world).EarthOwner).equals(entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFaction)) {
 					{
 						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 100;
+						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 500;
 						_vars.syncPlayerVariables(entityiterator);
 					}
 				}
 				if ((InvincibleConquestModVariables.MapVariables.get(world).MoonOwner).equals(entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFaction)) {
 					{
 						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 50;
+						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 500;
 						_vars.syncPlayerVariables(entityiterator);
 					}
 				}
 				if ((InvincibleConquestModVariables.MapVariables.get(world).MarsOwner).equals(entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFaction)) {
 					{
 						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 50;
+						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 500;
 						_vars.syncPlayerVariables(entityiterator);
 					}
 				}
 				if ((InvincibleConquestModVariables.MapVariables.get(world).ViltrumOwner).equals(entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFaction)) {
 					{
 						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 100;
+						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 1500;
 						_vars.syncPlayerVariables(entityiterator);
 					}
 				}
 				if ((InvincibleConquestModVariables.MapVariables.get(world).TalescriaOwner).equals(entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFaction)) {
 					{
 						InvincibleConquestModVariables.PlayerVariables _vars = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES);
-						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 100;
+						_vars.Balance = entityiterator.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).Balance + 500;
 						_vars.syncPlayerVariables(entityiterator);
 					}
 				}

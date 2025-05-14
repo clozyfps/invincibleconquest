@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    " a "
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:blue_wool"
+    },
+    "b": {
+      "item": "invincible_conquest:invincible_suit_helmet"
+    }
+  },
+  "result": {
+    "id": "invincible_conquest:invincible_suit_veil_helmet",
+    "count": 1
+  }
+}

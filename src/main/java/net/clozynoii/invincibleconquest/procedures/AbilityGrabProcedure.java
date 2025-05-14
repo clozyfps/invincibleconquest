@@ -15,7 +15,7 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.CommandSource;
 
 import net.clozynoii.invincibleconquest.network.InvincibleConquestModVariables;
-import net.clozynoii.invincibleconquest.configuration.InvincibleConfigConfiguration;
+import net.clozynoii.invincibleconquest.init.InvincibleConquestModGameRules;
 
 import java.util.List;
 import java.util.Comparator;
@@ -36,11 +36,11 @@ public class AbilityGrabProcedure {
 		double stamindaReduction = 0;
 		double staminacost = 0;
 		gate = false;
-		stamindaReduction = 10
-				* ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStamina + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100) * (double) InvincibleConfigConfiguration.STMDRAIN.get()) / 100);
+		stamindaReduction = 10 * ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStamina + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100)
+				* (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.STM_STAMINA_DRAIN))) / 100);
 		staminacost = 10 - stamindaReduction;
-		reduction = 20
-				* ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFocus + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100) * (double) InvincibleConfigConfiguration.FOCCDREDUCE.get()) / 100);
+		reduction = 20 * ((((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerFocus + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / 100)
+				* (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.FOC_COOLDOWN_REDUCTION))) / 100);
 		outputModifier = entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerOutput / 100;
 		cooldown = 20 - reduction;
 		ability = "Grab";
@@ -160,15 +160,12 @@ public class AbilityGrabProcedure {
 			vecX = entity.getLookAngle().x / magnitude;
 			vecY = entity.getLookAngle().y / magnitude;
 			vecZ = entity.getLookAngle().z / magnitude;
-			vecX = vecX * (1
-					+ ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / (50 / (double) InvincibleConfigConfiguration.STRKNOCKBACK.get()))
-							* outputModifier);
-			vecY = vecY * (1
-					+ ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / (50 / (double) InvincibleConfigConfiguration.STRKNOCKBACK.get()))
-							* outputModifier);
-			vecZ = vecZ * (1
-					+ ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost) / (50 / (double) InvincibleConfigConfiguration.STRKNOCKBACK.get()))
-							* outputModifier);
+			vecX = vecX * (1 + ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost)
+					/ (50 / (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.STRENGTH_KNOCKBACK)))) * outputModifier);
+			vecY = vecY * (1 + ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost)
+					/ (50 / (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.STRENGTH_KNOCKBACK)))) * outputModifier);
+			vecZ = vecZ * (1 + ((entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength + entity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).AgeBoost)
+					/ (50 / (world.getLevelData().getGameRules().getInt(InvincibleConquestModGameRules.STRENGTH_KNOCKBACK)))) * outputModifier);
 			{
 				final Vec3 _center = new Vec3(x, y, z);
 				List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(10 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();

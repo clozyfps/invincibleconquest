@@ -50,12 +50,17 @@ public class TheHammerTickProcedure {
 		}
 		{
 			final Vec3 _center = new Vec3(x, y, z);
-			List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(20 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
+			List<Entity> _entfound = world.getEntitiesOfClass(Entity.class,
+					new AABB(_center, _center)
+							.inflate((20 + (entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(InvincibleConquestModMobEffects.EXPLOSION_LEVEL) ? _livEnt.getEffect(InvincibleConquestModMobEffects.EXPLOSION_LEVEL).getAmplifier() : 0) * 10
+									+ entity.getPersistentData().getDouble("thehammertimer")) / 2d),
+					e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
 			for (Entity entityiterator : _entfound) {
 				if (!(entityiterator == entity)) {
 					if (!entityiterator.getType().is(TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.parse("invincible_conquest:non_targetable")))) {
 						entityiterator.invulnerableTime = 0;
-						entityiterator.hurt(new DamageSource(world.holderOrThrow(DamageTypes.IN_FIRE)), 7);
+						entityiterator.hurt(new DamageSource(world.holderOrThrow(DamageTypes.IN_FIRE)),
+								(float) (8 + (entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(InvincibleConquestModMobEffects.EXPLOSION_LEVEL) ? _livEnt.getEffect(InvincibleConquestModMobEffects.EXPLOSION_LEVEL).getAmplifier() : 0) * 3));
 						if (entityiterator instanceof LivingEntity _entity && !_entity.level().isClientSide())
 							_entity.addEffect(new MobEffectInstance(InvincibleConquestModMobEffects.STUN, 20, 9, false, false));
 					}
@@ -63,18 +68,22 @@ public class TheHammerTickProcedure {
 			}
 		}
 		if (world instanceof ServerLevel _level)
-			_level.sendParticles((SimpleParticleType) (InvincibleConquestModParticleTypes.STEAM_SMOKE.get()), x, y, z, 25, 3, 25, 3, 0);
+			_level.sendParticles((SimpleParticleType) (InvincibleConquestModParticleTypes.STEAM_SMOKE.get()), x, y, z, 5, 1, 25, 1, 0);
 		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-			_entity.addEffect(new MobEffectInstance(InvincibleConquestModMobEffects.LASER_DESTRUCTION, 40, 0, false, false));
-		entity.getPersistentData().putDouble("thehammertimer", (entity.getPersistentData().getDouble("thehammertimer") + 1));
-		int horizontalRadiusSphere = (int) (entity.getPersistentData().getDouble("thehammertimer") / 2) - 1;
-		int verticalRadiusSphere = (int) (entity.getPersistentData().getDouble("thehammertimer") / 2) - 1;
-		int yIterationsSphere = verticalRadiusSphere;
-		for (int i = -yIterationsSphere; i <= yIterationsSphere; i++) {
-			for (int xi = -horizontalRadiusSphere; xi <= horizontalRadiusSphere; xi++) {
-				for (int zi = -horizontalRadiusSphere; zi <= horizontalRadiusSphere; zi++) {
-					double distanceSq = (xi * xi) / (double) (horizontalRadiusSphere * horizontalRadiusSphere) + (i * i) / (double) (verticalRadiusSphere * verticalRadiusSphere)
-							+ (zi * zi) / (double) (horizontalRadiusSphere * horizontalRadiusSphere);
+			_entity.addEffect(new MobEffectInstance(InvincibleConquestModMobEffects.LASER_DESTRUCTION, 99999, 0, false, false));
+		entity.getPersistentData().putDouble("thehammertimer", (entity.getPersistentData().getDouble("thehammertimer")
+				+ (entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(InvincibleConquestModMobEffects.EXPLOSION_LEVEL) ? _livEnt.getEffect(InvincibleConquestModMobEffects.EXPLOSION_LEVEL).getAmplifier() : 0)));
+		int horizontalRadiusHemiTop = (int) (entity.getPersistentData().getDouble("thehammertimer") / 2) - 1;
+		int verticalRadiusHemiTop = (int) (entity.getPersistentData().getDouble("thehammertimer") / 2);
+		int yIterationsHemiTop = verticalRadiusHemiTop;
+		for (int i = 0; i < yIterationsHemiTop; i++) {
+			if (i == verticalRadiusHemiTop) {
+				continue;
+			}
+			for (int xi = -horizontalRadiusHemiTop; xi <= horizontalRadiusHemiTop; xi++) {
+				for (int zi = -horizontalRadiusHemiTop; zi <= horizontalRadiusHemiTop; zi++) {
+					double distanceSq = (xi * xi) / (double) (horizontalRadiusHemiTop * horizontalRadiusHemiTop) + (i * i) / (double) (verticalRadiusHemiTop * verticalRadiusHemiTop)
+							+ (zi * zi) / (double) (horizontalRadiusHemiTop * horizontalRadiusHemiTop);
 					if (distanceSq <= 1.0) {
 						if (!(world.getBlockState(BlockPos.containing(x + xi, y + i, z + zi))).is(BlockTags.create(ResourceLocation.parse("invincible_conquest:unbreakable")))) {
 							{

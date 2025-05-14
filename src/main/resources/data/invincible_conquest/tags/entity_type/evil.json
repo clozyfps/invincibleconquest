@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "invincible_conquest:battle_beast",
+    "invincible_conquest:angstrom",
+    "invincible_conquest:flaxan",
+    "invincible_conquest:flaxan_gunman",
+    "invincible_conquest:martian",
+    "invincible_conquest:martian_spearman",
+    "invincible_conquest:rognarr"
+  ]
+}

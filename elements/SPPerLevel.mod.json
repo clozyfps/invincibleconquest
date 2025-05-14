@@ -1,0 +1,12 @@
+{
+  "_fv": 73,
+  "_type": "gamerule",
+  "definition": {
+    "type": "Number",
+    "displayName": "Sp Per Level",
+    "description": "The amount of Skill Points gained per Level",
+    "category": "PLAYER",
+    "defaultValueLogic": false,
+    "defaultValueNumber": 5
+  }
+}

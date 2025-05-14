@@ -40,6 +40,15 @@ public class ImpactFrameProcedure {
 					Minecraft.getInstance().gameRenderer.shutdownEffect();
 				}
 			}
+			if (entity instanceof LivingEntity _livEnt9 && _livEnt9.hasEffect(InvincibleConquestModMobEffects.STOPPED_TIME) || entity instanceof LivingEntity _livEnt10 && _livEnt10.hasEffect(InvincibleConquestModMobEffects.TIME_STOP_EFFECT)) {
+				if (Minecraft.getInstance().gameRenderer.currentEffect() == null) {
+					Minecraft.getInstance().gameRenderer.loadEffect(ResourceLocation.parse("minecraft:shaders/post/desaturate.json"));
+				}
+			} else {
+				if (Minecraft.getInstance().gameRenderer.currentEffect() != null) {
+					Minecraft.getInstance().gameRenderer.shutdownEffect();
+				}
+			}
 		}
 	}
 }

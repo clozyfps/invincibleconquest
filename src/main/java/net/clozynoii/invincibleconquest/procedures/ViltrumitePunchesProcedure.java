@@ -53,6 +53,8 @@ public class ViltrumitePunchesProcedure {
 			if (damagesource.is(DamageTypes.PLAYER_ATTACK)) {
 				if (sourceentity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerOutput >= 100) {
 					if (sourceentity.getData(InvincibleConquestModVariables.PLAYER_VARIABLES).PlayerStrength >= 10) {
+						if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
+							_entity.addEffect(new MobEffectInstance(InvincibleConquestModMobEffects.STRONG_FLYING_STUNNED, 15, 0, false, false));
 						if (entity instanceof LivingEntity _entity)
 							_entity.removeEffect(InvincibleConquestModMobEffects.STUN);
 						if (sourceentity instanceof LivingEntity _entity)

@@ -1,0 +1,12 @@
+{
+  "_fv": 73,
+  "_type": "gamerule",
+  "definition": {
+    "type": "Number",
+    "displayName": "Exp Per Level",
+    "description": "The amount of EXP the cap is increased by per Level",
+    "category": "PLAYER",
+    "defaultValueLogic": false,
+    "defaultValueNumber": 25
+  }
+}

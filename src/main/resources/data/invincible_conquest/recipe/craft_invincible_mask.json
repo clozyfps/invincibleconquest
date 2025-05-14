@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:yellow_wool"
+    },
+    "b": {
+      "item": "minecraft:iron_helmet"
+    }
+  },
+  "result": {
+    "id": "invincible_conquest:invincible_suit_helmet",
+    "count": 1
+  }
+}
